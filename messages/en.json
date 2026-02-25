@@ -1,0 +1,198 @@
+{
+  "Nav": {
+    "name": "Juan Rodriguez",
+    "services": "Services",
+    "tech": "Tech",
+    "projects": "Projects",
+    "life": "Life",
+    "contact": "Contact"
+  },
+  "Hero": {
+    "eyebrow": "Software Engineer",
+    "headline": "Building scalable data-driven web solutions",
+    "subheadline": "I design and build end-to-end software systems — from data pipelines and backend architecture to modern, maintainable web interfaces.",
+    "paragraph": "I focus on clean architecture, clear communication, and long-term maintainability, helping teams deliver solutions that create real business value.",
+    "availability": "Currently available for remote freelance projects",
+    "ctaPrimary": "Contact me",
+    "ctaSecondary": "Download CV",
+    "footer": "Based in Munich · Working remotely with international clients"
+  },
+  "Services": {
+    "title": "Services",
+    "subtitle": "Full lifecycle software engineering focused on robust architecture, data integrity, and long-term maintainability.",
+    "eyebrow": "What I do",
+    "data": {
+      "title": "Data Engineering",
+      "description": "Reliable data systems built for traceability, consistency, and analytical readiness.",
+      "bullets": [
+        "Structured cloud-based ETL/ELT pipelines and data modeling",
+        "Preprocessing, validation, and reproducible workflows",
+        "Dashboards and structured datasets designed for reliable analysis"
+      ]
+    },
+    "backend": {
+      "title": "Backend Engineering",
+      "description": "Backend systems designed for scalability, controlled access, and production reliability.",
+      "bullets": [
+        "Secure API design and service integration",
+        "Transactional data modeling and system consistency",
+        "Debugging, performance tuning, and operational stability"
+      ]
+    },
+    "fullstack": {
+      "title": "Full-Stack Development",
+      "description": "Production-ready web applications built with clean architecture and system awareness.",
+      "bullets": [
+        "Clear backend–frontend separation and feature delivery",
+        "Responsive interfaces with maintainable code structure",
+        "Containerized environments and deployment readiness"
+      ]
+    }
+  },
+  "TechStack": {
+    "eyebrow": "Tech Stack",
+    "title": "Technologies & Platforms",
+    "subtitle": "These are the main tools and technologies I use in projects. I adapt to existing architectures and contribute to defining pragmatic, production-ready stacks.",
+    "categories": {
+      "languages": "Languages",
+      "backend": "Backend & APIs",
+      "frontend": "Frontend",
+      "databases": "Databases",
+      "dataCloud": "Data Engineering & Cloud",
+      "toolsInfra": "Tools & Infrastructure"
+    }
+  },
+  "Projects": {
+    "eyebrow": "Projects & Portfolio",
+    "title": "Selected Projects",
+    "subtitle": "A selection of systems and applications I’ve designed and implemented — spanning cloud data pipelines, backend integrations, and full-stack systems.",
+    "download": "Download full portfolio (PDF)",
+    "openHint": "Click to view details",
+    "modal": {
+      "eyebrow": "Project details",
+      "highlights": "Highlights",
+      "overview": "Overview",
+      "close": "Close"
+    },
+    "roles": {
+      "soloDeveloper": "Independent Software Development",
+      "modelDeveloper": "Applied Machine Learning & Probabilistic Modeling",
+      "fullStackDeveloper": "Full-Stack Developer",
+      "backendEngineer": "Backend Engineer",
+      "dataEngineer": "Data Engineer"
+    },
+    "telemetryPipeline": {
+      "name": "Cloud-Native Automotive Telemetry Data Pipeline",
+      "details": "Azure-native telemetry pipeline designed to ingest high-frequency vehicle signals, transform raw logs with KQL, and supports fast, structured analysis in ADX.",
+      "highlights": [
+        "ADX ingestion and KQL transformations",
+        "Analytics-ready datasets powering engineering dashboards",
+        "Pragmatic design for reliability and scale"
+      ]
+    },
+    "scimApi": {
+      "name": "User Provisioning Integration API",
+      "details": "SCIM-compatible integration API designed to process provisioning events and reliably synchronize internal roles and teams across systems.",
+      "highlights": [
+        "SCIM event processing and attribute mapping",
+        "Transaction-safe persistence and identity state consistency",
+        "Cross-system role synchronization via Azure AD"
+      ]
+    },
+    "ecommerce": {
+      "name": "Full-Stack E-commerce Platform",
+      "details": "E-commerce web application featuring authentication, inventory management, and transactional purchase flows built on a layered backend architecture.",
+      "highlights": [
+        "Secure authentication and role-based access with JWT",
+        "Consistent transactional handling of products and inventory",
+        "Clear backend–frontend separation and API-driven integration"
+      ]
+    },
+    "speechTranslation": {
+      "name": "Real-Time Multilingual Speech Translation System",
+      "details": "Real-time speech processing pipeline that captures live audio, performs transcription and multilingual translation, and streams browser-based captions.",
+      "highlights": [
+        "Real-time audio ingestion and speech-to-text processing",
+        "Multilingual translation with Azure integration",
+        "Caption streaming to browser-based display UI"
+      ]
+    },
+    "reliabilityModel": {
+      "name": "Probabilistic Reliability Modeling for Water Treatment",
+      "details": "Probabilistic model for multi-stage water treatment systems, leveraging Bayesian networks to estimate regulatory compliance under uncertainty.",
+      "highlights": [
+        "Bayesian reliability modeling with scenario-based reliability analysis",
+        "Quantification of uncertainty in regulatory compliance estimates",
+        "Structured, reproducible model configuration and statistical outputs"
+      ]
+    },
+    "trainingLog": {
+      "name": "Training Log Management System",
+      "details": "Database-backed training management tool designed for structured workout tracking, progress analysis, and trend visualization over time.",
+      "highlights": [
+        "Relational data modeling for workouts, sets, and historical tracking",
+        "Analytical queries and visualization of volume progression",
+        "Lightweight, local-first architecture with portable deployment"
+      ]
+    },
+    "gameTracker": {
+      "name": "Game Inventory & Progress Tracker",
+      "details": "Desktop application for structured management of game inventories and progression states, backed by a relational SQLite database.",
+      "highlights": [
+        "Relational data modeling for inventory and status management",
+        "Local persistence and query handling with SQLite",
+        "Lightweight desktop architecture for structured data management"
+      ]
+    }
+  },
+  "Life": {
+    "eyebrow": "Life outside of work",
+    "title": "Beyond Work",
+    "subtitle": "Work matters — but so does everything that happens outside of it. These are some of the things that keep me grounded, motivated and curious in everyday life.",
+    "psychology": {
+      "title": "Psychology & Human Behaviour",
+      "p1": "I’m interested in how people think, make decisions, and collaborate.",
+      "p2": "Reading about psychology and communication helps me work effectively across technical and non-technical contexts."
+    },
+    "movement": {
+      "title": "Movement & Training",
+      "p1": "I’m a long-term sports enthusiast. I enjoy CrossFit, strength training, functional workouts, yoga, and swimming.",
+      "p2": "Training helps me stay healthy, build resilience, and keep enough energy for daily life."
+    },
+    "travel": {
+      "title": "Travel & Culture",
+      "p1": "I love traveling, discovering new places, and learning about different cultures, languages, and ways of life.",
+      "p2": "Each trip gives me perspective, creativity, and a deeper appreciation for how diverse and interconnected the world is."
+    },
+    "games": {
+      "title": "Interactive Worlds & Storytelling",
+      "p1": "I’m drawn to interactive systems, progression mechanics, and long-form storytelling — from complex game worlds to serialized narratives.",
+      "p2": "I enjoy analyzing how rules, structure, and character development shape immersive experiences."
+    },
+    "cooking": {
+      "title": "Cooking & Craft",
+      "p1": "I enjoy cooking as a structured creative process — experimenting with ingredients, balancing flavors, and refining techniques over time.",
+      "p2": "I enjoy spending time trying new recipes and exploring flavors from different cultures."
+    }
+  },
+  "Contact": {
+    "eyebrow": "Contact",
+    "title": "Let’s work together",
+    "subtitle": "If my experience aligns with your project, feel free to reach out. I’m happy to discuss ideas, clarify requirements, and explore potential collaboration.",
+    "direct": {
+      "title": "Direct contact",
+      "note": "I’m currently open to remote and part-time collaborations. A short message describing what you’re building and what you need help with is perfect."
+    },
+    "message": {
+      "title": "Send a message",
+      "body": "The fastest way to get started is a short email. If you include the basics below, I can reply with concrete next steps.",
+      "bullets": [
+        "A brief description of your project",
+        "Timeline and expected scope",
+        "Tech stack (if relevant) and constraints"
+      ],
+      "cta": "Email me",
+      "small": "Prefer LinkedIn? That works too — I reply there as well."
+    }
+  }
+}

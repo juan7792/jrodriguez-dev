@@ -1,0 +1,199 @@
+{
+  "Nav": {
+    "name": "Juan Rodriguez",
+    "services": "Leistungen",
+    "tech": "Technologie",
+    "projects": "Projekte",
+    "life": "Über mich",
+    "contact": "Kontakt"
+  },
+  "Hero": {
+    "eyebrow": "Software Engineer",
+    "headline": "Skalierbare, datengetriebene Web-Lösungen",
+    "subheadline": "Ich konzipiere und entwickle End-to-End-Softwaresysteme – von Datenpipelines und Backend-Architektur bis hin zu modernen, wartbaren Web-Oberflächen.",
+    "paragraph": "Ich lege Wert auf saubere Architektur, klare Kommunikation und langfristige Wartbarkeit – damit Teams Lösungen liefern, die echten Business-Mehrwert schaffen.",
+    "availability": "Derzeit verfügbar für Remote-Freelance-Projekte",
+    "ctaPrimary": "Kontakt",
+    "ctaSecondary": "CV herunterladen",
+    "footer": "In München · Remote mit internationalen Kunden"
+  },
+  "Services": {
+    "title": "Leistungen",
+    "subtitle": "Softwareentwicklung über den gesamten Lebenszyklus mit Fokus auf robuste Architektur, Datenintegrität und langfristige Wartbarkeit.",
+    "eyebrow": "Leistungen",
+    "data": {
+      "title": "Data Engineering",
+      "description": "Zuverlässige Datenarchitekturen mit Fokus auf Nachvollziehbarkeit, Konsistenz und analytische Nutzbarkeit.",
+      "bullets": [
+        "Strukturierte ETL/ELT-Pipelines in Cloud-Umgebungen sowie Datenmodellierung",
+        "Vorverarbeitung, Validierung und reproduzierbare Workflows",
+        "Dashboards und strukturierte Datensätze, ausgelegt für zuverlässige Analysen"
+      ]
+    },
+    "backend": {
+      "title": "Backend Engineering",
+      "description": "Backend-Systeme mit Fokus auf Skalierbarkeit, kontrollierten Zugriff und Stabilität im Produktivbetrieb.",
+      "bullets": [
+        "Sicheres API-Design und Integration externer Services",
+        "Transaktionale Datenmodellierung und Systemkonsistenz",
+        "Fehleranalyse, Performance-Optimierung und operative Stabilität"
+      ]
+    },
+    "fullstack": {
+      "title": "Full-Stack Entwicklung",
+      "description": "Produktionsreife Webanwendungen mit klarer Architektur und ganzheitlichem Systemverständnis.",
+      "bullets": [
+        "Klare Trennung von Backend und Frontend sowie strukturierte Feature-Umsetzung",
+        "Responsive Benutzeroberflächen mit wartbarer Codebasis",
+        "Containerisierte Umgebungen und Deployments im Produktionskontext"
+      ]
+    }
+  },
+  "TechStack": {
+    "eyebrow": "Tech Stack",
+    "title": "Technologien & Plattformen",
+    "subtitle": "Zentrale Technologien, die ich in Projekten einsetze – mit Integration in bestehende Architekturen und Definition pragmatischer, produktionsreifer Stacks.",
+    "categories": {
+      "languages": "Programmiersprachen",
+      "backend": "Backend & APIs",
+      "frontend": "Frontend",
+      "databases": "Datenbanken",
+      "dataCloud": "Data Engineering & Cloud",
+      "toolsInfra": "Tools & Infrastruktur"
+    }
+  },
+  "Projects": {
+    "eyebrow": "Projekte & Portfolio",
+    "title": "Ausgewählte Projekte",
+    "subtitle": "Eine Auswahl von Systemen, die ich konzipierte und umgesetzte – von Cloud-Datenpipelines über Backend-Integrationen bis Full-Stack-Apps.",
+    "download": "Vollständiges Portfolio herunterladen (PDF)",
+    "openHint": "Klicken, um Details zu öffnen",
+    "modal": {
+      "eyebrow": "Projektdetails",
+      "highlights": "Highlights",
+      "overview": "Übersicht",
+      "close": "Schließen"
+    },
+    "roles": {
+      "soloDeveloper": "Selbstständige Softwareentwicklung",
+      "modelDeveloper": "Applied Machine Learning & Probabilistische Modellierung",
+      "fullStackDeveloper": "Full-Stack Entwickler",
+      "backendEngineer": "Backend Engineer",
+      "dataEngineer": "Data Engineer"
+    },
+    "telemetryPipeline": {
+      "name": "Cloudbasierte Datenpipeline für Fahrzeug-Telemetrie",
+      "details": "Azure-native Telemetrie-Pipeline zur Verarbeitung hochfrequenter Fahrzeugsignale, Transformation roher Logdaten mit KQL und Unterstützung strukturierter Analysen in ADX.",
+      "highlights": [
+        "Datenaufnahme in ADX und Transformationen mit KQL",
+        "Analysefähige Datensätze als Grundlage für Engineering-Dashboards",
+        "Pragmatisches Design für Stabilität und Skalierbarkeit"
+      ]
+    },
+    "scimApi": {
+      "name": "Integrations-API für Benutzerprovisionierung",
+      "details": "SCIM-kompatible Integrations-API zur Verarbeitung von Provisionierungsereignissen und zur zuverlässigen Synchronisierung interner Rollen und Teams über Systemgrenzen hinweg.",
+      "highlights": [
+        "Verarbeitung von SCIM-Ereignissen und Attribut-Mapping",
+        "Transaktionssichere Persistenz und konsistenter Identitätsstatus",
+        "Systemübergreifende Rollensynchronisierung über Azure AD"
+      ]
+    },
+    "ecommerce": {
+      "name": "Full-Stack E-Commerce-Plattform",
+      "details": "Webbasierte E-Commerce-Anwendung mit Authentifizierung, Inventarverwaltung und transaktionalen Kaufprozessen, aufgebaut auf einer geschichteten Backend-Architektur.",
+      "highlights": [
+        "Sichere Authentifizierung und rollenbasierte Zugriffskontrolle mit JWT",
+        "Transaktionssichere Verwaltung von Produkten und Beständen",
+        "Trennung von Backend und Frontend mit API-basierter Integration"
+      ]
+    },
+    "speechTranslation": {
+      "name": "Echtzeit-Mehrsprachiges Sprachübersetzungssystem",
+      "details": "Echtzeit Sprachverarbeitungspipeline zur Erfassung von Live-Audio, Transkription und mehrsprachiger Übersetzung sowie zur Übertragung von Untertiteln in Browser.",
+      "highlights": [
+        "Echtzeit Audioingestion und Speech-to-Text Verarbeitung",
+        "Mehrsprachige Übersetzung mit Azure-Integration",
+        "Untertitel-Streaming für browserbasierte Anzeigeoberflächen"
+      ]
+    },
+    "reliabilityModel": {
+      "name": "Probabilistisches Zuverlässigkeitsmodell für Wasseraufbereitung",
+      "details": "Probabilistisches Modell für mehrstufige Wasseraufbereitungssysteme unter Verwendung bayesscher Netzwerke zur Abschätzung regulatorischer Konformität.",
+      "highlights": [
+        "Bayessche Zuverlässigkeitsmodellierung mit szenariobasierter Analyse",
+        "Quantifizierung von Unsicherheiten bei regulatorischen Konformitätsschätzungen",
+        "Strukturierte Modellkonfiguration mit statistischen Auswertungen"
+      ]
+    },
+    "trainingLog": {
+      "name": "Trainingsprotokoll-Verwaltungssystem",
+      "role": "Unabhängige Softwareentwicklung",
+      "details": "Datenbankgestütztes Trainingsmanagement-Tool zur Erfassung von Workouts, Fortschrittsanalyse und Visualisierung Trainingsentwicklungen.",
+      "highlights": [
+        "Relationale Datenmodellierung für Workouts, Sätze und historische Nachverfolgung",
+        "Analytische Abfragen und Visualisierung der Volumenentwicklung",
+        "Leichtgewichtige, lokal ausgerichtete Architektur mit portabler Bereitstellung"
+      ]
+    },
+    "gameTracker": {
+      "name": "Spielesammlung & Fortschritts-Tracker",
+      "details": "Desktop-Anwendung zur strukturierten Verwaltung von Spielinventaren und Fortschrittsstatus, basierend auf einer SQLite-Datenbank.",
+      "highlights": [
+        "Relationale Datenmodellierung für Inventar- und Statusverwaltung",
+        "Lokale Persistenz und effiziente Abfrageverarbeitung mit SQLite",
+        "Leichtgewichtige Desktop-Architektur für strukturierte Datenverwaltung"
+      ]
+    }
+  },
+  "Life": {
+    "eyebrow": "Leben außerhalb der Arbeit",
+    "title": "Mehr als Arbeit",
+    "subtitle": "Arbeit ist wichtig — aber auch alles, was außerhalb davon geschieht. Diese Aktivitäten helfen mir, ausgeglichen, motiviert und neugierig zu bleiben.",
+    "psychology": {
+      "title": "Psychologie & Geist",
+      "p1": "Ich interessiere mich dafür, wie Menschen denken, Entscheidungen treffen und zusammenarbeiten.",
+      "p2": "Die Auseinandersetzung mit Psychologie und Kommunikation hilft mir, sowohl in technischen als auch nicht-technischen Kontexten effektiv zu arbeiten."
+    },
+    "movement": {
+      "title": "Bewegung & Training",
+      "p1": "Ich betreibe seit vielen Jahren regelmäßig Sport. Dazu gehören CrossFit, Krafttraining, funktionelles Training, Yoga und Schwimmen.",
+      "p2": "Training hilft mir, gesund zu bleiben, Resilienz aufzubauen und ausreichend Energie für den Alltag zu haben."
+    },
+    "travel": {
+      "title": "Reisen & Kulturen",
+      "p1": "Ich reise gern, entdecke neue Orte und lerne unterschiedliche Kulturen, Sprachen und Lebensweisen kennen.",
+      "p2": "Jede Reise erweitert meinen Blickwinkel und stärkt mein Verständnis für die Vielfalt und Vernetzung unserer Welt."
+    },
+    "games": {
+      "title": "Interaktive Welten & Geschichten",
+      "p1": "Mich faszinieren interaktive Systeme, Progressionsmechaniken und langfristige Erzählstrukturen — von komplexen Spielwelten bis hin zu seriellen Narrativen.",
+      "p2": "Ich analysiere gern, wie Regeln, Struktur und Charakterentwicklung immersive Erfahrungen prägen."
+    },
+    "cooking": {
+      "title": "Kochen & Kreativität",
+      "p1": "Ich sehe Kochen als strukturierten kreativen Prozess — das Experimentieren mit Zutaten, das Ausbalancieren von Aromen und das kontinuierliche Verfeinern von Techniken.",
+      "p2": "Es macht mir Spaß, unterschiedliche Gerichte auszuprobieren und Aromen aus verschiedenen Kulturen zu entdecken."
+    }
+  },
+  "Contact": {
+    "eyebrow": "Kontakt",
+    "title": "Lass uns zusammenarbeiten",
+    "subtitle": "Wenn meine Erfahrung zu deinem Projekt passt, freue ich mich über deine Nachricht. Gerne bespreche ich Ideen, kläre Anforderungen und schaue, wie wir sinnvoll zusammenarbeiten können.",
+    "direct": {
+      "title": "Direkter Kontakt",
+      "note": "Ich bin derzeit offen für Remote- und Teilzeit-Projekte. Eine kurze Nachricht mit einer Beschreibung deines Projekts und wobei du Unterstützung brauchst, ist völlig ausreichend."
+    },
+    "message": {
+      "title": "Nachricht senden",
+      "body": "Am schnellsten geht es mit einer kurzen E-Mail. Wenn du die folgenden Punkte berücksichtigst, kann ich mit konkreten nächsten Schritten antworten.",
+      "bullets": [
+        "Eine kurze Beschreibung deines Projekts",
+        "Zeitrahmen und erwarteter Umfang",
+        "Technologie-Stack (falls relevant) und Rahmenbedingungen"
+      ],
+      "cta": "E-Mail senden",
+      "small": "Lieber über LinkedIn? Das ist ebenfalls möglich — ich antworte dort genauso."
+    }
+  }
+}
