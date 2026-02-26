@@ -100,7 +100,7 @@ export default function NavBar() {
           {/* Theme toggle (icon only) */}
           <button
             type="button"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-slate-200 bg-white text-sm hover:bg-slate-50
+            className="cursor-pointer inline-flex h-9 w-9 items-center justify-center rounded-md border border-slate-200 bg-white text-sm hover:bg-slate-50
                        dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-800"
             onClick={() => setTheme(isDark ? "light" : "dark")}
             aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
@@ -111,7 +111,7 @@ export default function NavBar() {
 
           {/* Language dropdown */}
           <select
-            className="h-9 rounded-md border border-slate-200 bg-white px-3 text-sm hover:bg-slate-50
+            className="cursor-pointer h-9 rounded-md border border-slate-200 bg-white px-3 text-sm hover:bg-slate-50
                        dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-800"
             value={locale}
             onChange={(e) => onChangeLocale(e.target.value)}

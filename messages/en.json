@@ -192,7 +192,11 @@
         "Tech stack (if relevant) and constraints"
       ],
       "cta": "Email me",
-      "small": "Prefer LinkedIn? That works too — I reply there as well."
+      "small": "Prefer LinkedIn? That works too — I reply there as well.",
+      "email": {
+        "subject": "Project Collaboration — Inquiry",
+        "body": "Hi Juan,\n\nI came across your work and am interested in discussing a potential collaboration.\n\nHere’s a bit about what I’m working on:\n\n- Project overview:\n- Timeline:\n- Tech stack (if relevant):\n\nLooking forward to hearing from you.\n\nBest regards,"
+      }
     }
   }
 }

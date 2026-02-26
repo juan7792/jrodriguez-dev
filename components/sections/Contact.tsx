@@ -35,10 +35,16 @@ function ContactRow({
 export default function Contact() {
   const t = useTranslations("Contact");
 
-  // TODO: Reemplaza estos valores por los tuyos reales:
   const email = "juanm.rodriguez.dev@gmail.com";
   const linkedin = "linkedin.com/in/j-rodriguez-lvv/";
   const github = "github.com/juan7792";
+
+  const mailtoSubject = t("message.email.subject");
+  const mailtoBody = t("message.email.body");
+
+  const mailtoHref = `mailto:${email}?subject=${encodeURIComponent(
+    mailtoSubject,
+  )}&body=${encodeURIComponent(mailtoBody)}`;
 
   return (
     <Section
@@ -61,7 +67,7 @@ export default function Contact() {
           </h3>
 
           <div className="mt-4 divide-y divide-slate-200/60 dark:divide-slate-800/60">
-            <ContactRow label="Email" value={email} href={`mailto:${email}`} />
+            <ContactRow label="Email" value={email} href={mailtoHref} />
             <ContactRow
               label="LinkedIn"
               value={linkedin}
@@ -101,8 +107,8 @@ export default function Contact() {
           </ul>
 
           <div className="mt-8">
-            <a href={`mailto:${email}`}>
-              <Button>{t("message.cta")}</Button>
+            <a href={mailtoHref} target="_blank" rel="noopener noreferrer">
+              <Button className="cursor-pointer">{t("message.cta")}</Button>
             </a>
           </div>
 

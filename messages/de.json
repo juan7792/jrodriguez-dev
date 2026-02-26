@@ -193,7 +193,11 @@
         "Technologie-Stack (falls relevant) und Rahmenbedingungen"
       ],
       "cta": "E-Mail senden",
-      "small": "Lieber über LinkedIn? Das ist ebenfalls möglich — ich antworte dort genauso."
+      "small": "Lieber über LinkedIn? Das ist ebenfalls möglich — ich antworte dort genauso.",
+      "email": {
+        "subject": "Anfrage zur Projektzusammenarbeit",
+        "body": "Hallo Juan,\n\nIch bin auf deine Arbeit aufmerksam geworden und hätte Interesse, eine mögliche Zusammenarbeit zu besprechen.\n\nHier ein paar Informationen zu meinem Projekt:\n\n- Projektüberblick:\n- Zeitrahmen:\n- Tech-Stack (falls relevant):\n\nIch freue mich auf deine Rückmeldung.\n\nMit freundlichen Grüßen,"
+      }
     }
   }
 }

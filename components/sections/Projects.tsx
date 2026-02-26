@@ -378,7 +378,9 @@ export default function Projects() {
         </p>
 
         <a href="/portfolio.pdf" target="_blank" rel="noreferrer">
-          <Button variant="secondary">{t("download")}</Button>
+          <Button className="cursor-pointer" variant="secondary">
+            {t("download")}
+          </Button>
         </a>
       </div>
 
@@ -387,7 +389,7 @@ export default function Projects() {
           <CardButton
             key={p.key}
             onClick={() => setActiveKey(p.key)}
-            className="p-6"
+            className="cursor-pointer p-6"
           >
             {/* subtle halo */}
             <span
@@ -478,7 +480,7 @@ export default function Projects() {
                 <button
                   type="button"
                   onClick={() => setActiveKey(null)}
-                  className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-slate-200 hover:bg-slate-50
+                  className="cursor-pointer inline-flex h-9 w-9 items-center justify-center rounded-md border border-slate-200 hover:bg-slate-50
                              dark:border-slate-800 dark:hover:bg-slate-900"
                   aria-label="Close"
                 >

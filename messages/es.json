@@ -192,7 +192,11 @@
         "Stack tecnológico (si aplica) y posibles limitaciones"
       ],
       "cta": "Envíame un email",
-      "small": "¿Prefieres LinkedIn? También sirve — respondo por ahí."
+      "small": "¿Prefieres LinkedIn? También sirve — respondo por ahí.",
+      "email": {
+        "subject": "Propuesta de Colaboración",
+        "body": "Hola Juan,\n\nEncontré tu perfil y me interesaría conversar sobre una posible colaboración.\n\nAquí tienes un poco de información sobre lo que estoy desarrollando:\n\n- Descripción del proyecto:\n- Cronograma:\n- Tech stack (si aplica):\n\nQuedo atento a tu respuesta.\n\nSaludos cordiales,"
+      }
     }
   }
 }
