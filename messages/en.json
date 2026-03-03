@@ -2,15 +2,15 @@
   "Nav": {
     "name": "Juan Rodriguez",
     "services": "Services",
-    "tech": "Tech",
     "projects": "Projects",
-    "life": "Life",
+    "tech": "Tech Stack",
+    "life": "Beyond Work",
     "contact": "Contact"
   },
   "Hero": {
     "eyebrow": "Software Engineer",
     "headline": "Building scalable data-driven web solutions",
-    "subheadline": "I design and build end-to-end software systems — from data pipelines and backend architecture to modern, maintainable web interfaces.",
+    "subheadline": "I design and build end-to-end software systems — from data pipelines and backend architecture to AI-enabled web applications.",
     "paragraph": "I focus on clean architecture, clear communication, and long-term maintainability, helping teams deliver solutions that create real business value.",
     "availability": "Currently available for remote freelance projects",
     "ctaPrimary": "Contact me",
@@ -47,19 +47,6 @@
         "Responsive interfaces with maintainable code structure",
         "Containerized environments and deployment readiness"
       ]
-    }
-  },
-  "TechStack": {
-    "eyebrow": "Tech Stack",
-    "title": "Technologies & Platforms",
-    "subtitle": "These are the main tools and technologies I use in projects. I adapt to existing architectures and contribute to defining pragmatic, production-ready stacks.",
-    "categories": {
-      "languages": "Languages",
-      "backend": "Backend & APIs",
-      "frontend": "Frontend",
-      "databases": "Databases",
-      "dataCloud": "Data Engineering & Cloud",
-      "toolsInfra": "Tools & Infrastructure"
     }
   },
   "Projects": {
@@ -143,6 +130,20 @@
         "Local persistence and query handling with SQLite",
         "Lightweight desktop architecture for structured data management"
       ]
+    }
+  },
+  "TechStack": {
+    "eyebrow": "Tech Stack",
+    "title": "Technologies & Platforms",
+    "subtitle": "These are the main tools and technologies I use in projects. I adapt to existing architectures and contribute to defining pragmatic, production-ready stacks.",
+    "categories": {
+      "languages": "Languages",
+      "backend": "Backend & APIs",
+      "dataCloud": "Data Engineering & Cloud",
+      "ai": "AI & Machine Learning",
+      "databases": "Databases",
+      "frontend": "Frontend",
+      "toolsInfra": "Tools & Infrastructure"
     }
   },
   "Life": {

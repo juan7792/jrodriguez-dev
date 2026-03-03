@@ -14,15 +14,18 @@ function ContactRow({
   value: string;
   href: string;
 }) {
+  const isExternal = href.startsWith("http") || href.startsWith("mailto:");
+
   return (
     <div className="py-3">
       <div className="text-xs uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
         {label}
       </div>
+
       <a
         href={href}
-        target={href.startsWith("http") ? "_blank" : undefined}
-        rel={href.startsWith("http") ? "noreferrer" : undefined}
+        target={isExternal ? "_blank" : undefined}
+        rel={isExternal ? "noopener noreferrer" : undefined}
         className="mt-1 inline-block text-sm font-medium text-slate-900 underline-offset-4 hover:underline
                    dark:text-slate-100"
       >

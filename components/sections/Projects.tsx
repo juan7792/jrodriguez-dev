@@ -185,13 +185,18 @@ const TECH_TAGS: Record<
   // -------------------------
   // Speech / Translation
   // -------------------------
+  "Azure Cognitive Services": {
+    label: "Azure Cognitive Services",
+    short: "A",
+    iconSrc: "/icons/tech/azure-cognitive-services.svg",
+  },
   Whisper: {
     label: "Whisper",
     short: "W",
-    iconLight: "/icons/tech/whisper-light.svg",
-    iconDark: "/icons/tech/whisper-dark.svg",
+    iconLight: "/icons/tech/openai-light.svg",
+    iconDark: "/icons/tech/openai-dark.svg",
   },
-  Vosk: { label: "Vosk", short: "V", iconSrc: "/icons/tech/vosk.svg" },
+  Vosk: { label: "Vosk", short: "V", iconSrc: "/icons/tech/vosk.png" },
   "Deep-Translator": {
     label: "Deep-Translator",
     short: "DT",
@@ -291,7 +296,7 @@ export default function Projects() {
         key: "speechTranslation",
         roleKey: "fullStackDeveloper",
         tech: [
-          "Azure",
+          "Azure Cognitive Services",
           "Python",
           "Whisper",
           "Vosk",
@@ -365,19 +370,28 @@ export default function Projects() {
         )
       : null;
 
+  const lang = locale.split("-")[0];
+
+  const portfolioHref =
+    lang === "es"
+      ? "/pdf/Portafolio - Juan Rodriguez ES.pdf"
+      : lang === "de"
+        ? "/pdf/Portfolio - Juan Rodriguez DE.pdf"
+        : "/pdf/Portfolio - Juan Rodriguez EN.pdf";
+
   return (
     <Section
       id="projects"
       title={t("title")}
       subtitle={t("subtitle")}
-      className="py-16 bg-slate-100/50 dark:bg-slate-900/20 border-t border-b border-slate-200/60 dark:border-white/5"
+      className="pt-8"
     >
       <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <p className="text-xs uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
           {t("eyebrow")}
         </p>
 
-        <a href="/portfolio.pdf" target="_blank" rel="noreferrer">
+        <a href={portfolioHref} target="_blank" rel="noopener noreferrer">
           <Button className="cursor-pointer" variant="secondary">
             {t("download")}
           </Button>
@@ -533,9 +547,15 @@ export default function Projects() {
               </div>
 
               <div className="mt-7 flex items-center justify-end gap-3">
-                <Button variant="secondary" onClick={() => setActiveKey(null)}>
-                  {t("modal.close")}
-                </Button>
+                <a
+                  href={portfolioHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button className="cursor-pointer" variant="secondary">
+                    {t("download")}
+                  </Button>
+                </a>
               </div>
             </motion.div>
           </>

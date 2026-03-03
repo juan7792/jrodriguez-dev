@@ -42,7 +42,6 @@ export default function TechStack() {
           iconSrc: "/icons/tech/javascript.svg",
         },
         { label: "SQL", short: "S", iconSrc: "/icons/tech/sql.svg" },
-        { label: "C++", short: "C", iconSrc: "/icons/tech/cpp.svg" },
       ],
     },
     {
@@ -77,43 +76,6 @@ export default function TechStack() {
       ],
     },
     {
-      key: "frontend",
-      items: [
-        { label: "Angular", short: "A", iconSrc: "/icons/tech/angular.svg" },
-        { label: "React", short: "R", iconSrc: "/icons/tech/react.svg" },
-        {
-          label: "Next.js",
-          short: "N",
-          iconLight: "/icons/tech/nextjs-light.svg",
-          iconDark: "/icons/tech/nextjs-dark.svg",
-        },
-        {
-          label: "Tailwind CSS",
-          short: "T",
-          iconSrc: "/icons/tech/tailwind.svg",
-        },
-        { label: "HTML", short: "H", iconSrc: "/icons/tech/html.svg" },
-        { label: "CSS", short: "C", iconSrc: "/icons/tech/css.svg" },
-      ],
-    },
-    {
-      key: "databases",
-      items: [
-        {
-          label: "PostgreSQL",
-          short: "P",
-          iconSrc: "/icons/tech/postgresql.svg",
-        },
-        {
-          label: "MySQL",
-          short: "M",
-          iconLight: "/icons/tech/mysql-light.svg",
-          iconDark: "/icons/tech/mysql-dark.svg",
-        },
-        { label: "SQLite", short: "S", iconSrc: "/icons/tech/sqlite.svg" },
-      ],
-    },
-    {
       key: "dataCloud",
       items: [
         { label: "Azure", short: "A", iconSrc: "/icons/tech/azure.svg" },
@@ -137,6 +99,80 @@ export default function TechStack() {
       ],
     },
     {
+      key: "ai",
+      items: [
+        {
+          label: "Azure Cognitive Services",
+          short: "A",
+          iconSrc: "/icons/tech/azure-cognitive-services.svg",
+        },
+        {
+          label: "Whisper",
+          short: "W",
+          iconLight: "/icons/tech/openai-light.svg",
+          iconDark: "/icons/tech/openai-dark.svg",
+        },
+        {
+          label: "Vosk",
+          short: "V",
+          iconSrc: "/icons/tech/vosk.png",
+        },
+        {
+          label: "MATLAB Statistics Toolbox",
+          short: "MST",
+          iconSrc: "/icons/tech/statistics-toolbox.svg",
+        },
+        {
+          label: "GeNIe Modeler",
+          short: "G",
+          iconSrc: "/icons/tech/genie-modeler.svg",
+        },
+        {
+          label: "OpenAI API",
+          short: "O",
+          iconLight: "/icons/tech/openai-light.svg",
+          iconDark: "/icons/tech/openai-dark.svg",
+        },
+      ],
+    },
+    {
+      key: "databases",
+      items: [
+        {
+          label: "PostgreSQL",
+          short: "P",
+          iconSrc: "/icons/tech/postgresql.svg",
+        },
+        {
+          label: "MySQL",
+          short: "M",
+          iconLight: "/icons/tech/mysql-light.svg",
+          iconDark: "/icons/tech/mysql-dark.svg",
+        },
+        { label: "SQLite", short: "S", iconSrc: "/icons/tech/sqlite.svg" },
+      ],
+    },
+    {
+      key: "frontend",
+      items: [
+        { label: "Angular", short: "A", iconSrc: "/icons/tech/angular.svg" },
+        { label: "React", short: "R", iconSrc: "/icons/tech/react.svg" },
+        {
+          label: "Next.js",
+          short: "N",
+          iconLight: "/icons/tech/nextjs-light.svg",
+          iconDark: "/icons/tech/nextjs-dark.svg",
+        },
+        {
+          label: "Tailwind CSS",
+          short: "T",
+          iconSrc: "/icons/tech/tailwind.svg",
+        },
+        { label: "HTML", short: "H", iconSrc: "/icons/tech/html.svg" },
+        { label: "CSS", short: "C", iconSrc: "/icons/tech/css.svg" },
+      ],
+    },
+    {
       key: "toolsInfra",
       items: [
         { label: "Git", short: "G", iconSrc: "/icons/tech/git.svg" },
@@ -153,7 +189,7 @@ export default function TechStack() {
       id="tech"
       title={t("title")}
       subtitle={t("subtitle")}
-      className="pt-8"
+      className="py-16 bg-slate-100/50 dark:bg-slate-900/20 border-t border-b border-slate-200/60 dark:border-white/5"
     >
       <p className="mb-3 text-xs uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
         {t("eyebrow")}

@@ -1,0 +1,50 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fondo -->
+  <rect width="800" height="450" fill="#050813"/>
+
+  <!-- Marco redondeado -->
+  <rect
+    x="150" y="90"
+    width="500" height="270"
+    rx="70" ry="70"
+    fill="none"
+    stroke="#c7d1dd"
+    stroke-width="20"
+  />
+
+  <!-- Letra J -->
+  <path
+    d="M320 145
+       H380
+       V260
+       C380 300 355 325 315 325
+       H245
+       V275
+       H305
+       C315 275 320 268 320 258
+       Z"
+    fill="#ffffff"
+  />
+
+  <!-- Letra R -->
+  <path
+    d="M440 145
+       H550
+       C585 145 610 170 610 205
+       C610 237 590 260 563 268
+       L620 325
+       H560
+       L515 277
+       H480
+       V325
+       H440
+       Z
+       M480 185
+       V230
+       H545
+       C558 230 570 220 570 205
+       C570 190 558 185 545 185
+       Z"
+    fill="#ffffff"
+  />
+</svg>

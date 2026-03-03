@@ -1,12 +1,13 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Section from "@/components/ui/Section";
 import Button from "@/components/ui/Button";
 
 export default function Hero() {
   const t = useTranslations("Hero");
   const tContact = useTranslations("Contact");
+  const locale = useLocale();
 
   const email = "juanm.rodriguez.dev@gmail.com";
   const mailtoSubject = tContact("message.email.subject");
@@ -15,6 +16,16 @@ export default function Hero() {
   const mailtoHref = `mailto:${email}?subject=${encodeURIComponent(
     mailtoSubject,
   )}&body=${encodeURIComponent(mailtoBody)}`;
+
+  // Locale puede venir como "en", "es", "de" o "en-US".
+  const lang = locale.split("-")[0];
+
+  const cvHref =
+    lang === "es"
+      ? "/pdf/CV - Juan Rodriguez ES.pdf"
+      : lang === "de"
+        ? "/pdf/CV - Juan Rodriguez DE.pdf"
+        : "/pdf/CV - Juan Rodriguez EN.pdf";
 
   return (
     <Section className="pt-24 sm:pt-28">
@@ -45,9 +56,12 @@ export default function Hero() {
           <a href={mailtoHref} target="_blank" rel="noopener noreferrer">
             <Button className="cursor-pointer">{t("ctaPrimary")}</Button>
           </a>
-          <Button className="cursor-pointer" variant="secondary">
-            {t("ctaSecondary")}
-          </Button>
+
+          <a href={cvHref} target="_blank" rel="noopener noreferrer">
+            <Button className="cursor-pointer" variant="secondary">
+              {t("ctaSecondary")}
+            </Button>
+          </a>
         </div>
 
         <div className="mt-10 text-xs opacity-60">{t("footer")}</div>

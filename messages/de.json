@@ -2,15 +2,15 @@
   "Nav": {
     "name": "Juan Rodriguez",
     "services": "Leistungen",
-    "tech": "Technologie",
     "projects": "Projekte",
+    "tech": "Tech-Stack",
     "life": "Über mich",
     "contact": "Kontakt"
   },
   "Hero": {
     "eyebrow": "Software Engineer",
     "headline": "Skalierbare, datengetriebene Web-Lösungen",
-    "subheadline": "Ich konzipiere und entwickle End-to-End-Softwaresysteme – von Datenpipelines und Backend-Architektur bis hin zu modernen, wartbaren Web-Oberflächen.",
+    "subheadline": "Ich konzipiere und entwickle End-to-End-Softwaresysteme – von Datenpipelines und Backend-Architektur bis hin zu KI-gestützten Webanwendungen.",
     "paragraph": "Ich lege Wert auf saubere Architektur, klare Kommunikation und langfristige Wartbarkeit – damit Teams Lösungen liefern, die echten Business-Mehrwert schaffen.",
     "availability": "Derzeit verfügbar für Remote-Freelance-Projekte",
     "ctaPrimary": "Kontakt",
@@ -47,19 +47,6 @@
         "Responsive Benutzeroberflächen mit wartbarer Codebasis",
         "Containerisierte Umgebungen und Deployments im Produktionskontext"
       ]
-    }
-  },
-  "TechStack": {
-    "eyebrow": "Tech Stack",
-    "title": "Technologien & Plattformen",
-    "subtitle": "Zentrale Technologien, die ich in Projekten einsetze – mit Integration in bestehende Architekturen und Definition pragmatischer, produktionsreifer Stacks.",
-    "categories": {
-      "languages": "Programmiersprachen",
-      "backend": "Backend & APIs",
-      "frontend": "Frontend",
-      "databases": "Datenbanken",
-      "dataCloud": "Data Engineering & Cloud",
-      "toolsInfra": "Tools & Infrastruktur"
     }
   },
   "Projects": {
@@ -144,6 +131,20 @@
         "Lokale Persistenz und effiziente Abfrageverarbeitung mit SQLite",
         "Leichtgewichtige Desktop-Architektur für strukturierte Datenverwaltung"
       ]
+    }
+  },
+  "TechStack": {
+    "eyebrow": "Tech Stack",
+    "title": "Technologien & Plattformen",
+    "subtitle": "Zentrale Technologien, die ich in Projekten einsetze – mit Integration in bestehende Architekturen und Definition pragmatischer, produktionsreifer Stacks.",
+    "categories": {
+      "languages": "Programmiersprachen",
+      "backend": "Backend & APIs",
+      "dataCloud": "Data Engineering & Cloud",
+      "ai": "AI & Machine Learning",
+      "databases": "Datenbanken",
+      "frontend": "Frontend",
+      "toolsInfra": "Tools & Infrastruktur"
     }
   },
   "Life": {

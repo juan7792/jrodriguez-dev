@@ -2,6 +2,7 @@
 
 import { useLocale, useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
+import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
@@ -45,6 +46,9 @@ export default function NavBar() {
 
   const isDark = mounted ? currentTheme === "dark" : false;
 
+  const sunSVG = "/icons/navbar/sun.svg";
+  const moonSVG = "/icons/navbar/moon.svg";
+
   function onChangeLocale(nextLocale: string) {
     router.replace(pathname, { locale: nextLocale as Locale });
     setMobileOpen(false);
@@ -56,8 +60,8 @@ export default function NavBar() {
 
   const links = [
     { href: "#services", label: t("services") },
-    { href: "#tech", label: t("tech") },
     { href: "#projects", label: t("projects") },
+    { href: "#tech", label: t("tech") },
     { href: "#life", label: t("life") },
     { href: "#contact", label: t("contact") },
   ];
@@ -79,6 +83,15 @@ export default function NavBar() {
           className="font-semibold tracking-tight"
           onClick={onNavClick}
         >
+          {/* Block for logo */}
+          {/* <Image
+            src="/icons/navbar/logo.png"
+            alt="Juan Rodriguez Logo"
+            width={28}
+            height={28}
+            className="h-7 w-7"
+            priority
+          /> */}
           {t("name")}
         </a>
 
@@ -106,7 +119,19 @@ export default function NavBar() {
             aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
             title={isDark ? "Light mode" : "Dark mode"}
           >
-            <span aria-hidden="true">{isDark ? "☀️" : "🌙"}</span>
+            {mounted ? (
+              <img
+                src={isDark ? sunSVG : moonSVG}
+                alt=""
+                aria-hidden="true"
+                width={24}
+                height={24}
+                className="block h-4 w-4"
+              />
+            ) : (
+              // placeholder para evitar layout shift
+              <span className="block h-4 w-4" aria-hidden="true" />
+            )}
           </button>
 
           {/* Language dropdown */}

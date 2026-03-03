@@ -2,15 +2,15 @@
   "Nav": {
     "name": "Juan Rodríguez",
     "services": "Servicios",
-    "tech": "Tecnologías",
     "projects": "Proyectos",
-    "life": "Vida",
+    "tech": "Tecnologías",
+    "life": "Intereses",
     "contact": "Contacto"
   },
   "Hero": {
     "eyebrow": "Ingeniero de Software",
     "headline": "Soluciones web escalables basadas en datos",
-    "subheadline": "Diseño y construyo sistemas de software end-to-end: desde pipelines de datos y arquitectura backend hasta interfaces web modernas y mantenibles.",
+    "subheadline": "Diseño y construyo sistemas de software end-to-end: desde pipelines de datos y arquitectura backend hasta aplicaciones web potenciadas con inteligencia artificial.",
     "paragraph": "Me enfoco en arquitectura limpia, comunicación clara y mantenibilidad a largo plazo, ayudando a equipos a entregar soluciones que generan valor real para el negocio.",
     "availability": "Disponible actualmente para proyectos freelance remotos",
     "ctaPrimary": "Contáctame",
@@ -47,19 +47,6 @@
         "Interfaces responsivas con estructura de código mantenible",
         "Entornos contenerizados y preparación para despliegue"
       ]
-    }
-  },
-  "TechStack": {
-    "eyebrow": "Stack tecnológico",
-    "title": "Tecnologías y plataformas",
-    "subtitle": "Estas son las principales tecnologías que utilizo en proyectos. Me adapto a arquitecturas existentes y contribuyo a definir stacks listos para producción.",
-    "categories": {
-      "languages": "Lenguajes",
-      "backend": "Backend & APIs",
-      "frontend": "Frontend",
-      "databases": "Bases de datos",
-      "dataCloud": "Data Engineering & Cloud",
-      "toolsInfra": "Herramientas & Infraestructura"
     }
   },
   "Projects": {
@@ -143,6 +130,20 @@
         "Persistencia local y manejo de consultas con SQLite",
         "Arquitectura de escritorio ligera orientada a la gestión estructurada de datos"
       ]
+    }
+  },
+  "TechStack": {
+    "eyebrow": "Stack tecnológico",
+    "title": "Tecnologías y Plataformas",
+    "subtitle": "Estas son las principales tecnologías que utilizo en proyectos. Me adapto a arquitecturas existentes y contribuyo a definir stacks listos para producción.",
+    "categories": {
+      "languages": "Lenguajes",
+      "backend": "Backend & APIs",
+      "dataCloud": "Data Engineering & Cloud",
+      "ai": "AI & Machine Learning",
+      "databases": "Bases de Datos",
+      "frontend": "Frontend",
+      "toolsInfra": "Herramientas & Infraestructura"
     }
   },
   "Life": {

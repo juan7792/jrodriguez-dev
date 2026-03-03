@@ -12,8 +12,8 @@ export default function HomePage() {
     <>
       <Hero />
       <Services />
-      <TechStack />
       <Projects />
+      <TechStack />
       <Life />
       <Contact />
     </>
