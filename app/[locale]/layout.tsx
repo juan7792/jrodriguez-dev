@@ -10,6 +10,8 @@ const TITLES: Record<string, string> = {
   de: "Softwareentwickler — Juan Rodriguez",
 };
 
+export const runtime = 'edge';
+
 export async function generateMetadata({
   params,
 }: {

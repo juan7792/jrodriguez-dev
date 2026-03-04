@@ -7,6 +7,8 @@ import Projects from "@/components/sections/Projects";
 import Life from "@/components/sections/Life";
 import Contact from "@/components/sections/Contact";
 
+export const runtime = "edge";
+
 export default function HomePage() {
   return (
     <>
