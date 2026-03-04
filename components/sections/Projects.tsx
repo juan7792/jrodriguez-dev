@@ -374,10 +374,10 @@ export default function Projects() {
 
   const portfolioHref =
     lang === "es"
-      ? "/pdf/Portafolio - Juan Rodriguez ES.pdf"
+      ? "/pdf/Portafolio-Juan-Rodriguez-ES.pdf"
       : lang === "de"
-        ? "/pdf/Portfolio - Juan Rodriguez DE.pdf"
-        : "/pdf/Portfolio - Juan Rodriguez EN.pdf";
+        ? "/pdf/Portfolio-Juan-Rodriguez-DE.pdf"
+        : "/pdf/Portfolio-Juan-Rodriguez-EN.pdf";
 
   return (
     <Section
