@@ -22,10 +22,10 @@ export default function Hero() {
 
   const cvHref =
     lang === "es"
-      ? "/pdf/CV - Juan Rodriguez ES.pdf"
+      ? "/pdf/CV-Juan-Rodriguez-ES.pdf"
       : lang === "de"
-        ? "/pdf/CV - Juan Rodriguez DE.pdf"
-        : "/pdf/CV - Juan Rodriguez EN.pdf";
+        ? "/pdf/CV-Juan-Rodriguez-DE.pdf"
+        : "/pdf/CV-Juan-Rodriguez-EN.pdf";
 
   return (
     <Section className="pt-24 sm:pt-28">
