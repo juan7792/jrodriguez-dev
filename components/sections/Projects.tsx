@@ -398,12 +398,12 @@ export default function Projects() {
         </a>
       </div>
 
-      <div className="grid gap-4 lg:grid-cols-2">
+      <div className="grid -mx-2 gap-4 sm:mx-0 lg:grid-cols-2">
         {projects.map((p) => (
           <CardButton
             key={p.key}
             onClick={() => setActiveKey(p.key)}
-            className="cursor-pointer p-6"
+            className="cursor-pointer p-4 sm:p-6"
           >
             {/* subtle halo */}
             <span
@@ -417,7 +417,7 @@ export default function Projects() {
 
             <div className="relative flex flex-col items-center justify-center text-center min-h-[210px] py-12 sm:py-0 sm:pb-20">
               {/* Title – true center of the card */}
-              <h3 className="w-full px-4 text-lg font-semibold tracking-tight sm:px-6 sm:text-xl">
+              <h3 className="w-full px-2 text-lg font-semibold tracking-tight sm:px-6 sm:text-xl">
                 {t(`${p.key}.name`)}
               </h3>
 
@@ -538,7 +538,7 @@ export default function Projects() {
                         key={flowSrc}
                         src={flowSrc}
                         alt={activeFlow.alt}
-                        className="block w-full h-auto translate-y-[5px] cursor-pointer"
+                        className="block w-full h-auto translate-y-0.5 sm:translate-y-[5px] cursor-pointer"
                         loading="lazy"
                         onClick={() => setExpandedImage(flowSrc)}
                       />
