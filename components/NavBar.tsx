@@ -84,19 +84,22 @@ export default function NavBar() {
           onClick={onNavClick}
         >
           {/* Block for logo */}
-          {/* <Image
-            src="/icons/navbar/logo.png"
+          <Image
+            src={
+              isDark
+                ? "/icons/navbar/logo-dark.svg"
+                : "/icons/navbar/logo-light.svg"
+            }
             alt="Juan Rodriguez Logo"
-            width={28}
-            height={28}
-            className="h-7 w-7"
+            width={40}
+            height={40}
+            className="h-10 w-auto sm:h-14 transition-transform hover:scale-105"
             priority
-          /> */}
-          {t("name")}
+          />
         </a>
 
         {/* Center: Section links (desktop only) */}
-        <div className="hidden items-center gap-6 text-sm text-slate-600 dark:text-slate-300 sm:flex">
+        <div className="hidden items-center gap-6 text-sm font-medium tracking-wide text-slate-600 dark:text-slate-300 sm:flex">
           {links.map((l) => (
             <a
               key={l.href}
@@ -113,7 +116,7 @@ export default function NavBar() {
           {/* Theme toggle (icon only) */}
           <button
             type="button"
-            className="cursor-pointer inline-flex h-9 w-9 items-center justify-center rounded-md border border-slate-200 bg-white text-sm hover:bg-slate-50
+            className="cursor-pointer inline-flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-md border border-slate-200 bg-white text-sm hover:bg-slate-50
                        dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-800"
             onClick={() => setTheme(isDark ? "light" : "dark")}
             aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
@@ -136,7 +139,7 @@ export default function NavBar() {
 
           {/* Language dropdown */}
           <select
-            className="cursor-pointer h-9 rounded-md border border-slate-200 bg-white px-3 text-sm hover:bg-slate-50
+            className="cursor-pointer h-9 sm:h-10 rounded-md border border-slate-200 bg-white px-3 text-sm hover:bg-slate-50
                        dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-800"
             value={locale}
             onChange={(e) => onChangeLocale(e.target.value)}

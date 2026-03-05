@@ -1,6 +1,5 @@
 {
   "Nav": {
-    "name": "Juan Rodriguez",
     "services": "Leistungen",
     "projects": "Projekte",
     "tech": "Tech-Stack",
@@ -8,7 +7,7 @@
     "contact": "Kontakt"
   },
   "Hero": {
-    "eyebrow": "Software Engineer",
+    "eyebrow": "Software Engineer — Juan Rodriguez",
     "headline": "Skalierbare, datengetriebene Web-Lösungen",
     "subheadline": "Ich konzipiere und entwickle End-to-End-Softwaresysteme – von Datenpipelines und Backend-Architektur bis hin zu KI-gestützten Webanwendungen.",
     "paragraph": "Ich lege Wert auf saubere Architektur, klare Kommunikation und langfristige Wartbarkeit – damit Teams Lösungen liefern, die echten Business-Mehrwert schaffen.",
@@ -180,7 +179,7 @@
   "Contact": {
     "eyebrow": "Kontakt",
     "title": "Lass uns zusammenarbeiten",
-    "subtitle": "Wenn meine Erfahrung zu deinem Projekt passt, freue ich mich über deine Nachricht. Gerne bespreche ich Ideen, kläre Anforderungen und schaue, wie wir sinnvoll zusammenarbeiten können.",
+    "subtitle": "Wenn meine Erfahrung deinem Projekt entspricht, freue ich mich über deine Nachricht. Gerne bespreche ich Ideen, kläre Anforderungen und evaluiere, wie wir zielführend zusammenarbeiten können.",
     "direct": {
       "title": "Direkter Kontakt",
       "note": "Ich bin derzeit offen für Remote- und Teilzeit-Projekte. Eine kurze Nachricht mit einer Beschreibung deines Projekts und wobei du Unterstützung brauchst, ist völlig ausreichend."

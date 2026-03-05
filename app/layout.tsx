@@ -1,5 +1,6 @@
 import "./globals.css";
 import Providers from "@/components/Providers";
+import { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
 const geistSans = Geist({
@@ -13,6 +14,22 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   display: "swap",
 });
+
+export const metadata: Metadata = {
+  icons: {
+    icon: "/favicon-logo.svg",
+  },
+  openGraph: {
+    images: [
+      {
+        url: "/opengraph-logo.png",
+        width: 900,
+        height: 900,
+        alt: "Juan Rodriguez Logo",
+      },
+    ],
+  },
+};
 
 export default function RootLayout({
   children,

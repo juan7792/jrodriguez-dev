@@ -276,19 +276,19 @@ export default function Projects() {
       {
         key: "scimApi",
         roleKey: "backendEngineer",
-        tech: ["Java", "Spring", "Hibernate", "PostgreSQL", "SCIM", "Azure AD"],
+        tech: ["Java", "Spring", "Hibernate", "PostgreSQL", "Azure AD", "SCIM"],
       },
       {
         key: "ecommerce",
         roleKey: "fullStackDeveloper",
         tech: [
           "Java",
-          "Spring Boot",
-          "Hibernate",
           "Angular",
-          "Tailwind CSS",
           "MySQL",
+          "Hibernate",
+          "Spring Boot",
           "JWT",
+          "Tailwind CSS",
           "Docker",
         ],
       },
@@ -312,7 +312,7 @@ export default function Projects() {
       {
         key: "trainingLog",
         roleKey: "soloDeveloper",
-        tech: ["Python", "SQLite", "PostgreSQL", "NumPy", "Matplotlib", "Git"],
+        tech: ["Python", "SQLite", "NumPy", "PostgreSQL", "Matplotlib", "Git"],
       },
       {
         key: "gameTracker",
@@ -398,12 +398,12 @@ export default function Projects() {
         </a>
       </div>
 
-      <div className="grid gap-4 lg:grid-cols-2">
+      <div className="grid -mx-2 gap-4 sm:mx-0 lg:grid-cols-2">
         {projects.map((p) => (
           <CardButton
             key={p.key}
             onClick={() => setActiveKey(p.key)}
-            className="cursor-pointer p-6"
+            className="cursor-pointer p-4 sm:p-6"
           >
             {/* subtle halo */}
             <span
@@ -415,14 +415,14 @@ export default function Projects() {
               "
             />
 
-            <div className="relative grid min-h-[210px] place-items-center text-center pb-20">
+            <div className="relative flex flex-col items-center justify-center text-center min-h-[210px] py-12 sm:py-0 sm:pb-20">
               {/* Title – true center of the card */}
-              <h3 className="px-6 text-lg font-semibold tracking-tight sm:text-xl">
+              <h3 className="w-full px-2 text-lg font-semibold tracking-tight sm:px-6 sm:text-xl">
                 {t(`${p.key}.name`)}
               </h3>
 
               {/* Tech – anchored below, limited to 2 lines */}
-              <div className="absolute bottom-10 left-1/2 w-[92%] -translate-x-1/2">
+              <div className="relative mt-3 w-[92%] sm:absolute sm:bottom-10 sm:left-1/2 sm:-translate-x-1/2 sm:mt-0">
                 <div className="flex flex-wrap justify-center gap-2 max-h-[76px] overflow-hidden">
                   {p.tech.map((tag) => (
                     <TechTag key={tag} size="sm" {...toTechTagProps(tag)} />
@@ -457,9 +457,9 @@ export default function Projects() {
             {/* Panel */}
             <motion.div
               className="
-                fixed left-1/2 top-1/2 z-[61] w-[92vw] max-w-5xl -translate-x-1/2 -translate-y-1/2
-                rounded-2xl border border-slate-200 bg-white p-5 shadow-xl
-                dark:border-slate-800 dark:bg-slate-950
+                fixed left-1/2 top-1/2 z-[61] w-[95vw] max-w-5xl -translate-x-1/2 -translate-y-1/2
+                max-h-[80vh] overflow-y-auto rounded-2xl border border-slate-200 bg-white p-6 shadow-xl
+                dark:border-slate-800 dark:bg-slate-950 scrollbar-hide
               "
               initial={{ opacity: 0, y: 18, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -491,15 +491,16 @@ export default function Projects() {
                   </div>
                 </div>
 
-                <button
-                  type="button"
+                <Button
+                  className="cursor-pointer group flex h-10 w-10 items-center justify-center rounded-xl p-0 sm:h-9 sm:w-auto sm:px-4 sm:py-2"
+                  variant="secondary"
                   onClick={() => setActiveKey(null)}
-                  className="cursor-pointer inline-flex h-9 w-9 items-center justify-center rounded-md border border-slate-200 hover:bg-slate-50
-                             dark:border-slate-800 dark:hover:bg-slate-900"
-                  aria-label="Close"
+                  aria-label={t("modal.close")}
                 >
-                  ✕
-                </button>
+                  <span className="text-lg transition-transform group-hover:rotate-90 sm:text-base">
+                    ✕
+                  </span>
+                </Button>
               </div>
 
               {/* Body: left text + optional right flowchart */}
@@ -537,7 +538,7 @@ export default function Projects() {
                         key={flowSrc}
                         src={flowSrc}
                         alt={activeFlow.alt}
-                        className="block w-full h-auto translate-y-[5px] cursor-pointer"
+                        className="block w-full h-auto translate-y-0.5 sm:translate-y-[5px] cursor-pointer"
                         loading="lazy"
                         onClick={() => setExpandedImage(flowSrc)}
                       />

@@ -80,6 +80,12 @@ export default function TechStack() {
       items: [
         { label: "Azure", short: "A", iconSrc: "/icons/tech/azure.svg" },
         {
+          label: "AWS",
+          short: "A",
+          iconLight: "/icons/tech/aws-light.svg",
+          iconDark: "/icons/tech/aws-dark.svg",
+        },
+        {
           label: "Azure Data Explorer (ADX)",
           short: "A",
           iconSrc: "/icons/tech/adx.svg",
@@ -89,12 +95,6 @@ export default function TechStack() {
           label: "Databricks",
           short: "D",
           iconSrc: "/icons/tech/databricks.svg",
-        },
-        {
-          label: "AWS",
-          short: "A",
-          iconLight: "/icons/tech/aws-light.svg",
-          iconDark: "/icons/tech/aws-dark.svg",
         },
       ],
     },
