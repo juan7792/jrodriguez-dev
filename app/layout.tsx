@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   icons: {
-    icon: "/favicon-circle.svg",
+    icon: "/favicon-logo.svg",
   },
 };
 
