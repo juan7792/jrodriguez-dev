@@ -15,15 +15,7 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
-const rawHost = process.env.CF_PAGES_URL || "localhost:3000";
-const host = rawHost.replace(/^https?:\/\//, "");
-
-const protocol = host.includes("localhost") ? "http" : "https";
-const baseUrl = `${protocol}://${host}`;
-
 export const metadata: Metadata = {
-  metadataBase: new URL(baseUrl),
-
   icons: {
     icon: "/favicon-logo.svg",
   },
