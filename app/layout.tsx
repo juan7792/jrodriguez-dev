@@ -1,5 +1,6 @@
 import "./globals.css";
 import Providers from "@/components/Providers";
+import { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
 const geistSans = Geist({
@@ -13,6 +14,12 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   display: "swap",
 });
+
+export const metadata: Metadata = {
+  icons: {
+    icon: "/favicon-circle.svg",
+  },
+};
 
 export default function RootLayout({
   children,
