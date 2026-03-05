@@ -15,11 +15,7 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
-const rawHost = process.env.CF_PAGES_URL || "localhost:3000";
-const host = rawHost.replace(/^https?:\/\//, "");
-
-const protocol = host.includes("localhost") ? "http" : "https";
-const baseUrl = `${protocol}://${host}`;
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
