@@ -19,6 +19,16 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon-logo.svg",
   },
+  openGraph: {
+    images: [
+      {
+        url: "/opengraph-logo.png", // El archivo PNG que pusiste en public
+        width: 900,
+        height: 600,
+        alt: "Juan Rodriguez Logo",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
