@@ -276,19 +276,19 @@ export default function Projects() {
       {
         key: "scimApi",
         roleKey: "backendEngineer",
-        tech: ["Java", "Spring", "Hibernate", "PostgreSQL", "SCIM", "Azure AD"],
+        tech: ["Java", "Spring", "Hibernate", "PostgreSQL", "Azure AD", "SCIM"],
       },
       {
         key: "ecommerce",
         roleKey: "fullStackDeveloper",
         tech: [
           "Java",
-          "Spring Boot",
-          "Hibernate",
           "Angular",
-          "Tailwind CSS",
           "MySQL",
+          "Hibernate",
+          "Spring Boot",
           "JWT",
+          "Tailwind CSS",
           "Docker",
         ],
       },
@@ -312,7 +312,7 @@ export default function Projects() {
       {
         key: "trainingLog",
         roleKey: "soloDeveloper",
-        tech: ["Python", "SQLite", "PostgreSQL", "NumPy", "Matplotlib", "Git"],
+        tech: ["Python", "SQLite", "NumPy", "PostgreSQL", "Matplotlib", "Git"],
       },
       {
         key: "gameTracker",
