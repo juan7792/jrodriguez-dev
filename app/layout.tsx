@@ -22,9 +22,9 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       {
-        url: "/opengraph-logo.png", // El archivo PNG que pusiste en public
+        url: "/opengraph-logo.png",
         width: 900,
-        height: 600,
+        height: 900,
         alt: "Juan Rodriguez Logo",
       },
     ],
