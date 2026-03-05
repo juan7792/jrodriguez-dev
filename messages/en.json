@@ -1,6 +1,5 @@
 {
   "Nav": {
-    "name": "Juan Rodriguez",
     "services": "Services",
     "projects": "Projects",
     "tech": "Tech Stack",
@@ -8,7 +7,7 @@
     "contact": "Contact"
   },
   "Hero": {
-    "eyebrow": "Software Engineer",
+    "eyebrow": "Software Engineer — Juan Rodriguez",
     "headline": "Building scalable data-driven web solutions",
     "subheadline": "I design and build end-to-end software systems — from data pipelines and backend architecture to AI-enabled web applications.",
     "paragraph": "I focus on clean architecture, clear communication, and long-term maintainability, helping teams deliver solutions that create real business value.",
