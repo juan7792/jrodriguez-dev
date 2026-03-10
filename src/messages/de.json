@@ -64,7 +64,7 @@
       "soloDeveloper": "Selbstständige Softwareentwicklung",
       "modelDeveloper": "Applied Machine Learning & Probabilistische Modellierung",
       "fullStackDeveloper": "Full-Stack Entwickler",
-      "backendEngineer": "Backend Engineer",
+      "backendEngineer": "Software Engineer",
       "dataEngineer": "Data Engineer"
     },
     "telemetryPipeline": {
@@ -74,6 +74,15 @@
         "Datenaufnahme in ADX und Transformationen mit KQL",
         "Analysefähige Datensätze als Grundlage für Engineering-Dashboards",
         "Pragmatisches Design für Stabilität und Skalierbarkeit"
+      ]
+    },
+    "speechTranslation": {
+      "name": "KI-gestützte Pipeline zur mehrsprachigen Sprachübersetzung",
+      "details": "Echtzeit Sprachverarbeitungspipeline zur Erfassung von Live-Audio, Transkription und mehrsprachiger Übersetzung sowie zur Übertragung von Untertiteln in Browser.",
+      "highlights": [
+        "Echtzeit Audioingestion und Speech-to-Text Verarbeitung",
+        "Mehrsprachige Übersetzung mit Azure-Integration",
+        "Untertitel-Streaming für browserbasierte Anzeigeoberflächen"
       ]
     },
     "scimApi": {
@@ -92,15 +101,6 @@
         "Sichere Authentifizierung und rollenbasierte Zugriffskontrolle mit JWT",
         "Transaktionssichere Verwaltung von Produkten und Beständen",
         "Trennung von Backend und Frontend mit API-basierter Integration"
-      ]
-    },
-    "speechTranslation": {
-      "name": "Echtzeit-Mehrsprachiges Sprachübersetzungssystem",
-      "details": "Echtzeit Sprachverarbeitungspipeline zur Erfassung von Live-Audio, Transkription und mehrsprachiger Übersetzung sowie zur Übertragung von Untertiteln in Browser.",
-      "highlights": [
-        "Echtzeit Audioingestion und Speech-to-Text Verarbeitung",
-        "Mehrsprachige Übersetzung mit Azure-Integration",
-        "Untertitel-Streaming für browserbasierte Anzeigeoberflächen"
       ]
     },
     "reliabilityModel": {

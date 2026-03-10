@@ -224,6 +224,10 @@ const FLOWCHARTS: Record<string, FlowchartConfig> = {
     projectKey: "telemetry-pipeline",
     alt: "Flowchart for Cloud-Based Automotive Telemetry Data Pipeline",
   },
+  speechTranslation: {
+    projectKey: "speech-translation",
+    alt: "Flowchart for AI-Powered Multilingual Speech Translation Pipeline",
+  },
   scimApi: {
     projectKey: "user-provisioning-api",
     alt: "Flowchart for User Provisioning Integration API",
@@ -231,10 +235,6 @@ const FLOWCHARTS: Record<string, FlowchartConfig> = {
   ecommerce: {
     projectKey: "e-commerce-platform",
     alt: "Flowchart for Full-Stack E-commerce Platform",
-  },
-  speechTranslation: {
-    projectKey: "speech-translation",
-    alt: "Flowchart for Real-Time Multilingual Speech Translation System",
   },
   reliabilityModel: {
     projectKey: "reliability-model",
@@ -274,6 +274,18 @@ export default function Projects() {
         tech: ["Azure", "ADX", "KQL", "Databricks", "Python"],
       },
       {
+        key: "speechTranslation",
+        roleKey: "fullStackDeveloper",
+        tech: [
+          "Azure Cognitive Services",
+          "Python",
+          "Whisper",
+          "Vosk",
+          "Deep-Translator",
+          "Streamlit",
+        ],
+      },
+      {
         key: "scimApi",
         roleKey: "backendEngineer",
         tech: ["Java", "Spring", "Hibernate", "PostgreSQL", "Azure AD", "SCIM"],
@@ -290,18 +302,6 @@ export default function Projects() {
           "JWT",
           "Tailwind CSS",
           "Docker",
-        ],
-      },
-      {
-        key: "speechTranslation",
-        roleKey: "fullStackDeveloper",
-        tech: [
-          "Azure Cognitive Services",
-          "Python",
-          "Whisper",
-          "Vosk",
-          "Deep-Translator",
-          "Streamlit",
         ],
       },
       {

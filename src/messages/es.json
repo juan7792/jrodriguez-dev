@@ -64,7 +64,7 @@
       "soloDeveloper": "Desarrollo de Software Independiente",
       "modelDeveloper": "Machine Learning Aplicado & Modelado Probabilístico",
       "fullStackDeveloper": "Desarrollador Full-Stack",
-      "backendEngineer": "Backend Engineer",
+      "backendEngineer": "Software Engineer",
       "dataEngineer": "Data Engineer"
     },
     "telemetryPipeline": {
@@ -74,6 +74,15 @@
         "Ingestión en ADX y transformaciones en KQL",
         "Conjuntos de datos listos para análisis que llenan dashboards para ingenieros",
         "Diseño pragmático orientado a confiabilidad y escalabilidad"
+      ]
+    },
+    "speechTranslation": {
+      "name": "Pipeline de Traducción Multilingüe de Voz basado en IA",
+      "details": "Pipeline de procesamiento de voz en tiempo real que captura audio en vivo, realiza transcripción y traducción multilingüe, y transmite subtítulos en el navegador.",
+      "highlights": [
+        "Ingesta de audio en tiempo real y procesamiento de voz a texto",
+        "Traducción multilingüe con integración en Azure",
+        "Transmisión de subtítulos hacia una interfaz web para visualización"
       ]
     },
     "scimApi": {
@@ -92,15 +101,6 @@
         "Autenticación segura y control de acceso basado en roles con JWT",
         "Gestión transaccional consistente de productos e inventario",
         "Separación entre backend y frontend con integración basada en APIs"
-      ]
-    },
-    "speechTranslation": {
-      "name": "Sistema de Traducción Multilingüe de Voz en Tiempo Real",
-      "details": "Pipeline de procesamiento de voz en tiempo real que captura audio en vivo, realiza transcripción y traducción multilingüe, y transmite subtítulos en el navegador.",
-      "highlights": [
-        "Ingesta de audio en tiempo real y procesamiento de voz a texto",
-        "Traducción multilingüe con integración en Azure",
-        "Transmisión de subtítulos hacia una interfaz web para visualización"
       ]
     },
     "reliabilityModel": {
