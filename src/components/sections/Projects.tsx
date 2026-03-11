@@ -433,7 +433,7 @@ export default function Projects() {
               </div>
 
               {/* Hover hint */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-slate-500 dark:text-slate-400 opacity-0 transition-opacity group-hover:opacity-100">
+              <div className="hidden sm:block absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-slate-500 dark:text-slate-400 opacity-0 transition-opacity group-hover:opacity-100">
                 {t("openHintDesktop")}
               </div>
 
