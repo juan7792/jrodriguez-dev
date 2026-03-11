@@ -53,7 +53,8 @@
     "title": "Selected Projects",
     "subtitle": "A selection of systems and applications I’ve designed and implemented — spanning cloud data pipelines, backend integrations, and full-stack systems.",
     "download": "Download full portfolio (PDF)",
-    "openHint": "Click to view details",
+    "openHintDesktop": "Click to view details",
+    "openHintMobile": "View details",
     "modal": {
       "eyebrow": "Project details",
       "highlights": "Highlights",
@@ -64,7 +65,7 @@
       "soloDeveloper": "Independent Software Development",
       "modelDeveloper": "Applied Machine Learning & Probabilistic Modeling",
       "fullStackDeveloper": "Full-Stack Developer",
-      "backendEngineer": "Backend Engineer",
+      "backendEngineer": "Software Engineer",
       "dataEngineer": "Data Engineer"
     },
     "telemetryPipeline": {
@@ -74,6 +75,15 @@
         "ADX ingestion and KQL transformations",
         "Analytics-ready datasets powering engineering dashboards",
         "Pragmatic design for reliability and scale"
+      ]
+    },
+    "speechTranslation": {
+      "name": "AI-Powered Multilingual Speech Translation Pipeline",
+      "details": "Real-time speech processing pipeline that captures live audio, performs transcription and multilingual translation, and streams browser-based captions.",
+      "highlights": [
+        "Real-time audio ingestion and speech-to-text processing",
+        "Multilingual translation with Azure integration",
+        "Caption streaming to browser-based display UI"
       ]
     },
     "scimApi": {
@@ -92,15 +102,6 @@
         "Secure authentication and role-based access with JWT",
         "Consistent transactional handling of products and inventory",
         "Clear backend–frontend separation and API-driven integration"
-      ]
-    },
-    "speechTranslation": {
-      "name": "Real-Time Multilingual Speech Translation System",
-      "details": "Real-time speech processing pipeline that captures live audio, performs transcription and multilingual translation, and streams browser-based captions.",
-      "highlights": [
-        "Real-time audio ingestion and speech-to-text processing",
-        "Multilingual translation with Azure integration",
-        "Caption streaming to browser-based display UI"
       ]
     },
     "reliabilityModel": {
@@ -198,5 +199,10 @@
         "body": "Hi Juan,\n\nI came across your work and am interested in discussing a potential collaboration.\n\nHere’s a bit about what I’m working on:\n\n- Project overview:\n- Timeline:\n- Tech stack (if relevant):\n\nLooking forward to hearing from you.\n\nBest regards,"
       }
     }
+  },
+  "Footer": {
+    "designedBy": "Designed and coded by me with",
+    "checkRepo": "Want to check how?",
+    "cta": "Here you go"
   }
 }

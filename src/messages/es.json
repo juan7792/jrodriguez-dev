@@ -53,7 +53,8 @@
     "title": "Selección de Proyectos",
     "subtitle": "Una selección de sistemas y aplicaciones que he diseñado e implementado, abarcando pipelines en la nube, integraciones backend y sistemas full-stack.",
     "download": "Descargar portafolio completo (PDF)",
-    "openHint": "Haz clic para ver detalles",
+    "openHintDesktop": "Haz clic para ver detalles",
+    "openHintMobile": "Ver detalles",
     "modal": {
       "eyebrow": "Detalles del proyecto",
       "highlights": "Puntos clave",
@@ -64,7 +65,7 @@
       "soloDeveloper": "Desarrollo de Software Independiente",
       "modelDeveloper": "Machine Learning Aplicado & Modelado Probabilístico",
       "fullStackDeveloper": "Desarrollador Full-Stack",
-      "backendEngineer": "Backend Engineer",
+      "backendEngineer": "Software Engineer",
       "dataEngineer": "Data Engineer"
     },
     "telemetryPipeline": {
@@ -74,6 +75,15 @@
         "Ingestión en ADX y transformaciones en KQL",
         "Conjuntos de datos listos para análisis que llenan dashboards para ingenieros",
         "Diseño pragmático orientado a confiabilidad y escalabilidad"
+      ]
+    },
+    "speechTranslation": {
+      "name": "Pipeline de Traducción Multilingüe de Voz basado en IA",
+      "details": "Pipeline de procesamiento de voz en tiempo real que captura audio en vivo, realiza transcripción y traducción multilingüe, y transmite subtítulos en el navegador.",
+      "highlights": [
+        "Ingesta de audio en tiempo real y procesamiento de voz a texto",
+        "Traducción multilingüe con integración en Azure",
+        "Transmisión de subtítulos hacia una interfaz web para visualización"
       ]
     },
     "scimApi": {
@@ -92,15 +102,6 @@
         "Autenticación segura y control de acceso basado en roles con JWT",
         "Gestión transaccional consistente de productos e inventario",
         "Separación entre backend y frontend con integración basada en APIs"
-      ]
-    },
-    "speechTranslation": {
-      "name": "Sistema de Traducción Multilingüe de Voz en Tiempo Real",
-      "details": "Pipeline de procesamiento de voz en tiempo real que captura audio en vivo, realiza transcripción y traducción multilingüe, y transmite subtítulos en el navegador.",
-      "highlights": [
-        "Ingesta de audio en tiempo real y procesamiento de voz a texto",
-        "Traducción multilingüe con integración en Azure",
-        "Transmisión de subtítulos hacia una interfaz web para visualización"
       ]
     },
     "reliabilityModel": {
@@ -198,5 +199,10 @@
         "body": "Hola Juan,\n\nEncontré tu perfil y me interesaría conversar sobre una posible colaboración.\n\nAquí tienes un poco de información sobre lo que estoy desarrollando:\n\n- Descripción del proyecto:\n- Cronograma:\n- Tech stack (si aplica):\n\nQuedo atento a tu respuesta.\n\nSaludos cordiales,"
       }
     }
+  },
+  "Footer": {
+    "designedBy": "Diseñado y programado por mí con",
+    "checkRepo": "¿Quieres ver el código?",
+    "cta": "Aquí lo tienes"
   }
 }

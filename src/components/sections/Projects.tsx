@@ -8,6 +8,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import CardButton from "@/components/ui/CardButton";
 import TechTag from "@/components/ui/TechTag";
 import { useTheme } from "next-themes";
+import { useIsTouchDevice } from "@/hooks/useIsTouchDevice";
 
 type Project = {
   key: string;
@@ -224,6 +225,10 @@ const FLOWCHARTS: Record<string, FlowchartConfig> = {
     projectKey: "telemetry-pipeline",
     alt: "Flowchart for Cloud-Based Automotive Telemetry Data Pipeline",
   },
+  speechTranslation: {
+    projectKey: "speech-translation",
+    alt: "Flowchart for AI-Powered Multilingual Speech Translation Pipeline",
+  },
   scimApi: {
     projectKey: "user-provisioning-api",
     alt: "Flowchart for User Provisioning Integration API",
@@ -231,10 +236,6 @@ const FLOWCHARTS: Record<string, FlowchartConfig> = {
   ecommerce: {
     projectKey: "e-commerce-platform",
     alt: "Flowchart for Full-Stack E-commerce Platform",
-  },
-  speechTranslation: {
-    projectKey: "speech-translation",
-    alt: "Flowchart for Real-Time Multilingual Speech Translation System",
   },
   reliabilityModel: {
     projectKey: "reliability-model",
@@ -261,6 +262,7 @@ function buildFlowSrc(
 export default function Projects() {
   const t = useTranslations("Projects");
   const locale = useLocale();
+  const isTouchDevice = useIsTouchDevice();
 
   // Theme (dark/light/system)
   const { theme, resolvedTheme } = useTheme();
@@ -272,6 +274,18 @@ export default function Projects() {
         key: "telemetryPipeline",
         roleKey: "dataEngineer",
         tech: ["Azure", "ADX", "KQL", "Databricks", "Python"],
+      },
+      {
+        key: "speechTranslation",
+        roleKey: "fullStackDeveloper",
+        tech: [
+          "Azure Cognitive Services",
+          "Python",
+          "Whisper",
+          "Vosk",
+          "Deep-Translator",
+          "Streamlit",
+        ],
       },
       {
         key: "scimApi",
@@ -290,18 +304,6 @@ export default function Projects() {
           "JWT",
           "Tailwind CSS",
           "Docker",
-        ],
-      },
-      {
-        key: "speechTranslation",
-        roleKey: "fullStackDeveloper",
-        tech: [
-          "Azure Cognitive Services",
-          "Python",
-          "Whisper",
-          "Vosk",
-          "Deep-Translator",
-          "Streamlit",
         ],
       },
       {
@@ -431,9 +433,32 @@ export default function Projects() {
               </div>
 
               {/* Hover hint */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-slate-500 dark:text-slate-400 opacity-0 transition-opacity group-hover:opacity-100">
-                {t("openHint")}
+              <div className="hidden sm:block absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-slate-500 dark:text-slate-400 opacity-0 transition-opacity group-hover:opacity-100">
+                {t("openHintDesktop")}
               </div>
+
+              {/* Touch Hint (Mobile) - Solo se renderiza en dispositivos táctiles */}
+              {/* 2. Touch Hint (Mobile) - Versión minimalista y discreta */}
+              {isTouchDevice && (
+                <div className="sm:hidden absolute bottom-3 right-5 flex items-center gap-1.5 text-[10px] uppercase tracking-[0.15em] text-slate-500/80 dark:text-slate-400/80">
+                  <span>{t("openHintMobile")}</span>
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="opacity-70"
+                  >
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </div>
+              )}
             </div>
           </CardButton>
         ))}

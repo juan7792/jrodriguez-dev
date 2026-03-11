@@ -6,6 +6,7 @@ import TechStack from "@/components/sections/TechStack";
 import Projects from "@/components/sections/Projects";
 import Life from "@/components/sections/Life";
 import Contact from "@/components/sections/Contact";
+import Footer from "@/components/sections/Footer";
 
 export const runtime = "edge";
 
@@ -18,6 +19,7 @@ export default function HomePage() {
       <TechStack />
       <Life />
       <Contact />
+      <Footer />
     </>
   );
 }
