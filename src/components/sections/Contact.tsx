@@ -44,7 +44,7 @@ export default function Contact() {
   // Contact identifiers
   const CONTACT_INFO = {
     email: "juanm.rodriguez.dev@gmail.com",
-    linkedin: "linkedin.com/in/j-rodriguez-lvv/",
+    linkedin: "linkedin.com/in/j-rodriguez-lvv",
     github: "github.com/juan7792",
   };
 
