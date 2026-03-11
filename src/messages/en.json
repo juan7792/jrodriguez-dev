@@ -53,7 +53,8 @@
     "title": "Selected Projects",
     "subtitle": "A selection of systems and applications I’ve designed and implemented — spanning cloud data pipelines, backend integrations, and full-stack systems.",
     "download": "Download full portfolio (PDF)",
-    "openHint": "Click to view details",
+    "openHintDesktop": "Click to view details",
+    "openHintMobile": "View details",
     "modal": {
       "eyebrow": "Project details",
       "highlights": "Highlights",
@@ -198,5 +199,10 @@
         "body": "Hi Juan,\n\nI came across your work and am interested in discussing a potential collaboration.\n\nHere’s a bit about what I’m working on:\n\n- Project overview:\n- Timeline:\n- Tech stack (if relevant):\n\nLooking forward to hearing from you.\n\nBest regards,"
       }
     }
+  },
+  "Footer": {
+    "designedBy": "Designed and coded by me with",
+    "checkRepo": "Want to check how?",
+    "cta": "Here you go"
   }
 }

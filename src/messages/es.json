@@ -53,7 +53,8 @@
     "title": "Selección de Proyectos",
     "subtitle": "Una selección de sistemas y aplicaciones que he diseñado e implementado, abarcando pipelines en la nube, integraciones backend y sistemas full-stack.",
     "download": "Descargar portafolio completo (PDF)",
-    "openHint": "Haz clic para ver detalles",
+    "openHintDesktop": "Haz clic para ver detalles",
+    "openHintMobile": "Ver detalles",
     "modal": {
       "eyebrow": "Detalles del proyecto",
       "highlights": "Puntos clave",
@@ -198,5 +199,10 @@
         "body": "Hola Juan,\n\nEncontré tu perfil y me interesaría conversar sobre una posible colaboración.\n\nAquí tienes un poco de información sobre lo que estoy desarrollando:\n\n- Descripción del proyecto:\n- Cronograma:\n- Tech stack (si aplica):\n\nQuedo atento a tu respuesta.\n\nSaludos cordiales,"
       }
     }
+  },
+  "Footer": {
+    "designedBy": "Diseñado y programado por mí con",
+    "checkRepo": "¿Quieres ver el código?",
+    "cta": "Aquí lo tienes"
   }
 }

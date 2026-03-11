@@ -53,7 +53,8 @@
     "title": "Ausgewählte Projekte",
     "subtitle": "Eine Auswahl von Systemen, die ich konzipierte und umgesetzte – von Cloud-Datenpipelines über Backend-Integrationen bis Full-Stack-Apps.",
     "download": "Vollständiges Portfolio herunterladen (PDF)",
-    "openHint": "Klicken, um Details zu öffnen",
+    "openHintDesktop": "Klicken, um Details zu öffnen",
+    "openHintMobile": "Details anzeigen",
     "modal": {
       "eyebrow": "Projektdetails",
       "highlights": "Highlights",
@@ -199,5 +200,10 @@
         "body": "Hallo Juan,\n\nIch bin auf deine Arbeit aufmerksam geworden und hätte Interesse, eine mögliche Zusammenarbeit zu besprechen.\n\nHier ein paar Informationen zu meinem Projekt:\n\n- Projektüberblick:\n- Zeitrahmen:\n- Tech-Stack (falls relevant):\n\nIch freue mich auf deine Rückmeldung.\n\nMit freundlichen Grüßen,"
       }
     }
+  },
+  "Footer": {
+    "designedBy": "Von mir entworfen und entwickelt mit",
+    "checkRepo": "Möchtest du den Code sehen?",
+    "cta": "Hier geht's zum Code"
   }
 }

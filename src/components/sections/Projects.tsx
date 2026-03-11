@@ -8,6 +8,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import CardButton from "@/components/ui/CardButton";
 import TechTag from "@/components/ui/TechTag";
 import { useTheme } from "next-themes";
+import { useIsTouchDevice } from "@/hooks/useIsTouchDevice";
 
 type Project = {
   key: string;
@@ -261,6 +262,7 @@ function buildFlowSrc(
 export default function Projects() {
   const t = useTranslations("Projects");
   const locale = useLocale();
+  const isTouchDevice = useIsTouchDevice();
 
   // Theme (dark/light/system)
   const { theme, resolvedTheme } = useTheme();
@@ -432,8 +434,31 @@ export default function Projects() {
 
               {/* Hover hint */}
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-slate-500 dark:text-slate-400 opacity-0 transition-opacity group-hover:opacity-100">
-                {t("openHint")}
+                {t("openHintDesktop")}
               </div>
+
+              {/* Touch Hint (Mobile) - Solo se renderiza en dispositivos táctiles */}
+              {/* 2. Touch Hint (Mobile) - Versión minimalista y discreta */}
+              {isTouchDevice && (
+                <div className="sm:hidden absolute bottom-3 right-5 flex items-center gap-1.5 text-[10px] uppercase tracking-[0.15em] text-slate-500/80 dark:text-slate-400/80">
+                  <span>{t("openHintMobile")}</span>
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="opacity-70"
+                  >
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </div>
+              )}
             </div>
           </CardButton>
         ))}
