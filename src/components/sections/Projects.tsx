@@ -16,8 +16,8 @@ type Project = {
   tech: string[];
 };
 
-// Minimal lookup: re-use the same icons you use in TechStack.
-// Anything not found falls back to text-only TechTag (no icon).
+// Technology metadata lookup - Organized by project for easier maintenance
+
 const TECH_TAGS: Record<
   string,
   {
@@ -26,118 +26,10 @@ const TECH_TAGS: Record<
     iconSrc?: string;
     iconLight?: string;
     iconDark?: string;
-    iconAlt?: string;
   }
 > = {
-  // -------------------------
-  // Languages
-  // -------------------------
-  Java: {
-    label: "Java",
-    short: "J",
-    iconLight: "/icons/tech/java-light.svg",
-    iconDark: "/icons/tech/java-dark.svg",
-  },
-  Python: { label: "Python", short: "P", iconSrc: "/icons/tech/python.svg" },
-  TypeScript: {
-    label: "TypeScript",
-    short: "T",
-    iconSrc: "/icons/tech/typescript.svg",
-  },
-  JavaScript: {
-    label: "JavaScript",
-    short: "J",
-    iconSrc: "/icons/tech/javascript.svg",
-  },
-  SQL: { label: "SQL", short: "S", iconSrc: "/icons/tech/sql.svg" },
-  "C++": { label: "C++", short: "C", iconSrc: "/icons/tech/cpp.svg" },
-
-  // -------------------------
-  // Backend
-  // -------------------------
-  Spring: { label: "Spring", short: "S", iconSrc: "/icons/tech/spring.svg" },
-  "Spring Boot": {
-    label: "Spring Boot",
-    short: "S",
-    iconSrc: "/icons/tech/spring-boot.svg",
-  },
-  Hibernate: {
-    label: "Hibernate",
-    short: "H",
-    iconSrc: "/icons/tech/hibernate.svg",
-  },
-  "Node.js": {
-    label: "Node.js",
-    short: "N",
-    iconSrc: "/icons/tech/nodejs.svg",
-  },
-  NestJS: { label: "NestJS", short: "N", iconSrc: "/icons/tech/nestjs.svg" },
-  "REST APIs": {
-    label: "REST APIs",
-    short: "R",
-    iconSrc: "/icons/tech/rest-api.svg",
-  },
-  SCIM: {
-    label: "SCIM",
-    short: "S",
-    iconLight: "/icons/tech/scim-light.svg",
-    iconDark: "/icons/tech/scim-dark.svg",
-  },
-  "SCIM APIs": {
-    label: "SCIM APIs",
-    short: "S",
-    iconLight: "/icons/tech/scim-light.svg",
-    iconDark: "/icons/tech/scim-dark.svg",
-  },
-  JUnit: { label: "JUnit", short: "J", iconSrc: "/icons/tech/junit.svg" },
-  Mockito: { label: "Mockito", short: "M", iconSrc: "/icons/tech/mockito.png" },
-
-  // Optional backend/security icons (add files if you want)
-  JWT: { label: "JWT", short: "J", iconSrc: "/icons/tech/jwt.svg" },
-  "Azure AD": {
-    label: "Azure AD",
-    short: "AD",
-    iconSrc: "/icons/tech/azure-ad.svg",
-  },
-
-  // -------------------------
-  // Frontend
-  // -------------------------
-  Angular: { label: "Angular", short: "A", iconSrc: "/icons/tech/angular.svg" },
-  React: { label: "React", short: "R", iconSrc: "/icons/tech/react.svg" },
-  "Next.js": {
-    label: "Next.js",
-    short: "N",
-    iconLight: "/icons/tech/nextjs-light.svg",
-    iconDark: "/icons/tech/nextjs-dark.svg",
-  },
-  "Tailwind CSS": {
-    label: "Tailwind CSS",
-    short: "T",
-    iconSrc: "/icons/tech/tailwind.svg",
-  },
-  HTML: { label: "HTML", short: "H", iconSrc: "/icons/tech/html.svg" },
-  CSS: { label: "CSS", short: "C", iconSrc: "/icons/tech/css.svg" },
-
-  // -------------------------
-  // Databases
-  // -------------------------
-  PostgreSQL: {
-    label: "PostgreSQL",
-    short: "P",
-    iconSrc: "/icons/tech/postgresql.svg",
-  },
-  MySQL: {
-    label: "MySQL",
-    short: "M",
-    iconLight: "/icons/tech/mysql-light.svg",
-    iconDark: "/icons/tech/mysql-dark.svg",
-  },
-  SQLite: { label: "SQLite", short: "S", iconSrc: "/icons/tech/sqlite.svg" },
-
-  // -------------------------
-  // Data / Cloud
-  // -------------------------
+  // --- Project: Telemetry Pipeline ---
+  // (Python is used here)
   Azure: { label: "Azure", short: "A", iconSrc: "/icons/tech/azure.svg" },
   ADX: { label: "ADX", short: "A", iconSrc: "/icons/tech/adx.svg" },
   KQL: { label: "KQL", short: "K", iconSrc: "/icons/tech/kql.svg" },
@@ -146,46 +38,9 @@ const TECH_TAGS: Record<
     short: "D",
     iconSrc: "/icons/tech/databricks.svg",
   },
-  AWS: {
-    label: "AWS",
-    short: "A",
-    iconLight: "/icons/tech/aws-light.svg",
-    iconDark: "/icons/tech/aws-dark.svg",
-  },
 
-  // -------------------------
-  // Tools / Infra
-  // -------------------------
-  Git: { label: "Git", short: "G", iconSrc: "/icons/tech/git.svg" },
-  Docker: { label: "Docker", short: "D", iconSrc: "/icons/tech/docker.svg" },
-  Linux: { label: "Linux", short: "L", iconSrc: "/icons/tech/linux.svg" },
-  Maven: { label: "Maven", short: "M", iconSrc: "/icons/tech/maven.svg" },
-  Jira: { label: "Jira", short: "J", iconSrc: "/icons/tech/jira.svg" },
-
-  // -------------------------
-  // Scientific / Modeling
-  // -------------------------
-  MATLAB: { label: "MATLAB", short: "M", iconSrc: "/icons/tech/matlab.svg" },
-  NumPy: { label: "NumPy", short: "NP", iconSrc: "/icons/tech/numpy.svg" },
-  Matplotlib: {
-    label: "Matplotlib",
-    short: "MPL",
-    iconSrc: "/icons/tech/matplotlib.svg",
-  },
-  "Statistics Toolbox": {
-    label: "Statistics Toolbox",
-    short: "ST",
-    iconSrc: "/icons/tech/statistics-toolbox.svg",
-  },
-  "GeNIe Modeler": {
-    label: "GeNIe Modeler",
-    short: "G",
-    iconSrc: "/icons/tech/genie-modeler.svg",
-  },
-
-  // -------------------------
-  // Speech / Translation
-  // -------------------------
+  // --- Project: Speech Translation ---
+  // (Python is used here)
   "Azure Cognitive Services": {
     label: "Azure Cognitive Services",
     short: "A",
@@ -198,17 +53,101 @@ const TECH_TAGS: Record<
     iconDark: "/icons/tech/openai-dark.svg",
   },
   Vosk: { label: "Vosk", short: "V", iconSrc: "/icons/tech/vosk.png" },
-  "Deep-Translator": {
-    label: "Deep-Translator",
+  "DeepL-Translator": {
+    label: "DeepL-Translator",
     short: "DT",
-    iconLight: "/icons/tech/deep-translator-light.svg",
-    iconDark: "/icons/tech/deep-translator-dark.svg",
+    iconLight: "/icons/tech/deepl-translator-light.svg",
+    iconDark: "/icons/tech/deepl-translator-dark.svg",
   },
   Streamlit: {
     label: "Streamlit",
     short: "S",
     iconSrc: "/icons/tech/streamlit.svg",
   },
+
+  // --- Project: SCIM API ---
+  // (Java, Hibernate, PostgreSQL are used here)
+  Spring: { label: "Spring", short: "S", iconSrc: "/icons/tech/spring.svg" },
+  "Azure AD": {
+    label: "Azure AD",
+    short: "AD",
+    iconSrc: "/icons/tech/azure-ad.svg",
+  },
+  SCIM: {
+    label: "SCIM",
+    short: "S",
+    iconLight: "/icons/tech/scim-light.svg",
+    iconDark: "/icons/tech/scim-dark.svg",
+  },
+
+  // --- Project: E-commerce ---
+  // (Java, Hibernate are used here)
+  Angular: { label: "Angular", short: "A", iconSrc: "/icons/tech/angular.svg" },
+  MySQL: {
+    label: "MySQL",
+    short: "M",
+    iconLight: "/icons/tech/mysql-light.svg",
+    iconDark: "/icons/tech/mysql-dark.svg",
+  },
+  "Spring Boot": {
+    label: "Spring Boot",
+    short: "S",
+    iconSrc: "/icons/tech/spring-boot.svg",
+  },
+  JWT: { label: "JWT", short: "J", iconSrc: "/icons/tech/jwt.svg" },
+  "Tailwind CSS": {
+    label: "Tailwind CSS",
+    short: "T",
+    iconSrc: "/icons/tech/tailwind.svg",
+  },
+  Docker: { label: "Docker", short: "D", iconSrc: "/icons/tech/docker.svg" },
+
+  // --- Project: Reliability Model ---
+  MATLAB: { label: "MATLAB", short: "M", iconSrc: "/icons/tech/matlab.svg" },
+  "Statistics Toolbox": {
+    label: "Statistics Toolbox",
+    short: "ST",
+    iconSrc: "/icons/tech/statistics-toolbox.svg",
+  },
+  "GeNIe Modeler": {
+    label: "GeNIe Modeler",
+    short: "G",
+    iconSrc: "/icons/tech/genie-modeler.svg",
+  },
+
+  // --- Project: Training Log ---
+  // (PostgreSQL, Git are also used here)
+  NumPy: { label: "NumPy", short: "NP", iconSrc: "/icons/tech/numpy.svg" },
+  Matplotlib: {
+    label: "Matplotlib",
+    short: "MPL",
+    iconSrc: "/icons/tech/matplotlib.svg",
+  },
+
+  // --- Project: Game Tracker ---
+  // (SQLite, Git are also used here)
+  "C++": { label: "C++", short: "C", iconSrc: "/icons/tech/cpp.svg" },
+
+  // --- Shared / Common Tools ---
+  Python: { label: "Python", short: "P", iconSrc: "/icons/tech/python.svg" },
+  Java: {
+    label: "Java",
+    short: "J",
+    iconLight: "/icons/tech/java-light.svg",
+    iconDark: "/icons/tech/java-dark.svg",
+  },
+  Hibernate: {
+    label: "Hibernate",
+    short: "H",
+    iconSrc: "/icons/tech/hibernate.svg",
+  },
+  PostgreSQL: {
+    label: "PostgreSQL",
+    short: "P",
+    iconSrc: "/icons/tech/postgresql.svg",
+  },
+  SQLite: { label: "SQLite", short: "S", iconSrc: "/icons/tech/sqlite.svg" },
+  Git: { label: "Git", short: "G", iconSrc: "/icons/tech/git.svg" },
 };
 
 function toTechTagProps(label: string) {
@@ -216,7 +155,7 @@ function toTechTagProps(label: string) {
 }
 
 type FlowchartConfig = {
-  projectKey: string; // kebab-case file base name
+  projectKey: string;
   alt: string;
 };
 
@@ -263,9 +202,8 @@ export default function Projects() {
   const t = useTranslations("Projects");
   const locale = useLocale();
   const isTouchDevice = useIsTouchDevice();
-
-  // Theme (dark/light/system)
   const { theme, resolvedTheme } = useTheme();
+
   const mode = (resolvedTheme ?? theme ?? "dark") as "light" | "dark";
 
   const projects: Project[] = useMemo(
@@ -283,7 +221,7 @@ export default function Projects() {
           "Python",
           "Whisper",
           "Vosk",
-          "Deep-Translator",
+          "DeepL-Translator",
           "Streamlit",
         ],
       },
@@ -329,7 +267,7 @@ export default function Projects() {
   const [expandedImage, setExpandedImage] = useState<string | null>(null);
   const active = projects.find((p) => p.key === activeKey) ?? null;
 
-  // Lock scroll when modal open
+  // Handle body scroll lock when modal is active
   useEffect(() => {
     if (!activeKey) return;
     const prev = document.body.style.overflow;
@@ -339,18 +277,16 @@ export default function Projects() {
     };
   }, [activeKey]);
 
-  // ESC to close
+  // Global key listener for closing modals and expanded images
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
       if (e.key !== "Escape") return;
 
-      // 1) si hay imagen expandida, cerrarla primero
       if (expandedImage) {
         setExpandedImage(null);
         return;
       }
 
-      // 2) si no, cerrar modal
       setActiveKey(null);
     }
 
@@ -359,10 +295,8 @@ export default function Projects() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [activeKey, expandedImage]);
 
-  // Determine whether this project has a flowchart
   const activeFlow = active ? FLOWCHARTS[active.key] : undefined;
 
-  // Build flowchart src for current theme
   const flowSrc =
     activeFlow && active
       ? buildFlowSrc(
@@ -407,7 +341,7 @@ export default function Projects() {
             onClick={() => setActiveKey(p.key)}
             className="cursor-pointer p-4 sm:p-6"
           >
-            {/* subtle halo */}
+            {/* Visual halo effect on hover */}
             <span
               aria-hidden="true"
               className="
@@ -418,12 +352,10 @@ export default function Projects() {
             />
 
             <div className="relative flex flex-col items-center justify-center text-center min-h-[210px] py-12 sm:py-0 sm:pb-20">
-              {/* Title – true center of the card */}
               <h3 className="w-full px-2 text-lg font-semibold tracking-tight sm:px-6 sm:text-xl">
                 {t(`${p.key}.name`)}
               </h3>
 
-              {/* Tech – anchored below, limited to 2 lines */}
               <div className="relative mt-3 w-[92%] sm:absolute sm:bottom-10 sm:left-1/2 sm:-translate-x-1/2 sm:mt-0">
                 <div className="flex flex-wrap justify-center gap-2 max-h-[76px] overflow-hidden">
                   {p.tech.map((tag) => (
@@ -432,13 +364,13 @@ export default function Projects() {
                 </div>
               </div>
 
-              {/* Hover hint */}
+              {/* Desktop interaction hint */}
               <div className="hidden sm:block absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-slate-500 dark:text-slate-400 opacity-0 transition-opacity group-hover:opacity-100">
                 {t("openHintDesktop")}
               </div>
 
-              {/* Touch Hint (Mobile) - Solo se renderiza en dispositivos táctiles */}
-              {/* 2. Touch Hint (Mobile) - Versión minimalista y discreta */}
+              {/* Mobile interaction hint */}
+
               {isTouchDevice && (
                 <div className="sm:hidden absolute bottom-3 right-5 flex items-center gap-1.5 text-[10px] uppercase tracking-[0.15em] text-slate-500/80 dark:text-slate-400/80">
                   <span>{t("openHintMobile")}</span>
@@ -464,11 +396,9 @@ export default function Projects() {
         ))}
       </div>
 
-      {/* Modal */}
       <AnimatePresence>
         {active && (
           <>
-            {/* Overlay */}
             <motion.button
               type="button"
               className="fixed inset-0 z-[60] bg-black/40 backdrop-blur-sm"
@@ -479,7 +409,6 @@ export default function Projects() {
               exit={{ opacity: 0 }}
             />
 
-            {/* Panel */}
             <motion.div
               className="
                 fixed left-1/2 top-1/2 z-[61] w-[95vw] max-w-5xl -translate-x-1/2 -translate-y-1/2
@@ -528,10 +457,7 @@ export default function Projects() {
                 </Button>
               </div>
 
-              {/* Body: left text + optional right flowchart */}
-              {/* ✅ CHANGES HERE: md:items-stretch + left self-start + right flex center */}
               <div className="mt-5 grid gap-6 md:grid-cols-[1.2fr_620px] lg:grid-cols-[1.3fr_680px] md:items-stretch">
-                {/* Left column */}
                 <div className="md:self-start">
                   <p className="text-sm font-semibold">{t("modal.overview")}</p>
                   <p className="mt-3 text-sm leading-normal text-slate-600 dark:text-slate-300">
@@ -555,7 +481,7 @@ export default function Projects() {
                   </div>
                 </div>
 
-                {/* Right column: Flowchart (theme-aware via file naming) */}
+                {/* Right column: Interactive Flowchart rendering */}
                 {activeFlow && flowSrc && (
                   <div className="flex items-center">
                     <div className="w-full overflow-hidden rounded-xl border border-slate-200/60 dark:border-white/10">
@@ -588,11 +514,10 @@ export default function Projects() {
         )}
       </AnimatePresence>
 
-      {/* Expanded flowchart overlay */}
+      {/* Fullscreen Flowchart Overlay */}
       <AnimatePresence>
         {expandedImage && (
           <>
-            {/* Overlay */}
             <motion.button
               type="button"
               className="fixed inset-0 z-[70] bg-black/70 backdrop-blur-md"
@@ -603,7 +528,6 @@ export default function Projects() {
               exit={{ opacity: 0 }}
             />
 
-            {/* Image */}
             <motion.div
               className="fixed inset-0 z-[71] flex items-center justify-center p-6"
               onClick={() => setExpandedImage(null)}

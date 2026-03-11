@@ -13,13 +13,15 @@ export default function Hero() {
   const mailtoSubject = tContact("message.email.subject");
   const mailtoBody = tContact("message.email.body");
 
+  // Construct mailto link with encoded localization strings
   const mailtoHref = `mailto:${email}?subject=${encodeURIComponent(
     mailtoSubject,
   )}&body=${encodeURIComponent(mailtoBody)}`;
 
-  // Locale puede venir como "en", "es", "de" o "en-US".
+  // Handle locale formatting (e.g., "en-US" -> "en")
   const lang = locale.split("-")[0];
 
+  // Resolve CV file path based on active language
   const cvHref =
     lang === "es"
       ? "/pdf/CV-Juan-Rodriguez-ES.pdf"

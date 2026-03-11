@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
+// URL construction to activate sharing icon in social media
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 export const metadata: Metadata = {
@@ -42,6 +43,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      // suppressHydrationWarning is required for next-themes to work correctly
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable}`}
     >

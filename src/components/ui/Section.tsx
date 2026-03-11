@@ -1,6 +1,10 @@
 import type { ReactNode } from "react";
 import Container from "./Container";
 
+/**
+ * Section component that provides consistent vertical spacing,
+ * semantic headers, and uses the Container component for alignment.
+ */
 type SectionProps = {
   children: ReactNode;
   title?: string;
@@ -18,9 +22,19 @@ export default function Section({
   containerClassName = "",
   id,
 }: SectionProps) {
+  // Section-level spacing and scroll behavior
+  const sectionClasses = [
+    "scroll-mt-8", // Offset for sticky navigation
+    "py-14 sm:py-20", // Vertical padding scale
+    className, // Backgrounds or extra borders from parent
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
-    <section id={id} className={`scroll-mt-8 py-14 sm:py-20 ${className}`}>
+    <section id={id} className={sectionClasses}>
       <Container className={containerClassName}>
+        {/* Conditional rendering of the section header */}
         {(title || subtitle) && (
           <header className="mb-10 sm:mb-12">
             {title && (
@@ -35,6 +49,8 @@ export default function Section({
             )}
           </header>
         )}
+
+        {/* Section content */}
         {children}
       </Container>
     </section>

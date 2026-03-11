@@ -2,6 +2,9 @@
 
 import Image from "next/image";
 
+/**
+ * Technical skill badge with support for icons (light/dark/single).
+ */
 type TechTagSize = "sm" | "md";
 
 type TechTagProps = {
@@ -22,30 +25,35 @@ export default function TechTag({
   iconLight,
   iconDark,
   iconAlt,
-  className,
+  className = "",
   size = "md",
 }: TechTagProps) {
   const isSm = size === "sm";
 
+  // Container styling
   const base = [
     "inline-flex items-center rounded-full border",
     "border-slate-200 bg-white/50",
     "dark:border-slate-800 dark:bg-slate-950/40",
   ].join(" ");
 
+  // Responsive padding and typography
   const sizing = isSm
     ? "gap-1.5 px-2 py-1 text-xs"
     : "gap-2 px-3 py-1.5 text-sm";
 
-  const iconWrap = isSm
-    ? "inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-900"
-    : "inline-flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-900";
+  // Circle wrapper for the icon/text-short
+  const iconWrap = [
+    "inline-flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-900",
+    isSm ? "h-6 w-6" : "h-7 w-7",
+  ].join(" ");
 
   const iconSize = isSm ? 18 : 22;
 
   return (
-    <span className={[base, sizing, className ?? ""].join(" ")}>
-      {(iconSrc || iconLight || short) && (
+    <span className={[base, sizing, className].filter(Boolean).join(" ")}>
+      {/* Icon or Short Text Logic */}
+      {(iconSrc || (iconLight && iconDark) || short) && (
         <span className={iconWrap}>
           {iconLight && iconDark ? (
             <>
@@ -80,6 +88,7 @@ export default function TechTag({
         </span>
       )}
 
+      {/* Tag Label */}
       <span className="text-slate-900 dark:text-slate-100">{label}</span>
     </span>
   );

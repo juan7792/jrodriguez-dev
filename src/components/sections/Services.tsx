@@ -10,6 +10,7 @@ type ServiceKey = "fullstack" | "backend" | "data";
 export default function Services() {
   const t = useTranslations("Services");
 
+  // Configuration for service cards and their respective assets
   const items: { key: ServiceKey; bg: string }[] = [
     { key: "data", bg: "/images/services/data.webp" },
     { key: "backend", bg: "/images/services/backend.webp" },
@@ -47,6 +48,7 @@ export default function Services() {
               </p>
 
               <ul className="mt-4 space-y-1.5 text-sm leading-normal text-slate-600 dark:text-slate-400">
+                {/* Dynamically rendering bullet points from translation raw arrays */}
                 {(t.raw(`${key}.bullets`) as string[]).map((bullet, index) => (
                   <li key={index} className="flex gap-2">
                     <span className="mt-[6px] h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500 dark:bg-slate-500" />
