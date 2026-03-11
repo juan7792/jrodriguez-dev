@@ -1,5 +1,9 @@
 import type { ReactNode, JSX } from "react";
 
+/**
+ * Standardized layout wrapper to keep content centered and padded
+ * across different screen sizes.
+ */
 type ContainerProps = {
   children: ReactNode;
   className?: string;
@@ -11,9 +15,14 @@ export default function Container({
   className = "",
   as: Component = "div",
 }: ContainerProps) {
-  return (
-    <Component className={`mx-auto w-full max-w-5xl px-4 sm:px-6 ${className}`}>
-      {children}
-    </Component>
-  );
+  // Centralized layout constraints
+  const combinedClasses = [
+    "mx-auto w-full max-w-5xl", // Centering and width
+    "px-4 sm:px-6", // Responsive horizontal padding
+    className, // Custom overrides
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  return <Component className={combinedClasses}>{children}</Component>;
 }

@@ -20,6 +20,7 @@ type StackCategory = {
 export default function TechStack() {
   const t = useTranslations("TechStack");
 
+  // List of technologies categorized by domain
   const categories: StackCategory[] = [
     {
       key: "languages",
@@ -31,16 +32,19 @@ export default function TechStack() {
           iconDark: "/icons/tech/java-dark.svg",
         },
         { label: "Python", short: "P", iconSrc: "/icons/tech/python.svg" },
+
         {
           label: "TypeScript",
           short: "T",
           iconSrc: "/icons/tech/typescript.svg",
         },
+
         {
           label: "JavaScript",
           short: "J",
           iconSrc: "/icons/tech/javascript.svg",
         },
+
         { label: "SQL", short: "S", iconSrc: "/icons/tech/sql.svg" },
       ],
     },
@@ -48,16 +52,19 @@ export default function TechStack() {
       key: "backend",
       items: [
         { label: "Spring", short: "S", iconSrc: "/icons/tech/spring.svg" },
+
         {
           label: "Spring Boot",
           short: "S",
           iconSrc: "/icons/tech/spring-boot.svg",
         },
+
         {
           label: "Hibernate",
           short: "H",
           iconSrc: "/icons/tech/hibernate.svg",
         },
+
         { label: "Node.js", short: "N", iconSrc: "/icons/tech/nodejs.svg" },
         { label: "NestJS", short: "N", iconSrc: "/icons/tech/nestjs.svg" },
         { label: "REST", short: "R", iconSrc: "/icons/tech/rest-api.svg" },
@@ -67,11 +74,9 @@ export default function TechStack() {
           iconLight: "/icons/tech/scim-light.svg",
           iconDark: "/icons/tech/scim-dark.svg",
         },
-        {
-          label: "JUnit",
-          short: "J",
-          iconSrc: "/icons/tech/junit.svg",
-        },
+
+        { label: "JUnit", short: "J", iconSrc: "/icons/tech/junit.svg" },
+
         { label: "Mockito", short: "M", iconSrc: "/icons/tech/mockito.png" },
       ],
     },
@@ -85,12 +90,15 @@ export default function TechStack() {
           iconLight: "/icons/tech/aws-light.svg",
           iconDark: "/icons/tech/aws-dark.svg",
         },
+
         {
           label: "Azure Data Explorer (ADX)",
           short: "A",
           iconSrc: "/icons/tech/adx.svg",
         },
+
         { label: "KQL", short: "K", iconSrc: "/icons/tech/kql.svg" },
+
         {
           label: "Databricks",
           short: "D",
@@ -106,27 +114,28 @@ export default function TechStack() {
           short: "A",
           iconSrc: "/icons/tech/azure-cognitive-services.svg",
         },
+
         {
           label: "Whisper",
           short: "W",
           iconLight: "/icons/tech/openai-light.svg",
           iconDark: "/icons/tech/openai-dark.svg",
         },
-        {
-          label: "Vosk",
-          short: "V",
-          iconSrc: "/icons/tech/vosk.png",
-        },
+
+        { label: "Vosk", short: "V", iconSrc: "/icons/tech/vosk.png" },
+
         {
           label: "MATLAB Statistics Toolbox",
           short: "MST",
           iconSrc: "/icons/tech/statistics-toolbox.svg",
         },
+
         {
           label: "GeNIe Modeler",
           short: "G",
           iconSrc: "/icons/tech/genie-modeler.svg",
         },
+
         {
           label: "OpenAI API",
           short: "O",
@@ -143,6 +152,7 @@ export default function TechStack() {
           short: "P",
           iconSrc: "/icons/tech/postgresql.svg",
         },
+
         {
           label: "MySQL",
           short: "M",
@@ -163,11 +173,13 @@ export default function TechStack() {
           iconLight: "/icons/tech/nextjs-light.svg",
           iconDark: "/icons/tech/nextjs-dark.svg",
         },
+
         {
           label: "Tailwind CSS",
           short: "T",
           iconSrc: "/icons/tech/tailwind.svg",
         },
+
         { label: "HTML", short: "H", iconSrc: "/icons/tech/html.svg" },
         { label: "CSS", short: "C", iconSrc: "/icons/tech/css.svg" },
       ],
@@ -203,6 +215,7 @@ export default function TechStack() {
             </h3>
 
             <div className="flex flex-wrap gap-2">
+              {/* Each tag is rendered with its specific metadata */}
               {cat.items.map((item) => (
                 <TechTag key={item.label} {...item} />
               ))}

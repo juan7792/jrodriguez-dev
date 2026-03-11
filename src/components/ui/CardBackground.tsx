@@ -2,18 +2,21 @@
 
 import Image from "next/image";
 
+/**
+ * Visual background layer for cards.
+ * Handles theme-specific opacities by rendering two separate image layers.
+ */
 type BlurLevel = "none" | "xs" | "sm" | "md" | "lg" | "xl";
 
 type CardBackgroundProps = {
   src: string;
-  /**
-   * Opacity used for both themes (kept for backwards compatibility).
-   * Prefer `opacityLight` / `opacityDark` when you want different values.
-   */
+
+  /** Opacity used for both themes (kept for backwards compatibility). */
+
   opacity?: number;
-  /** Opacity when the page is in light mode. */
+  /** Opacity used when the page is in light mode. */
   opacityLight?: number;
-  /** Opacity when the page is in dark mode. */
+  /** Opacity used when the page is in dark mode. */
   opacityDark?: number;
   blur?: BlurLevel;
   overlay?: boolean;
@@ -38,24 +41,28 @@ export default function CardBackground({
   overlay = true,
   className = "",
 }: CardBackgroundProps) {
-  // Tailwind can't theme-switch an inline `style={{ opacity }}` with `dark:`.
-  // So we render two layers and fade the correct one in/out via classes.
+  // Determine final opacities for theme switching
+
   const lightOpacity = opacityLight ?? opacity;
   const darkOpacity = opacityDark ?? opacity;
 
+  // Shared image processing classes
   const imageClassName = [
     "object-cover",
     BLUR_MAP[blur],
     "scale-[1.03]",
-    // Light mode: less washed-out
+    // Light mode: adjusted for visibility against white backgrounds
     "brightness-[0.98] contrast-[0.98] saturate-[0.85]",
-    // Dark mode: keep vivid
+    // Dark mode: vivid colors and higher contrast
     "dark:brightness-100 dark:contrast-100 dark:saturate-100",
-  ].join(" ");
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   return (
     <>
-      {/* Light layer (solo light mode) */}
+      {/* Light layer - Visible only in light mode */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 block dark:hidden"
@@ -64,7 +71,7 @@ export default function CardBackground({
         <Image src={src} alt="" fill className={imageClassName} />
       </div>
 
-      {/* Dark layer (solo dark mode) */}
+      {/* Dark layer - Visible only in dark mode */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 hidden dark:block"
@@ -73,15 +80,15 @@ export default function CardBackground({
         <Image src={src} alt="" fill className={imageClassName} />
       </div>
 
+      {/* Optional gradient overlay for text readability */}
       {overlay && (
         <div
           aria-hidden="true"
-          className="
-            pointer-events-none absolute inset-0
-            bg-gradient-to-br
-            from-white/55 via-white/45 to-white/35
-            dark:from-slate-950/70 dark:via-slate-950/45 dark:to-slate-950/10
-          "
+          className={[
+            "pointer-events-none absolute inset-0 bg-gradient-to-br",
+            "from-white/55 via-white/45 to-white/35",
+            "dark:from-slate-950/70 dark:via-slate-950/45 dark:to-slate-950/10",
+          ].join(" ")}
         />
       )}
     </>

@@ -1,16 +1,17 @@
 import NavBar from "@/components/NavBar";
-
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import type { Metadata } from "next";
 
+// Localized titles
 const TITLES: Record<string, string> = {
   en: "Software Engineer — Juan Rodriguez",
   es: "Ingeniero de Software — Juan Rodríguez",
   de: "Softwareentwickler — Juan Rodriguez",
 };
 
-export const runtime = 'edge';
+// Use Edge Runtime for Cloudflare deployment
+export const runtime = "edge";
 
 export async function generateMetadata({
   params,
@@ -33,6 +34,8 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+
+  // Fetch messages server-side to prevent hydration mismatch
   const messages = await getMessages({ locale });
 
   return (

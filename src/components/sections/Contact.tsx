@@ -5,6 +5,9 @@ import Section from "@/components/ui/Section";
 import Button from "@/components/ui/Button";
 import Card from "../ui/Card";
 
+/**
+ * Reusable row for contact information (Email, LinkedIn, GitHub)
+ */
 function ContactRow({
   label,
   value,
@@ -38,16 +41,17 @@ function ContactRow({
 export default function Contact() {
   const t = useTranslations("Contact");
 
-  const email = "juanm.rodriguez.dev@gmail.com";
-  const linkedin = "linkedin.com/in/j-rodriguez-lvv/";
-  const github = "github.com/juan7792";
+  // Contact identifiers
+  const CONTACT_INFO = {
+    email: "juanm.rodriguez.dev@gmail.com",
+    linkedin: "linkedin.com/in/j-rodriguez-lvv/",
+    github: "github.com/juan7792",
+  };
 
-  const mailtoSubject = t("message.email.subject");
-  const mailtoBody = t("message.email.body");
-
-  const mailtoHref = `mailto:${email}?subject=${encodeURIComponent(
-    mailtoSubject,
-  )}&body=${encodeURIComponent(mailtoBody)}`;
+  // Pre-formatted mailto link with localized subject and body
+  const mailtoHref = `mailto:${CONTACT_INFO.email}?subject=${encodeURIComponent(
+    t("message.email.subject"),
+  )}&body=${encodeURIComponent(t("message.email.body"))}`;
 
   return (
     <Section
@@ -61,6 +65,7 @@ export default function Contact() {
       </p>
 
       <div className="grid gap-4 lg:grid-cols-2">
+        {/* Direct contact details card */}
         <Card
           className="rounded-xl border border-slate-200 bg-white/60 p-5 sm:p-6 backdrop-blur
                      dark:border-slate-800 dark:bg-slate-950/40"
@@ -70,16 +75,20 @@ export default function Contact() {
           </h3>
 
           <div className="mt-4 divide-y divide-slate-200/60 dark:divide-slate-800/60">
-            <ContactRow label="Email" value={email} href={mailtoHref} />
+            <ContactRow
+              label="Email"
+              value={CONTACT_INFO.email}
+              href={mailtoHref}
+            />
             <ContactRow
               label="LinkedIn"
-              value={linkedin}
-              href={`https://${linkedin}`}
+              value={CONTACT_INFO.linkedin}
+              href={`https://${CONTACT_INFO.linkedin}`}
             />
             <ContactRow
               label="GitHub"
-              value={github}
-              href={`https://${github}`}
+              value={CONTACT_INFO.github}
+              href={`https://${CONTACT_INFO.github}`}
             />
           </div>
 
@@ -88,6 +97,7 @@ export default function Contact() {
           </p>
         </Card>
 
+        {/* Call to action */}
         <Card
           className="rounded-xl border border-slate-200 bg-white/60 p-5 sm:p-6 backdrop-blur
                      dark:border-slate-800 dark:bg-slate-950/40"
@@ -101,6 +111,7 @@ export default function Contact() {
           </p>
 
           <ul className="mt-5 space-y-2 text-sm leading-normal text-slate-500 dark:text-slate-400">
+            {/* Render bullet points from the raw translation array */}
             {(t.raw("message.bullets") as string[]).map((b, i) => (
               <li key={i} className="flex gap-2">
                 <span className="mt-[6px] h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400 dark:bg-slate-500" />

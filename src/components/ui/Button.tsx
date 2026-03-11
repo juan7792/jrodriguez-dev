@@ -1,5 +1,8 @@
 import type { ButtonHTMLAttributes } from "react";
 
+/**
+ * Button component variants and sizes configuration
+ */
 type Variant = "primary" | "secondary" | "ghost";
 type Size = "sm" | "md";
 
@@ -14,32 +17,41 @@ export default function Button({
   className = "",
   ...props
 }: ButtonProps) {
-  const base =
-    "inline-flex items-center justify-center rounded-md font-medium " +
-    "border transition-colors focus:outline-none focus-visible:ring-2 " +
-    "focus-visible:ring-slate-400/50 disabled:opacity-50 disabled:pointer-events-none";
+  // Core structural classes for the button
+  const base = [
+    "inline-flex items-center justify-center rounded-md font-medium",
+    "border transition-colors focus:outline-none focus-visible:ring-2",
+    "focus-visible:ring-slate-400/50 disabled:opacity-50 disabled:pointer-events-none",
+  ].join(" ");
 
+  // Height and padding scales
   const sizes: Record<Size, string> = {
     sm: "h-9 px-3 text-sm",
     md: "h-10 px-4 text-sm",
   };
 
+  // Color schemes for light and dark modes
   const variants: Record<Variant, string> = {
-    primary:
-      "bg-slate-900 text-white border-slate-900 hover:bg-slate-800 " +
+    primary: [
+      "bg-slate-900 text-white border-slate-900 hover:bg-slate-800",
       "dark:bg-slate-100 dark:text-slate-900 dark:border-slate-100 dark:hover:bg-slate-200",
-    secondary:
-      "bg-white text-slate-900 border-slate-200 hover:bg-slate-50 " +
+    ].join(" "),
+
+    secondary: [
+      "bg-white text-slate-900 border-slate-200 hover:bg-slate-50",
       "dark:bg-slate-900 dark:text-slate-100 dark:border-slate-800 dark:hover:bg-slate-800",
-    ghost:
-      "bg-transparent text-slate-900 border-transparent hover:bg-slate-100 " +
+    ].join(" "),
+
+    ghost: [
+      "bg-transparent text-slate-900 border-transparent hover:bg-slate-100",
       "dark:text-slate-100 dark:hover:bg-slate-900",
+    ].join(" "),
   };
 
-  return (
-    <button
-      className={`${base} ${sizes[size]} ${variants[variant]} ${className}`}
-      {...props}
-    />
-  );
+  // Combine all class groups while filtering out empty strings
+  const combinedClasses = [base, sizes[size], variants[variant], className]
+    .filter(Boolean)
+    .join(" ");
+
+  return <button className={combinedClasses} {...props} />;
 }

@@ -1,19 +1,20 @@
 @import "tailwindcss";
 
-/* (Tailwind v4) Habilita el variant dark basado en la clase .dark */
+/* Tailwind v4 dark mode variant based on .dark class strategy */
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  /* Paleta corporativa suave */
-  --background: #f8fafc;  /* slate-50 */
-  --foreground: #0f172a;  /* slate-900 */
-  --muted: #475569;       /* slate-600 */
+  /* Light mode slate palette */
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --muted: #475569;
 }
 
 html.dark {
-  --background: #020617;  /* slate-950 */
-  --foreground: #f8fafc;  /* slate-50 */
-  --muted: #cbd5e1;       /* slate-300 */
+  /* Dark mode slate palette */
+  --background: #020617;
+  --foreground: #f8fafc;
+  --muted: #cbd5e1;
 }
 
 @theme inline {
@@ -28,6 +29,7 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 
+  /* Smooth transitions for theme switching */
   transition:
     background-color 200ms ease,
     color 200ms ease;
