@@ -13,7 +13,7 @@
   "services": [
     {
       "binding": "WORKER_SELF_REFERENCE",
-      "service": "freelancer-website"
+      "service": "jrodriguez-dev"
     }
   ],
   "images": {
