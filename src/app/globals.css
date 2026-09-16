@@ -10,6 +10,10 @@
   --muted: #475569;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html.dark {
   /* Dark mode slate palette */
   --background: #020617;
