@@ -45,7 +45,7 @@ export default function RootLayout({
       lang="en"
       // suppressHydrationWarning is required for next-themes to work correctly
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable}`}
+      className={`dark ${geistSans.variable} ${geistMono.variable}`}
     >
       <body className="min-h-screen font-sans antialiased">
         <Providers>{children}</Providers>
