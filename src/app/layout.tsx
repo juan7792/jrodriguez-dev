@@ -16,22 +16,27 @@ const geistMono = Geist_Mono({
 });
 
 // URL construction to activate sharing icon in social media
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const baseUrl = "https://jrodriguez-dev.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
+
   icons: {
     icon: "/favicon-logo.svg",
   },
+
   openGraph: {
+    url: baseUrl,
+    siteName: "Juan Rodriguez",
     images: [
       {
         url: "/opengraph-logo.png",
-        width: 900,
-        height: 900,
+        width: 1200,
+        height: 630,
         alt: "Juan Rodriguez Logo",
       },
     ],
+    type: "website",
   },
 };
 
