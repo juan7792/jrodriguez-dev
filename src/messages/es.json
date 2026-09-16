@@ -8,9 +8,9 @@
   },
   "Hero": {
     "eyebrow": "Ingeniero de Software — Juan Rodriguez",
-    "headline": "Soluciones web escalables basadas en datos",
-    "subheadline": "Diseño y construyo sistemas de software end-to-end: desde pipelines de datos y arquitectura backend hasta aplicaciones web potenciadas con inteligencia artificial.",
-    "paragraph": "Me enfoco en arquitectura limpia, comunicación clara y mantenibilidad a largo plazo, ayudando a equipos a entregar soluciones que generan valor real para el negocio.",
+    "headline": "Soluciones digitales escalables basadas en datos",
+    "subheadline": "Aplicaciones con IA, dashboards analíticos, software empresarial y herramientas — diseñados y desarrollados de principio a fin.",
+    "paragraph": "Como Full-Stack y Data Engineer, también me encargo de la ingeniería detrás — desde frontend y backend hasta pipelines de datos, infraestructura cloud y arquitectura escalable.",
     "availability": "Disponible actualmente para proyectos remotos",
     "ctaPrimary": "Contáctame",
     "ctaSecondary": "Descargar CV",
@@ -20,31 +20,31 @@
     "title": "Servicios",
     "subtitle": "Ingeniería de software a lo largo de todo el ciclo de vida, enfocada en arquitectura sólida, integridad de datos y mantenibilidad a largo plazo.",
     "eyebrow": "Servicios",
+    "fullstack": {
+      "title": "Desarrollo Full-Stack",
+      "description": "Web Apps & Productos Digitales",
+      "bullets": [
+        "Aplicaciones web responsivas para escritorio y móvil",
+        "Desarrollo frontend y backend desde una sola base de código",
+        "Despliegue listo para producción e integración cloud"
+      ]
+    },
     "data": {
       "title": "Data Engineering",
-      "description": "Sistemas de datos confiables diseñados para trazabilidad, consistencia y preparación analítica.",
+      "description": "Analytics, Dashboards & Plataformas de Datos",
       "bullets": [
-        "Pipelines ETL/ELT estructurados en entornos cloud y modelado de datos",
-        "Preprocesamiento, validación y flujos de trabajo reproducibles",
-        "Dashboards y conjuntos de datos estructurados orientados a un análisis consistente y confiable"
+        "Pipelines de datos en cloud y flujos ETL/ELT estructurados",
+        "Modelado, validación y procesamiento automatizado de datos",
+        "Datasets, reportes y dashboards interactivos listos para análisis"
       ]
     },
     "backend": {
-      "title": "Backend Engineering",
-      "description": "Sistemas backend diseñados para escalabilidad, control de acceso y estabilidad en producción.",
+      "title": "Backend Engineering & AI",
+      "description": "Software con IA & Sistemas Empresariales",
       "bullets": [
-        "Diseño seguro de APIs e integración de servicios",
-        "Modelado de datos transaccional y consistencia del sistema",
-        "Depuración, optimización de rendimiento y estabilidad operativa"
-      ]
-    },
-    "fullstack": {
-      "title": "Desarrollo Full-Stack",
-      "description": "Aplicaciones web listas para producción, construidas con arquitectura limpia y visión integral del sistema.",
-      "bullets": [
-        "Separación clara entre backend y frontend, y entrega de funcionalidades",
-        "Interfaces responsivas con estructura de código mantenible",
-        "Entornos contenerizados y preparación para despliegue"
+        "Funciones con IA integradas en productos y flujos reales",
+        "Backends seguros, APIs, autenticación y lógica de negocio",
+        "Integraciones, automatización y arquitectura fiable en producción"
       ]
     }
   },
