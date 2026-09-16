@@ -8,9 +8,9 @@
   },
   "Hero": {
     "eyebrow": "Software Engineer — Juan Rodriguez",
-    "headline": "Skalierbare, datengetriebene Web-Lösungen",
-    "subheadline": "Ich konzipiere und entwickle End-to-End-Softwaresysteme – von Datenpipelines und Backend-Architektur bis hin zu KI-gestützten Webanwendungen.",
-    "paragraph": "Ich lege Wert auf saubere Architektur, klare Kommunikation und langfristige Wartbarkeit – damit Teams Lösungen liefern, die echten Business-Mehrwert schaffen.",
+    "headline": "Skalierbare datengetriebene digitale Lösungen",
+    "subheadline": "KI-gestützte Anwendungen, Analyse-Dashboards, Business-Software und Tools — von Anfang bis Ende konzipiert und umgesetzt.",
+    "paragraph": "Als Full-Stack und Data Engineer übernehme ich auch die technische Umsetzung — von Frontend- und Backend-Systemen bis zu Datenpipelines, Cloud-Infrastruktur und skalierbarer Architektur.",
     "availability": "Derzeit verfügbar für Remote-Freelance-Projekte",
     "ctaPrimary": "Kontakt",
     "ctaSecondary": "CV herunterladen",
@@ -20,31 +20,31 @@
     "title": "Leistungen",
     "subtitle": "Softwareentwicklung über den gesamten Lebenszyklus mit Fokus auf robuste Architektur, Datenintegrität und langfristige Wartbarkeit.",
     "eyebrow": "Leistungen",
+    "fullstack": {
+      "title": "Full-Stack Entwicklung",
+      "description": "Web-Apps & digitale Produkte",
+      "bullets": [
+        "Responsive Webanwendungen für Desktop und Mobilgeräte",
+        "Frontend- und Backend-Entwicklung aus einer Codebasis",
+        "Produktionsreife Deployments und Cloud-Integration"
+      ]
+    },
     "data": {
       "title": "Data Engineering",
-      "description": "Zuverlässige Datenarchitekturen mit Fokus auf Nachvollziehbarkeit, Konsistenz und analytische Nutzbarkeit.",
+      "description": "Analytics, Dashboards & Datenplattformen",
       "bullets": [
-        "Strukturierte ETL/ELT-Pipelines in Cloud-Umgebungen sowie Datenmodellierung",
-        "Vorverarbeitung, Validierung und reproduzierbare Workflows",
-        "Dashboards und strukturierte Datensätze, ausgelegt für zuverlässige Analysen"
+        "Cloud-Datenpipelines und strukturierte ETL/ELT-Workflows",
+        "Datenmodellierung, Validierung und automatisierte Verarbeitung",
+        "Analysefähige Datensätze, Reports und interaktive Dashboards"
       ]
     },
     "backend": {
-      "title": "Backend Engineering",
-      "description": "Backend-Systeme mit Fokus auf Skalierbarkeit, kontrollierten Zugriff und Stabilität im Produktivbetrieb.",
+      "title": "Backend Engineering & AI",
+      "description": "KI-gestützte Software & Business-Systeme",
       "bullets": [
-        "Sicheres API-Design und Integration externer Services",
-        "Transaktionale Datenmodellierung und Systemkonsistenz",
-        "Fehleranalyse, Performance-Optimierung und operative Stabilität"
-      ]
-    },
-    "fullstack": {
-      "title": "Full-Stack Entwicklung",
-      "description": "Produktionsreife Webanwendungen mit klarer Architektur und ganzheitlichem Systemverständnis.",
-      "bullets": [
-        "Klare Trennung von Backend und Frontend sowie strukturierte Feature-Umsetzung",
-        "Responsive Benutzeroberflächen mit wartbarer Codebasis",
-        "Containerisierte Umgebungen und Deployments im Produktionskontext"
+        "KI-Funktionen in reale Produkte und Workflows integriert",
+        "Sichere Backends, APIs, Authentifizierung und Business-Logik",
+        "Service-Integrationen, Automatisierung und robuste Produktionsarchitektur"
       ]
     }
   },
