@@ -8,9 +8,9 @@
   },
   "Hero": {
     "eyebrow": "Software Engineer — Juan Rodriguez",
-    "headline": "Building scalable data-driven web solutions",
-    "subheadline": "I design and build end-to-end software systems — from data pipelines and backend architecture to AI-enabled web applications.",
-    "paragraph": "I focus on clean architecture, clear communication, and long-term maintainability, helping teams deliver solutions that create real business value.",
+    "headline": "Building scalable data-driven digital solutions",
+    "subheadline": "AI-powered applications, analytical dashboards, business software and tools — designed and built from start to finish.",
+    "paragraph": "As a Full-Stack and Data Engineer, I handle the engineering behind them too — from frontend and backend systems to data pipelines, cloud infrastructure and scalable architecture.",
     "availability": "Currently available for remote freelance projects",
     "ctaPrimary": "Contact me",
     "ctaSecondary": "Download CV",
@@ -20,31 +20,31 @@
     "title": "Services",
     "subtitle": "Full lifecycle software engineering focused on robust architecture, data integrity, and long-term maintainability.",
     "eyebrow": "What I do",
+    "fullstack": {
+      "title": "Full-Stack Development",
+      "description": "Web Apps & Digital Products",
+      "bullets": [
+        "Responsive web applications for desktop and mobile",
+        "Frontend and backend development from a single codebase",
+        "Production-ready deployment and cloud integration"
+      ]
+    },
     "data": {
       "title": "Data Engineering",
-      "description": "Reliable data systems built for traceability, consistency, and analytical readiness.",
+      "description": "Analytics, Dashboards & Data Platforms",
       "bullets": [
-        "Structured cloud-based ETL/ELT pipelines and data modeling",
-        "Preprocessing, validation, and reproducible workflows",
-        "Dashboards and structured datasets designed for reliable analysis"
+        "Cloud data pipelines and structured ETL/ELT workflows",
+        "Data modeling, validation and automated processing",
+        "Analytics-ready datasets, reports and interactive dashboards"
       ]
     },
     "backend": {
-      "title": "Backend Engineering",
-      "description": "Backend systems designed for scalability, controlled access, and production reliability.",
+      "title": "Backend Engineering & AI",
+      "description": "AI-Powered Software & Business Systems",
       "bullets": [
-        "Secure API design and service integration",
-        "Transactional data modeling and system consistency",
-        "Debugging, performance tuning, and operational stability"
-      ]
-    },
-    "fullstack": {
-      "title": "Full-Stack Development",
-      "description": "Production-ready web applications built with clean architecture and system awareness.",
-      "bullets": [
-        "Clear backend–frontend separation and feature delivery",
-        "Responsive interfaces with maintainable code structure",
-        "Containerized environments and deployment readiness"
+        "AI-powered features integrated into real products and workflows",
+        "Secure backend systems, APIs, authentication and business logic",
+        "Service integrations, automation and reliable production architecture"
       ]
     }
   },
