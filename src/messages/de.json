@@ -18,7 +18,7 @@
   },
   "Services": {
     "title": "Leistungen",
-    "subtitle": "Softwareentwicklung über den gesamten Lebenszyklus mit Fokus auf robuste Architektur, Datenintegrität und langfristige Wartbarkeit.",
+    "subtitle": "Von Webanwendungen und KI-gestützter Software bis hin zu Analytics und Datenplattformen — entwickelt für reale Geschäftsanforderungen.",
     "eyebrow": "Leistungen",
     "fullstack": {
       "title": "Full-Stack Entwicklung",
@@ -31,7 +31,7 @@
     },
     "data": {
       "title": "Data Engineering",
-      "description": "Analytics, Dashboards & Datenplattformen",
+      "description": "Analytics, Dashboards & Plattformen",
       "bullets": [
         "Cloud-Datenpipelines und strukturierte ETL/ELT-Workflows",
         "Datenmodellierung, Validierung und automatisierte Verarbeitung",
@@ -40,7 +40,7 @@
     },
     "backend": {
       "title": "Backend Engineering & AI",
-      "description": "KI-gestützte Software & Business-Systeme",
+      "description": "KI-gestützte Software & Tools",
       "bullets": [
         "KI-Funktionen in reale Produkte und Workflows integriert",
         "Sichere Backends, APIs, Authentifizierung und Business-Logik",

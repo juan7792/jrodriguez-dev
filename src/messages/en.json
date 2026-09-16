@@ -18,7 +18,7 @@
   },
   "Services": {
     "title": "Services",
-    "subtitle": "Full lifecycle software engineering focused on robust architecture, data integrity, and long-term maintainability.",
+    "subtitle": "From web applications and AI-powered software to analytics and data platforms — built around real business needs.",
     "eyebrow": "What I do",
     "fullstack": {
       "title": "Full-Stack Development",
@@ -40,7 +40,7 @@
     },
     "backend": {
       "title": "Backend Engineering & AI",
-      "description": "AI-Powered Software & Business Systems",
+      "description": "AI-Powered Software & Tools",
       "bullets": [
         "AI-powered features integrated into real products and workflows",
         "Secure backend systems, APIs, authentication and business logic",

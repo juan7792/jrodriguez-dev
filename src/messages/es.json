@@ -18,7 +18,7 @@
   },
   "Services": {
     "title": "Servicios",
-    "subtitle": "Ingeniería de software a lo largo de todo el ciclo de vida, enfocada en arquitectura sólida, integridad de datos y mantenibilidad a largo plazo.",
+    "subtitle": "Desde aplicaciones web y software con IA hasta analytics y plataformas de datos — desarrollados en torno a necesidades reales de negocio.",
     "eyebrow": "Servicios",
     "fullstack": {
       "title": "Desarrollo Full-Stack",
@@ -31,7 +31,7 @@
     },
     "data": {
       "title": "Data Engineering",
-      "description": "Analytics, Dashboards & Plataformas de Datos",
+      "description": "Analytics, Dashboards & Plataformas",
       "bullets": [
         "Pipelines de datos en cloud y flujos ETL/ELT estructurados",
         "Modelado, validación y procesamiento automatizado de datos",
@@ -40,7 +40,7 @@
     },
     "backend": {
       "title": "Backend Engineering & AI",
-      "description": "Software con IA & Sistemas Empresariales",
+      "description": "Software & Herramientas con IA",
       "bullets": [
         "Funciones con IA integradas en productos y flujos reales",
         "Backends seguros, APIs, autenticación y lógica de negocio",
