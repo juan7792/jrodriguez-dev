@@ -12,9 +12,9 @@ export default function Services() {
 
   // Configuration for service cards and their respective assets
   const items: { key: ServiceKey; bg: string }[] = [
+    { key: "fullstack", bg: "/images/services/fullstack.webp" },
     { key: "data", bg: "/images/services/data.webp" },
     { key: "backend", bg: "/images/services/backend.webp" },
-    { key: "fullstack", bg: "/images/services/fullstack.webp" },
   ];
 
   return (
