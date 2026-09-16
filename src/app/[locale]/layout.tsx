@@ -10,9 +10,6 @@ const TITLES: Record<string, string> = {
   de: "Softwareentwickler — Juan Rodriguez",
 };
 
-// Use Edge Runtime for Cloudflare deployment
-export const runtime = "edge";
-
 export async function generateMetadata({
   params,
 }: {
