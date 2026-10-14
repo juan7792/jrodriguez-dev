@@ -205,5 +205,60 @@
     "designedBy": "Von mir entworfen und entwickelt mit",
     "checkRepo": "Möchtest du den Code sehen?",
     "cta": "Hier geht's zum Code"
+  },
+  "Audience": {
+    "metaTitle": "Wähle deinen Bereich — Juan Rodriguez",
+    "eyebrow": "JUAN RODRIGUEZ · SOFTWAREENTWICKLER",
+    "title": "Was führt dich hierher?",
+    "description": "Ich entwickle Software für echte Herausforderungen. Entdecke meine technische Erfahrung oder wie ich dein Unternehmen unterstützen kann.",
+    "technical": {
+      "title": "Ich arbeite im technischen Bereich",
+      "description": "Entdecke meine Erfahrung mit Softwarearchitektur, Technologien und Projekten.",
+      "cta": "Technisches Portfolio ansehen"
+    },
+    "business": {
+      "title": "Ich führe ein Unternehmen",
+      "description": "Erfahre, wie Software, Automatisierung und Daten deinem Unternehmen helfen können.",
+      "cta": "Business-Lösungen ansehen"
+    },
+    "hint": "Du kannst jederzeit zwischen den Bereichen wechseln."
+  },
+  "Business": {
+    "metaTitle": "Business-Lösungen — Juan Rodriguez",
+    "eyebrow": "SOFTWARELÖSUNGEN FÜR UNTERNEHMEN",
+    "headline": "Software, die dein Unternehmen voranbringt.",
+    "intro": "Ich entwickle praktische digitale Lösungen, die Zeit sparen, Arbeitsabläufe vereinfachen und bessere Entscheidungen ermöglichen.",
+    "cta": "Lass uns über deine Idee sprechen",
+    "explore": "Lösungen entdecken",
+    "servicesTitle": "So kann ich helfen",
+    "servicesIntro": "Lösungen für deine geschäftlichen Anforderungen – ganz ohne Fachjargon.",
+    "services": {
+      "automation": {
+        "title": "Zeit sparen durch Automatisierung",
+        "description": "Reduziere wiederkehrende manuelle Aufgaben durch vernetzte Tools und vereinfachte Abläufe."
+      },
+      "applications": {
+        "title": "Individuelle Tools entwickeln",
+        "description": "Websites, interne Anwendungen und kundenseitige Software, die zu deinen Arbeitsabläufen passen."
+      },
+      "analytics": {
+        "title": "Geschäftsdaten besser verstehen",
+        "description": "Verwandle verstreute Informationen in übersichtliche Berichte und Dashboards für fundierte Entscheidungen."
+      }
+    },
+    "examplesTitle": "Beispiele und Demos",
+    "examplesDescription": "Interaktive Beispiele sind in Vorbereitung. Schreib mir gerne, um einen Anwendungsfall für dein Unternehmen zu besprechen.",
+    "contactTitle": "Lass uns über deine Idee sprechen",
+    "contactDescription": "Erzähl mir, welche Aufgaben zu viel Zeit kosten, was nicht funktioniert oder was du entwickeln möchtest. Gemeinsam finden wir den nächsten Schritt.",
+    "contactSubject": "Anfrage zu einem Business-Projekt"
+  },
+  "AudienceNav": {
+    "switch": "Zielgruppe wählen",
+    "technical": "Technisch",
+    "business": "Business",
+    "home": "Start",
+    "services": "Lösungen",
+    "examples": "Beispiele",
+    "contact": "Kontakt"
   }
 }
