@@ -1,6 +1,7 @@
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
@@ -14,6 +15,7 @@ import { locales } from "@/i18n/routing";
  */
 export default function NavBar() {
   const t = useTranslations("Nav");
+  const audience = useTranslations("AudienceNav");
   const locale = useLocale() as Locale;
 
   const router = useRouter();
@@ -29,7 +31,7 @@ export default function NavBar() {
   // Close mobile menu on desktop resize
   useEffect(() => {
     function onResize() {
-      if (window.innerWidth >= 640) setMobileOpen(false);
+      if (window.innerWidth >= 768) setMobileOpen(false);
     }
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
@@ -83,20 +85,26 @@ export default function NavBar() {
     });
   }
 
-  const links = [
+  const isTechnical = pathname === "/technical";
+  const isBusiness = pathname === "/business";
+  const links = isBusiness ? [
+    { href: "#services", label: audience("services") },
+    { href: "#examples", label: audience("examples") },
+    { href: "#contact", label: audience("contact") },
+  ] : isTechnical ? [
     { href: "#services", label: t("services") },
     { href: "#projects", label: t("projects") },
     { href: "#tech", label: t("tech") },
     { href: "#life", label: t("life") },
     { href: "#contact", label: t("contact") },
-  ];
+  ] : [];
 
   return (
     <>
       {/* Mobile Backdrop: Closes menu when tapping outside */}
       {mobileOpen && (
         <div
-          className="fixed inset-0 z-40 bg-black/5 sm:hidden"
+          className="fixed inset-0 z-40 bg-black/5 md:hidden"
           onClick={() => setMobileOpen(false)}
           aria-hidden="true"
         />
@@ -105,12 +113,14 @@ export default function NavBar() {
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur transition-colors duration-200 dark:border-slate-800 dark:bg-slate-950/70">
         <nav className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
           {/* Logo / Brand */}
-          <a
-            href="#top"
+          <Link
+            href="/"
             className="font-semibold tracking-tight"
             onClick={(e) => {
-              e.preventDefault();
-              scrollToTop();
+              if (pathname === "/") {
+                e.preventDefault();
+                scrollToTop();
+              }
             }}
           >
             <Image
@@ -125,7 +135,7 @@ export default function NavBar() {
               className="h-10 w-auto transition-transform hover:scale-105 sm:h-14"
               priority
             />
-          </a>
+          </Link>
 
           {/* Desktop Navigation Links */}
           <div className="hidden items-center gap-6 text-sm font-medium tracking-wide text-slate-600 dark:text-slate-300 sm:flex">
@@ -142,6 +152,13 @@ export default function NavBar() {
                 {l.label}
               </a>
             ))}
+          </div>
+
+          {/* Audience switch works on every route, including the chooser. */}
+          <div className="hidden items-center gap-2 text-xs font-medium md:flex">
+            <Link href="/technical" aria-current={isTechnical ? "page" : undefined} className={isTechnical ? "font-semibold underline underline-offset-4" : "text-slate-500 hover:text-slate-900 dark:hover:text-slate-100"}>{audience("technical")}</Link>
+            <span aria-hidden="true" className="text-slate-400">/</span>
+            <Link href="/business" aria-current={isBusiness ? "page" : undefined} className={isBusiness ? "font-semibold underline underline-offset-4" : "text-slate-500 hover:text-slate-900 dark:hover:text-slate-100"}>{audience("business")}</Link>
           </div>
 
           {/* User Controls: Theme, Locale, Menu */}
@@ -197,9 +214,12 @@ export default function NavBar() {
 
         {/* Mobile Dropdown Panel */}
         {mobileOpen && (
-          <div className="border-t border-slate-200 bg-white/90 backdrop-blur dark:border-slate-800 dark:bg-slate-950/85 sm:hidden">
+          <div className="border-t border-slate-200 bg-white/90 backdrop-blur dark:border-slate-800 dark:bg-slate-950/85 md:hidden">
             <div className="mx-auto max-w-5xl px-4 py-3">
               <div className="flex flex-col gap-2">
+                <Link href="/" onClick={() => setMobileOpen(false)} className="rounded-md px-3 py-2 text-sm font-medium">{audience("home")}</Link>
+                <Link href="/technical" onClick={() => setMobileOpen(false)} className="rounded-md px-3 py-2 text-sm font-medium">{audience("technical")}</Link>
+                <Link href="/business" onClick={() => setMobileOpen(false)} className="rounded-md px-3 py-2 text-sm font-medium">{audience("business")}</Link>
                 {links.map((l) => (
                   <a
                     key={l.href}
