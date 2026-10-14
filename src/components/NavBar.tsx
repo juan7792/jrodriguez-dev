@@ -138,7 +138,7 @@ export default function NavBar() {
           </Link>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden items-center gap-6 text-sm font-medium tracking-wide text-slate-600 dark:text-slate-300 sm:flex">
+          <div className="hidden items-center gap-6 text-sm font-medium tracking-wide text-slate-600 dark:text-slate-300 lg:flex">
             {links.map((l) => (
               <a
                 key={l.href}
@@ -203,7 +203,7 @@ export default function NavBar() {
             {/* Mobile Menu Toggle */}
             <button
               type="button"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-slate-200 bg-white text-sm hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-800 sm:hidden"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-slate-200 bg-white text-sm hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-800 md:hidden"
               onClick={() => setMobileOpen((v) => !v)}
               aria-expanded={mobileOpen}
             >
