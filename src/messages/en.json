@@ -204,5 +204,60 @@
     "designedBy": "Designed and coded by me with",
     "checkRepo": "Want to check how?",
     "cta": "Here you go"
+  },
+  "Audience": {
+    "metaTitle": "Choose your path — Juan Rodriguez",
+    "eyebrow": "JUAN RODRIGUEZ · SOFTWARE ENGINEER",
+    "title": "What brings you here?",
+    "description": "I build software that solves real problems. Explore my engineering experience or see how I can help your business.",
+    "technical": {
+      "title": "I'm a technical professional",
+      "description": "Explore my engineering experience, architecture, technology stack, and projects.",
+      "cta": "Explore technical portfolio"
+    },
+    "business": {
+      "title": "I'm a business owner",
+      "description": "See how custom software, automation, and useful data can help your business.",
+      "cta": "Explore business solutions"
+    },
+    "hint": "You can switch between experiences at any time."
+  },
+  "Business": {
+    "metaTitle": "Business Solutions — Juan Rodriguez",
+    "eyebrow": "SOFTWARE SOLUTIONS FOR BUSINESS",
+    "headline": "Software that makes your business run smarter.",
+    "intro": "I create practical digital tools that help businesses save time, simplify everyday work, and make better decisions.",
+    "cta": "Let's discuss your idea",
+    "explore": "Explore solutions",
+    "servicesTitle": "How I can help",
+    "servicesIntro": "Solutions designed around what your business needs, not technical jargon.",
+    "services": {
+      "automation": {
+        "title": "Save time with automation",
+        "description": "Reduce repetitive manual work by connecting tools and simplifying everyday processes."
+      },
+      "applications": {
+        "title": "Build your own tools",
+        "description": "Create useful websites, internal applications, and customer-facing software that fits how you work."
+      },
+      "analytics": {
+        "title": "Understand your business data",
+        "description": "Turn scattered information into clear reports and dashboards that support better decisions."
+      }
+    },
+    "examplesTitle": "Examples and demos",
+    "examplesDescription": "Interactive examples are being developed. In the meantime, contact me to discuss a use case relevant to your business.",
+    "contactTitle": "Let's talk about your idea",
+    "contactDescription": "Tell me what takes too much time, what isn't working, or what you'd like to build. We can explore a practical next step together.",
+    "contactSubject": "Business project inquiry"
+  },
+  "AudienceNav": {
+    "switch": "Choose audience",
+    "technical": "Technical",
+    "business": "Business",
+    "home": "Home",
+    "services": "Solutions",
+    "examples": "Examples",
+    "contact": "Contact"
   }
 }
