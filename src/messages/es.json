@@ -204,5 +204,60 @@
     "designedBy": "Diseñado y programado por mí con",
     "checkRepo": "¿Quieres ver el código?",
     "cta": "Aquí lo tienes"
+  },
+  "Audience": {
+    "metaTitle": "Elige tu camino — Juan Rodríguez",
+    "eyebrow": "JUAN RODRÍGUEZ · INGENIERO DE SOFTWARE",
+    "title": "¿Qué te trae por aquí?",
+    "description": "Desarrollo software para resolver problemas reales. Explora mi experiencia técnica o descubre cómo puedo ayudar a tu negocio.",
+    "technical": {
+      "title": "Soy profesional técnico",
+      "description": "Conoce mi experiencia en ingeniería, arquitectura, tecnologías y proyectos.",
+      "cta": "Ver portfolio técnico"
+    },
+    "business": {
+      "title": "Tengo un negocio",
+      "description": "Descubre cómo el software, las automatizaciones y los datos pueden ayudar a tu empresa.",
+      "cta": "Ver soluciones empresariales"
+    },
+    "hint": "Puedes cambiar de experiencia cuando quieras."
+  },
+  "Business": {
+    "metaTitle": "Soluciones para empresas — Juan Rodríguez",
+    "eyebrow": "SOLUCIONES DIGITALES PARA EMPRESAS",
+    "headline": "Software que hace que tu negocio funcione mejor.",
+    "intro": "Creo herramientas digitales prácticas para que las empresas ahorren tiempo, simplifiquen tareas y tomen mejores decisiones.",
+    "cta": "Hablemos de tu idea",
+    "explore": "Explorar soluciones",
+    "servicesTitle": "Cómo puedo ayudarte",
+    "servicesIntro": "Soluciones adaptadas a las necesidades de tu negocio, sin jerga técnica.",
+    "services": {
+      "automation": {
+        "title": "Ahorra tiempo automatizando",
+        "description": "Reduce tareas manuales repetitivas conectando herramientas y simplificando procesos."
+      },
+      "applications": {
+        "title": "Crea tus propias herramientas",
+        "description": "Desarrolla sitios web, aplicaciones internas y software para clientes adaptado a tu forma de trabajar."
+      },
+      "analytics": {
+        "title": "Comprende los datos de tu negocio",
+        "description": "Convierte información dispersa en informes y paneles claros para tomar mejores decisiones."
+      }
+    },
+    "examplesTitle": "Ejemplos y demostraciones",
+    "examplesDescription": "Estoy preparando ejemplos interactivos. Mientras tanto, puedes escribirme para hablar de un caso que sea relevante para tu negocio.",
+    "contactTitle": "Hablemos de tu idea",
+    "contactDescription": "Cuéntame qué tareas te consumen tiempo, qué no funciona o qué te gustaría construir. Juntos podemos estudiar el siguiente paso.",
+    "contactSubject": "Consulta sobre proyecto empresarial"
+  },
+  "AudienceNav": {
+    "switch": "Elegir público",
+    "technical": "Técnico",
+    "business": "Negocios",
+    "home": "Inicio",
+    "services": "Soluciones",
+    "examples": "Ejemplos",
+    "contact": "Contacto"
   }
 }
