@@ -4,29 +4,26 @@ import { useLocale, useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
+
 import { usePathname, useRouter } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { locales } from "@/i18n/routing";
+import AudienceTabs from "@/components/AudienceTabs";
 
-/**
- * Main navigation bar with theme switching, localization,
- * and responsive mobile menu with backdrop support.
- */
 export default function NavBar() {
   const t = useTranslations("Nav");
   const locale = useLocale() as Locale;
 
   const router = useRouter();
   const pathname = usePathname();
+  const isTechnical = pathname === "/technical";
 
   const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  // Avoid hydration mismatch by waiting for mount
   useEffect(() => setMounted(true), []);
 
-  // Close mobile menu on desktop resize
   useEffect(() => {
     function onResize() {
       if (window.innerWidth >= 640) setMobileOpen(false);
@@ -35,7 +32,6 @@ export default function NavBar() {
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  // Accessibility: Close menu with Escape key
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
       if (e.key === "Escape") setMobileOpen(false);
@@ -51,31 +47,21 @@ export default function NavBar() {
 
   const isDark = mounted ? currentTheme === "dark" : false;
 
-  const sunSVG = "/icons/navbar/sun.svg";
-  const moonSVG = "/icons/navbar/moon.svg";
-
   function onChangeLocale(nextLocale: string) {
     router.replace(pathname, { locale: nextLocale as Locale });
     setMobileOpen(false);
   }
 
   function scrollToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-
+    window.scrollTo({ top: 0, behavior: "smooth" });
     setMobileOpen(false);
   }
 
   function onNavClick(href: string) {
     setMobileOpen(false);
-
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
-        const element = document.querySelector(href);
-
-        element?.scrollIntoView({
+        document.querySelector(href)?.scrollIntoView({
           behavior: "smooth",
           block: "start",
         });
@@ -93,8 +79,7 @@ export default function NavBar() {
 
   return (
     <>
-      {/* Mobile Backdrop: Closes menu when tapping outside */}
-      {mobileOpen && (
+      {mobileOpen && isTechnical && (
         <div
           className="fixed inset-0 z-40 bg-black/5 sm:hidden"
           onClick={() => setMobileOpen(false)}
@@ -102,9 +87,11 @@ export default function NavBar() {
         />
       )}
 
-      <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur transition-colors duration-200 dark:border-slate-800 dark:bg-slate-950/70">
-        <nav className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
-          {/* Logo / Brand */}
+      <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur dark:border-slate-800 dark:bg-slate-950/70">
+        {/* Main navigation */}
+        <nav className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-3">
+
+          {/* Logo */}
           <a
             href="#top"
             className="font-semibold tracking-tight"
@@ -127,51 +114,39 @@ export default function NavBar() {
             />
           </a>
 
-          {/* Desktop Navigation Links */}
-          <div className="hidden items-center gap-6 text-sm font-medium tracking-wide text-slate-600 dark:text-slate-300 sm:flex">
-            {links.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  onNavClick(l.href);
-                }}
-                className="transition-colors hover:text-slate-900 dark:hover:text-slate-100"
-              >
-                {l.label}
-              </a>
-            ))}
+          {/* Audience tabs - Desktop */}
+          <div className="hidden flex-1 justify-center sm:flex">
+            <AudienceTabs />
           </div>
 
-          {/* User Controls: Theme, Locale, Menu */}
+          {/* Theme, language and mobile menu */}
           <div className="flex items-center gap-3">
-            {/* Theme Toggle */}
             <button
               type="button"
-              className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-md border border-slate-200 bg-white text-sm hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-800 sm:h-10 sm:w-10"
+              className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-md border border-slate-200 bg-white hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-800 sm:h-10 sm:w-10"
               onClick={() => setTheme(isDark ? "light" : "dark")}
-              aria-label={
-                isDark ? "Switch to light mode" : "Switch to dark mode"
-              }
+              aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
             >
               {mounted ? (
                 <img
-                  src={isDark ? sunSVG : moonSVG}
+                  src={
+                    isDark
+                      ? "/icons/navbar/sun.svg"
+                      : "/icons/navbar/moon.svg"
+                  }
                   alt=""
                   width={24}
                   height={24}
-                  className="block h-4 w-4"
+                  className="h-4 w-4"
                   aria-hidden="true"
                 />
               ) : (
-                <span className="block h-4 w-4" aria-hidden="true" />
+                <span className="h-4 w-4" />
               )}
             </button>
 
-            {/* Language Selection */}
             <select
-              className="h-9 cursor-pointer rounded-md border border-slate-200 bg-white px-3 text-sm hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-800 sm:h-10"
+              className="h-9 cursor-pointer rounded-md border border-slate-200 bg-white px-3 text-sm dark:border-slate-800 dark:bg-slate-900 sm:h-10"
               value={locale}
               onChange={(e) => onChangeLocale(e.target.value)}
               aria-label="Language"
@@ -183,37 +158,67 @@ export default function NavBar() {
               ))}
             </select>
 
-            {/* Mobile Menu Toggle */}
-            <button
-              type="button"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-slate-200 bg-white text-sm hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-800 sm:hidden"
-              onClick={() => setMobileOpen((v) => !v)}
-              aria-expanded={mobileOpen}
-            >
-              <span aria-hidden="true">{mobileOpen ? "✕" : "☰"}</span>
-            </button>
+            {isTechnical && (
+              <button
+                type="button"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-slate-200 dark:border-slate-800 sm:hidden"
+                onClick={() => setMobileOpen((v) => !v)}
+                aria-expanded={mobileOpen}
+                aria-label="Toggle section navigation"
+              >
+                <span aria-hidden="true">
+                  {mobileOpen ? "✕" : "☰"}
+                </span>
+              </button>
+            )}
           </div>
         </nav>
 
-        {/* Mobile Dropdown Panel */}
-        {mobileOpen && (
-          <div className="border-t border-slate-200 bg-white/90 backdrop-blur dark:border-slate-800 dark:bg-slate-950/85 sm:hidden">
-            <div className="mx-auto max-w-5xl px-4 py-3">
-              <div className="flex flex-col gap-2">
-                {links.map((l) => (
-                  <a
-                    key={l.href}
-                    href={l.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      onNavClick(l.href);
-                    }}
-                    className="rounded-md px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-900"
-                  >
-                    {l.label}
-                  </a>
-                ))}
-              </div>
+        {/* Audience tabs - Mobile */}
+        <div className="border-t border-slate-200 px-4 py-2 dark:border-slate-800 sm:hidden">
+          <div className="mx-auto max-w-5xl">
+            <AudienceTabs />
+          </div>
+        </div>
+
+        {/* Technical section links - Desktop */}
+        {isTechnical && (
+          <div className="hidden border-t border-slate-200/70 dark:border-slate-800 sm:block">
+            <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-x-7 gap-y-2 px-4 py-2 text-xs font-medium text-slate-600 dark:text-slate-300">
+              {links.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavClick(link.href);
+                  }}
+                  className="hover:text-slate-900 dark:hover:text-white"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Technical section links - Mobile */}
+        {isTechnical && mobileOpen && (
+          <div className="border-t border-slate-200 bg-white/95 dark:border-slate-800 dark:bg-slate-950/95 sm:hidden">
+            <div className="mx-auto flex max-w-5xl flex-col gap-2 px-4 py-3">
+              {links.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavClick(link.href);
+                  }}
+                  className="rounded-md px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-900"
+                >
+                  {link.label}
+                </a>
+              ))}
             </div>
           </div>
         )}
