@@ -14,7 +14,7 @@ The site provides an overview of my work as a software and data engineer, includ
 
 ## Deployment
 
-The website is deployed on **Cloudflare Pages**.
+The website is deployed on **Cloudflare Workers** using OpenNext for Next.js.
 
 ## Live Website
 
