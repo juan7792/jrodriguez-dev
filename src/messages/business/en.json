@@ -43,5 +43,23 @@
         }
       }
     }
+  },
+  "BusinessHowItWorks": {
+    "title": "From idea to solution, without the complexity.",
+    "subtitle": "A simple process to turn your business needs into working software.",
+    "steps": [
+      {
+        "title": "We talk",
+        "description": "Tell me what you need and what's slowing you down."
+      },
+      {
+        "title": "We make a plan",
+        "description": "We agree on a practical solution, scope and next steps."
+      },
+      {
+        "title": "I build it",
+        "description": "I develop, test and deliver a solution that works for you."
+      }
+    ]
   }
 }
