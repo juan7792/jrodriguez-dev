@@ -21,7 +21,7 @@ export default async function BusinessHowItWorks() {
     >
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
         {steps.map((step, index) => (
-          <Card key={index} className="h-full p-6">
+          <Card key={index} className="business-card business-card-interactive h-full p-6">
             <div className="flex flex-col gap-4">
               <span className="text-sm font-semibold text-emerald-500">
                 {String(index + 1).padStart(2, "0")}
@@ -31,7 +31,7 @@ export default async function BusinessHowItWorks() {
                 {step.title}
               </h3>
 
-              <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+              <p className="text-sm leading-relaxed business-text-muted">
                 {step.description}
               </p>
             </div>

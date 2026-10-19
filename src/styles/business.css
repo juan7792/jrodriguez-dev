@@ -1,0 +1,104 @@
+
+.business-theme {
+  /* Backgrounds */
+  --business-background: #faf8f3;
+  --business-surface: #ffffff;
+  --business-solution: #e8f4ea;
+
+  /* Text */
+  --business-text: #20362f;
+  --business-muted: #5b6b61;
+
+  /* Accent */
+  --business-accent: #287a60;
+
+  /* Borders */
+  --business-border: #dce7de;
+  --business-solution-border: #c9e5cf;
+
+  color-scheme: light;
+  background-color: var(--business-background);
+  color: var(--business-text);
+}
+
+/* Problem cards */
+.business-theme .business-problem-card {
+  background: var(--business-surface);
+  border-color: var(--business-border);
+  color: var(--business-text);
+}
+
+/* Solution cards */
+.business-theme .business-solution-card {
+  background: var(--business-solution);
+  border-color: var(--business-solution-border);
+  color: var(--business-text);
+}
+
+/* Shared card text */
+.business-theme .business-card-description {
+  color: var(--business-muted);
+}
+
+.business-theme .business-problem-card .business-card-label {
+  color: #738178;
+}
+
+.business-theme .business-solution-card .business-card-label {
+  color: var(--business-accent);
+}
+
+/* Hover effects */
+.business-theme .business-problem-card:hover,
+.business-theme .business-solution-card:hover {
+  border-color: var(--business-accent);
+  box-shadow: 0 16px 40px rgb(32 54 47 / 12%);
+}
+
+/* Section descriptions */
+.business-theme section header p {
+  color: var(--business-muted);
+}
+
+
+/* Shared Business cards */
+.business-theme .business-card {
+  background: var(--business-surface);
+  border-color: var(--business-border);
+  color: var(--business-text);
+}
+
+.business-theme .business-card-interactive:hover {
+  border-color: var(--business-accent);
+  box-shadow: 0 16px 40px rgb(32 54 47 / 12%);
+}
+
+/* Typography */
+.business-theme .business-text-muted {
+  color: var(--business-muted);
+}
+
+.business-theme .business-accent {
+  color: var(--business-accent);
+}
+
+/* Buttons */
+.business-theme .business-button {
+  background: var(--business-accent);
+  color: #ffffff;
+}
+
+.business-theme .business-button:hover {
+  background: #20664e;
+}
+
+/* Links */
+.business-theme .business-link:hover {
+  color: var(--business-accent);
+}
+
+/* Dividers and footer */
+.business-theme .business-divider,
+.business-theme .business-footer {
+  border-color: var(--business-border);
+}

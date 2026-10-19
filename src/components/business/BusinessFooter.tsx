@@ -10,7 +10,7 @@ export default async function BusinessFooter() {
   const linkedin = "https://linkedin.com/in/j-rodriguez-lvv";
 
   return (
-    <footer className="border-t border-slate-200 py-10 dark:border-slate-800">
+    <footer className="business-footer border-t py-10">
       <Container>
         <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
           <div className="max-w-sm">
@@ -42,7 +42,7 @@ export default async function BusinessFooter() {
           </div>
         </div>
 
-        <div className="mt-8 border-t border-slate-200 pt-6 dark:border-slate-800">
+        <div className="business-divider mt-8 border-t pt-6">
           <p className="text-xs text-slate-500 dark:text-slate-400">
             © {new Date().getFullYear()} Juan Rodriguez.{" "}
             {t("rights")}

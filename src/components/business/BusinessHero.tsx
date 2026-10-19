@@ -30,7 +30,7 @@ export default async function BusinessHero() {
         <div className="mt-8">
           <a
             href={mailtoHref}
-            className="inline-flex items-center gap-2 rounded-lg bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-slate-700 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-200"
+            className="business-button inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold transition-colors"
           >
             {t("cta")}
             <span aria-hidden="true">→</span>

@@ -13,9 +13,9 @@ export default function BusinessProblem({
   description,
 }: BusinessProblemProps) {
   return (
-    <Card hover className="h-full p-6">
+    <Card hover className="business-problem-card h-full p-6">
       <div className="flex flex-col gap-3">
-        <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+        <span className="business-card-label text-xs font-semibold uppercase tracking-wider">
           {label}
         </span>
 
@@ -23,7 +23,7 @@ export default function BusinessProblem({
           {title}
         </h3>
 
-        <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+        <p className="business-card-description text-sm leading-relaxed">
           {description}
         </p>
       </div>

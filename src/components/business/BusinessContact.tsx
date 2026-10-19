@@ -20,14 +20,14 @@ export default async function BusinessContact() {
       title={t("title")}
       subtitle={t("subtitle")}
     >
-      <Card hover={false} className="p-6 sm:p-8">
+      <Card hover={false} className="business-card p-6 sm:p-8">
         <div className="flex flex-col gap-5">
           <div>
             <h3 className="text-xl font-semibold">
               {t("cardTitle")}
             </h3>
 
-            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+            <p className="mt-3 max-w-2xl text-sm leading-relaxed business-text-muted">
               {t("description")}
             </p>
           </div>
@@ -35,14 +35,14 @@ export default async function BusinessContact() {
           <div>
             <a
               href={mailtoHref}
-              className="inline-flex min-h-11 items-center justify-center rounded-md bg-slate-900 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-slate-800 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-slate-200"
+              className="business-button inline-flex min-h-11 items-center justify-center rounded-md px-5 py-3 text-sm font-medium transition-colors"
             >
               {t("cta")}
             </a>
           </div>
 
           <div className="border-t border-slate-200 pt-5 dark:border-slate-800">
-            <p className="text-sm text-slate-600 dark:text-slate-300">
+            <p className="text-sm business-text-muted">
               {t("linkedinText")}{" "}
               <a
                 href={linkedin}
