@@ -80,5 +80,15 @@
         "description": "Working closely with clients and teams to understand their needs and deliver useful solutions."
       }
     ]
+  },
+  "BusinessContact": {
+    "title": "Have something in mind? Let's talk.",
+    "subtitle": "Tell me what you'd like to improve in your business. You don't need to have all the answers yet.",
+    "cardTitle": "Start with a simple conversation",
+    "description": "A short email explaining what your business does and what you need help with is enough to get started.",
+    "cta": "Tell me about your project",
+    "emailSubject": "Business project inquiry",
+    "linkedinText": "Prefer LinkedIn?",
+    "linkedinCta": "You can reach me there too."
   }
 }
