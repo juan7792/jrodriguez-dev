@@ -3,6 +3,7 @@ import BusinessProblemsSolutions from "@/components/business/BusinessProblemsSol
 import BusinessHowItWorks from "@/components/business/BusinessHowItWorks";
 import BusinessWhyWorkWithMe from "@/components/business/BusinessWhyWorkWithMe";
 import BusinessContact from "@/components/business/BusinessContact";
+import BusinessFooter from "@/components/business/BusinessFooter";
 
 export default function BusinessPage() {
   return (
@@ -12,6 +13,7 @@ export default function BusinessPage() {
       <BusinessHowItWorks />
       <BusinessWhyWorkWithMe />
       <BusinessContact />
+      <BusinessFooter />
     </main>
   );
 }

@@ -90,5 +90,11 @@
     "emailSubject": "Business project inquiry",
     "linkedinText": "Prefer LinkedIn?",
     "linkedinCta": "You can reach me there too."
+  },
+  "BusinessFooter": {
+    "tagline": "Practical software for everyday business challenges.",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "rights": "All rights reserved."
   }
 }
