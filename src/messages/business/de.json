@@ -5,5 +5,43 @@
     "description": "Verbringst du viel Zeit damit, Informationen zwischen Apps zu kopieren, mit Tabellen zu arbeiten oder jeden Tag dieselben Aufgaben zu erledigen? Ich entwickle einfache Software, die dir diese Arbeit erleichtert.",
     "cta": "Erzähl mir, was du brauchst",
     "emailSubject": "Anfrage zu einem Unternehmensprojekt"
+  },
+  "BusinessProblemsSolutions": {
+    "title": "Alltägliche Probleme. Praktische Lösungen.",
+    "subtitle": "Weniger Aufwand, mehr Zeit für dein Unternehmen.",
+    "problemLabel": "Problem",
+    "solutionLabel": "Lösung",
+    "items": {
+      "software": {
+        "problem": {
+          "title": "Die Software passt nicht zu deinem Unternehmen",
+          "description": "Dein Team muss Umwege gehen, weil vorhandene Tools eure Arbeitsweise nicht richtig unterstützen."
+        },
+        "solution": {
+          "title": "Software, die zu deinem Unternehmen passt",
+          "description": "Individuelle Anwendungen, die eure Arbeitsabläufe unterstützen."
+        }
+      },
+      "automation": {
+        "problem": {
+          "title": "Zu viele manuelle Aufgaben",
+          "description": "Wiederkehrende Tätigkeiten und die Übertragung von Daten zwischen verschiedenen Anwendungen kosten Zeit."
+        },
+        "solution": {
+          "title": "Einfachere, automatisierte Abläufe",
+          "description": "Automatisierungen und Integrationen, die deinem Team Zeit sparen."
+        }
+      },
+      "data": {
+        "problem": {
+          "title": "Deine Daten sind schwer nutzbar",
+          "description": "Wichtige Informationen sind auf Tabellen, Anwendungen und Berichte verteilt."
+        },
+        "solution": {
+          "title": "Klare Einblicke in dein Unternehmen",
+          "description": "Daten zusammenführen und verständlich aufbereiten – mit Berichten und Dashboards."
+        }
+      }
+    }
   }
 }

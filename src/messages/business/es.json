@@ -5,5 +5,43 @@
     "description": "¿Pasas mucho tiempo copiando información, trabajando con hojas de cálculo o repitiendo las mismas tareas? Creo soluciones digitales que te ayudan a trabajar de forma más sencilla.",
     "cta": "Cuéntame qué necesitas",
     "emailSubject": "Consulta sobre proyecto empresarial"
+  },    
+  "BusinessProblemsSolutions": {
+    "title": "Problemas cotidianos. Soluciones prácticas.",
+    "subtitle": "Menos complicaciones, más tiempo para tu negocio.",
+    "problemLabel": "Problema",
+    "solutionLabel": "Solución",
+    "items": {
+      "software": {
+        "problem": {
+          "title": "El software no se adapta a tu negocio",
+          "description": "Tu equipo necesita buscar alternativas porque las herramientas actuales no se ajustan a sus necesidades."
+        },
+        "solution": {
+          "title": "Herramientas hechas para tu negocio",
+          "description": "Aplicaciones a medida que se adaptan a la forma en que trabajas."
+        }
+      },
+      "automation": {
+        "problem": {
+          "title": "Demasiado trabajo manual",
+          "description": "Tareas repetitivas e información que debes mover entre aplicaciones desconectadas."
+        },
+        "solution": {
+          "title": "Procesos más ágiles",
+          "description": "Automatizaciones e integraciones que te ayudan a ahorrar tiempo."
+        }
+      },
+      "data": {
+        "problem": {
+          "title": "Datos difíciles de aprovechar",
+          "description": "La información importante está dispersa entre distintos sistemas."
+        },
+        "solution": {
+          "title": "Información clara para tomar decisiones",
+          "description": "Datos conectados, informes fáciles de entender y paneles de control."
+        }
+      }
+    }
   }
 }

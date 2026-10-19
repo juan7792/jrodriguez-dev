@@ -5,5 +5,43 @@
     "description": "Tired of copying information between apps, spending hours on spreadsheets, or doing the same tasks every day? I create simple software to make that work easier.",
     "cta": "Tell me what you need",
     "emailSubject": "Business project inquiry"
+  },
+  "BusinessProblemsSolutions": {
+    "title": "Everyday problems. Practical solutions.",
+    "subtitle": "Less complexity, more time for your business.",
+    "problemLabel": "Problem",
+    "solutionLabel": "Solution",
+    "items": {
+      "software": {
+        "problem": {
+          "title": "Software that doesn't fit",
+          "description": "Your team relies on workarounds because existing tools don't match your needs."
+        },
+        "solution": {
+          "title": "Tools built for your business",
+          "description": "Custom applications that work the way your business does."
+        }
+      },
+      "automation": {
+        "problem": {
+          "title": "Too much manual work",
+          "description": "Repeating tasks and moving information between disconnected apps."
+        },
+        "solution": {
+          "title": "Smarter workflows",
+          "description": "Automation and integrations that save time."
+        }
+      },
+      "data": {
+        "problem": {
+          "title": "Data that's hard to use",
+          "description": "Important information is scattered across different systems."
+        },
+        "solution": {
+          "title": "Clearer business insights",
+          "description": "Connected data, easy-to-read reports and dashboards."
+        }
+      }
+    }
   }
 }
