@@ -1,9 +1,17 @@
-
 import { getTranslations } from "next-intl/server";
 
 import Section from "@/components/ui/Section";
 import BusinessProblem from "./BusinessProblem";
 import BusinessSolution from "./BusinessSolution";
+
+const icons = {
+  problem1: "/icons/business/wrench.svg",
+  solution1: "/icons/business/puzzle.svg",
+  problem2: "/icons/business/spreadsheet.svg",
+  solution2: "/icons/business/automation.svg",
+  problem3: "/icons/business/barchart.svg",
+  solution3: "/icons/business/dashboard.svg",
+};
 
 type BusinessItem = {
   problem: {
@@ -37,12 +45,14 @@ export default async function BusinessProblemsSolutions() {
               label={`${t("problemLabel")} ${index + 1}`}
               title={item.problem.title}
               description={item.problem.description}
+              icon={icons[`problem${index + 1}` as keyof typeof icons]}
             />
 
             <BusinessSolution
               label={`${t("solutionLabel")} ${index + 1}`}
               title={item.solution.title}
               description={item.solution.description}
+              icon={icons[`solution${index + 1}` as keyof typeof icons]}
             />
           </div>
         ))}
