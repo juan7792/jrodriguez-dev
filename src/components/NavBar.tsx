@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
@@ -16,7 +17,7 @@ export default function NavBar() {
 
   const router = useRouter();
   const pathname = usePathname();
-  const isTechnical = pathname === "/technical";
+  const isTechnical = pathname.startsWith("/technical");
 
   const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -26,7 +27,7 @@ export default function NavBar() {
 
   useEffect(() => {
     function onResize() {
-      if (window.innerWidth >= 640) setMobileOpen(false);
+      if (window.innerWidth >= 1024) setMobileOpen(false);
     }
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
@@ -45,7 +46,7 @@ export default function NavBar() {
     return resolvedTheme ?? theme ?? "system";
   }, [mounted, resolvedTheme, theme]);
 
-  const isDark = mounted ? currentTheme === "dark" : false;
+  const isDark = isTechnical && mounted && currentTheme === "dark";
 
   function onChangeLocale(nextLocale: string) {
     router.replace(pathname, { locale: nextLocale as Locale });
@@ -57,40 +58,69 @@ export default function NavBar() {
     setMobileOpen(false);
   }
 
-  function onNavClick(href: string) {
-    setMobileOpen(false);
+  
+function onNavClick(href: string) {
+  setMobileOpen(false);
+
+  requestAnimationFrame(() => {
     requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        document.querySelector(href)?.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
+      const section = document.querySelector(href);
+      const header = document.querySelector("header.sticky");
+
+      if (!section) return;
+
+      const headerHeight = header?.getBoundingClientRect().height ?? 0;
+      const offset = headerHeight + 0;
+
+      const top =
+        section.getBoundingClientRect().top +
+        window.scrollY -
+        offset;
+
+      window.scrollTo({
+        top: Math.max(0, top),
+        behavior: "smooth",
       });
     });
-  }
+  });
+}
 
-  const links = [
-    { href: "#services", label: t("services") },
-    { href: "#projects", label: t("projects") },
-    { href: "#tech", label: t("tech") },
-    { href: "#life", label: t("life") },
-    { href: "#contact", label: t("contact") },
-  ];
+
+  // Navigation links depend on the current audience.
+  const links = isTechnical
+    ? [
+        { href: "#services", label: t("services") },
+        { href: "#projects", label: t("projects") },
+        { href: "#tech", label: t("tech") },
+        { href: "#life", label: t("life") },
+        { href: "#contact", label: t("contact") },
+      ]
+    : [
+        { href: "#solutions", label: "Solutions" },
+        { href: "#how-it-works", label: "How It Works" },
+        { href: "#about", label: "About" },
+        { href: "#contact", label: "Contact" },
+      ];
 
   return (
     <>
-      {mobileOpen && isTechnical && (
+      {mobileOpen && (
         <div
-          className="fixed inset-0 z-40 bg-black/5 sm:hidden"
+          className="fixed inset-0 z-40 bg-black/10 lg:hidden"
           onClick={() => setMobileOpen(false)}
           aria-hidden="true"
         />
       )}
 
-      <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur dark:border-slate-800 dark:bg-slate-950/70">
+      <header
+        className={`sticky top-0 z-50 border-b backdrop-blur ${
+          isTechnical
+            ? "border-slate-200 bg-white/80 dark:border-slate-800 dark:bg-slate-950/70"
+            : "business-theme border-[#DCE7DE]"
+        }`}
+      >
         {/* Main navigation */}
         <nav className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-3">
-
           {/* Logo */}
           <a
             href="#top"
@@ -109,44 +139,70 @@ export default function NavBar() {
               alt="Juan Rodriguez Logo"
               width={40}
               height={40}
-              className="h-10 w-auto transition-transform hover:scale-105 sm:h-14"
+              className="h-10 w-auto transition-transform hover:scale-105 lg:h-14"
               priority
             />
           </a>
 
-          {/* Audience tabs - Desktop */}
-          <div className="hidden flex-1 justify-center sm:flex">
-            <AudienceTabs />
+          {/* Section links - Desktop */}
+          <div className="hidden flex-1 flex-wrap items-center justify-center gap-x-5 gap-y-2 lg:flex">
+            {links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavClick(link.href);
+                }}
+                className={`text-sm font-medium transition-colors ${
+                  isTechnical
+                    ? "text-slate-600 hover:text-slate-950 dark:text-slate-300 dark:hover:text-white"
+                    : "text-[#20362F] hover:text-[#287A60]"
+                }`}
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
 
           {/* Theme, language and mobile menu */}
           <div className="flex items-center gap-3">
-            <button
-              type="button"
-              className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-md border border-slate-200 bg-white hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-800 sm:h-10 sm:w-10"
-              onClick={() => setTheme(isDark ? "light" : "dark")}
-              aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-            >
-              {mounted ? (
-                <img
-                  src={
-                    isDark
-                      ? "/icons/navbar/sun.svg"
-                      : "/icons/navbar/moon.svg"
-                  }
-                  alt=""
-                  width={24}
-                  height={24}
-                  className="h-4 w-4"
-                  aria-hidden="true"
-                />
-              ) : (
-                <span className="h-4 w-4" />
-              )}
-            </button>
+            {/* Theme selector - Technical only */}
+            {isTechnical && (
+              <button
+                type="button"
+                className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-md border border-slate-200 bg-white hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-800 lg:h-10 lg:w-10"
+                onClick={() => setTheme(isDark ? "light" : "dark")}
+                aria-label={
+                  isDark ? "Switch to light mode" : "Switch to dark mode"
+                }
+              >
+                {mounted ? (
+                  <img
+                    src={
+                      isDark
+                        ? "/icons/navbar/sun.svg"
+                        : "/icons/navbar/moon.svg"
+                    }
+                    alt=""
+                    width={24}
+                    height={24}
+                    className="h-4 w-4"
+                    aria-hidden="true"
+                  />
+                ) : (
+                  <span className="h-4 w-4" />
+                )}
+              </button>
+            )}
 
+            {/* Language selector */}
             <select
-              className="h-9 cursor-pointer rounded-md border border-slate-200 bg-white px-3 text-sm dark:border-slate-800 dark:bg-slate-900 sm:h-10"
+              className={`h-9 cursor-pointer rounded-md border px-3 text-sm lg:h-10 ${
+                isTechnical
+                  ? "border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900"
+                  : "border-[#DCE7DE] bg-white text-[#20362F]"
+              }`}
               value={locale}
               onChange={(e) => onChangeLocale(e.target.value)}
               aria-label="Language"
@@ -158,53 +214,36 @@ export default function NavBar() {
               ))}
             </select>
 
-            {isTechnical && (
-              <button
-                type="button"
-                className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-slate-200 dark:border-slate-800 sm:hidden"
-                onClick={() => setMobileOpen((v) => !v)}
-                aria-expanded={mobileOpen}
-                aria-label="Toggle section navigation"
-              >
-                <span aria-hidden="true">
-                  {mobileOpen ? "✕" : "☰"}
-                </span>
-              </button>
-            )}
+            {/* Mobile menu button - Both audiences */}
+            <button
+              type="button"
+              className={`inline-flex h-9 w-9 items-center justify-center rounded-md border lg:hidden ${
+                isTechnical
+                  ? "border-slate-200 dark:border-slate-800"
+                  : "border-[#DCE7DE] text-[#20362F]"
+              }`}
+              onClick={() => setMobileOpen((v) => !v)}
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-section-nav"
+              aria-label="Toggle section navigation"
+            >
+              <span aria-hidden="true">
+                {mobileOpen ? "✕" : "☰"}
+              </span>
+            </button>
           </div>
         </nav>
 
-        {/* Audience tabs - Mobile */}
-        <div className="border-t border-slate-200 px-4 py-2 dark:border-slate-800 sm:hidden">
-          <div className="mx-auto max-w-5xl">
-            <AudienceTabs />
-          </div>
-        </div>
-
-        {/* Technical section links - Desktop */}
-        {isTechnical && (
-          <div className="hidden border-t border-slate-200/70 dark:border-slate-800 sm:block">
-            <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-x-7 gap-y-2 px-4 py-2 text-xs font-medium text-slate-600 dark:text-slate-300">
-              {links.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    onNavClick(link.href);
-                  }}
-                  className="hover:text-slate-900 dark:hover:text-white"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Technical section links - Mobile */}
-        {isTechnical && mobileOpen && (
-          <div className="border-t border-slate-200 bg-white/95 dark:border-slate-800 dark:bg-slate-950/95 sm:hidden">
+        {/* Section links - Mobile */}
+        {mobileOpen && (
+          <div
+            id="mobile-section-nav"
+            className={`border-t lg:hidden ${
+              isTechnical
+                ? "border-slate-200 bg-white/95 dark:border-slate-800 dark:bg-slate-950/95"
+                : "border-[#DCE7DE] bg-[#FAF8F3]"
+            }`}
+          >
             <div className="mx-auto flex max-w-5xl flex-col gap-2 px-4 py-3">
               {links.map((link) => (
                 <a
@@ -214,7 +253,11 @@ export default function NavBar() {
                     e.preventDefault();
                     onNavClick(link.href);
                   }}
-                  className="rounded-md px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-900"
+                  className={`rounded-md px-3 py-2 text-sm ${
+                    isTechnical
+                      ? "text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-900"
+                      : "text-[#20362F] hover:bg-[#E8F4EA]"
+                  }`}
                 >
                   {link.label}
                 </a>
@@ -222,6 +265,17 @@ export default function NavBar() {
             </div>
           </div>
         )}
+
+        {/* Discreet audience switch */}
+        <div
+          className={`border-t px-4 py-2 ${
+            isTechnical
+              ? "border-slate-200/70 dark:border-slate-800"
+              : "border-[#DCE7DE]"
+          }`}
+        >
+          <AudienceTabs />
+        </div>
       </header>
     </>
   );

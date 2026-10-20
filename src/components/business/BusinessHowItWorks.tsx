@@ -15,7 +15,7 @@ export default async function BusinessHowItWorks() {
 
   return (
     <Section
-      id="process"
+      id="how-it-works"
       title={t("title")}
       subtitle={t("subtitle")}
     >
