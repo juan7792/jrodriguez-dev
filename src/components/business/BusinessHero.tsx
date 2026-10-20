@@ -15,7 +15,7 @@ export default async function BusinessHero() {
   return (
     <Section className="pt-24 sm:pt-28">
       <div className="max-w-3xl">
-        <p className="mb-5 text-xs uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
+        <p className="business-text-muted mb-5 text-xs uppercase tracking-[0.22em]">
           {t("eyebrow")}
         </p>
 
@@ -23,7 +23,7 @@ export default async function BusinessHero() {
           {t("headline")}
         </h1>
 
-        <p className="mt-6 text-base leading-relaxed text-slate-600 dark:text-slate-300 sm:text-lg">
+        <p className="business-text-muted mt-6 text-base leading-relaxed sm:text-lg">
           {t("description")}
         </p>
 
