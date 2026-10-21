@@ -104,13 +104,19 @@ function onNavClick(href: string) {
 
   return (
     <>
-      {mobileOpen && (
-        <div
-          className="fixed inset-0 z-40 bg-black/10 lg:hidden"
-          onClick={() => setMobileOpen(false)}
-          aria-hidden="true"
-        />
-      )}
+      <div
+        className={`fixed inset-0 z-40 bg-black/30
+          transition-opacity duration-200 ease-out
+          motion-reduce:transition-none lg:hidden
+          ${
+            mobileOpen
+              ? "visible opacity-100"
+              : "invisible pointer-events-none opacity-0"
+          }`}
+        onClick={() => setMobileOpen(false)}
+        aria-hidden="true"
+      />
+
 
       <header
         className={`sticky top-0 z-50 border-b backdrop-blur ${
@@ -234,37 +240,52 @@ function onNavClick(href: string) {
           </div>
         </nav>
 
-        {/* Section links - Mobile */}
-        {mobileOpen && (
-          <div
-            id="mobile-section-nav"
-            className={`border-t lg:hidden ${
-              isTechnical
-                ? "border-slate-200 bg-white/95 dark:border-slate-800 dark:bg-slate-950/95"
-                : "border-[#DCE7DE] bg-[#FAF8F3]"
-            }`}
-          >
-            <div className="mx-auto flex max-w-5xl flex-col gap-2 px-4 py-3">
-              {links.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    onNavClick(link.href);
-                  }}
-                  className={`rounded-md px-3 py-2 text-sm ${
-                    isTechnical
-                      ? "text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-900"
-                      : "text-[#20362F] hover:bg-[#E8F4EA]"
-                  }`}
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </div>
-        )}
+        
+      {/* Section links - Mobile */}
+      <div
+        id="mobile-section-nav"
+        aria-hidden={!mobileOpen}
+        inert={!mobileOpen}
+        className={`absolute left-0 top-full z-50 w-full
+          border-t shadow-lg
+          transition-all duration-200 ease-out
+          motion-reduce:transition-none
+          ${
+            mobileOpen
+              ? "visible translate-y-0 opacity-100"
+              : "invisible pointer-events-none -translate-y-2 opacity-0"
+          }
+          lg:hidden
+          ${
+            isTechnical
+              ? "border-slate-200 bg-white/95 dark:border-slate-800 dark:bg-slate-950/95"
+              : "border-[#DCE7DE] bg-[#FAF8F3]"
+          }`}
+      >
+        <div
+          className={`mx-auto flex max-w-5xl flex-col gap-2 px-4 py-3 ${
+            mobileOpen ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={(e) => {
+                e.preventDefault();
+                onNavClick(link.href);
+              }}
+              className={`rounded-md px-3 py-2 text-sm ${
+                isTechnical
+                  ? "text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-900"
+                  : "text-[#20362F] hover:bg-[#E8F4EA]"
+              }`}
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </div>
 
         {/* Discreet audience switch */}
         <div
