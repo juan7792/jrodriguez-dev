@@ -122,7 +122,7 @@ function onNavClick(href: string) {
         className={`sticky top-0 z-50 border-b backdrop-blur ${
           isTechnical
             ? "border-slate-200 bg-white/80 dark:border-slate-800 dark:bg-slate-950/70"
-            : "business-theme border-[#DCE7DE]"
+            : "business-theme border-[#DCE7DE] !bg-[#FAF8F3] !text-[#20362F]"
         }`}
       >
         {/* Main navigation */}
