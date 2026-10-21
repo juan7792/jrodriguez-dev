@@ -65,19 +65,19 @@
   "BusinessWhyWorkWithMe": {
     "title": "Why work with me?",
     "subtitle": "Experience, ownership, and a practical approach to solving business problems.",
-    "description": "I've spent over 10 years building software and helping teams solve real-world challenges. I've worked across different industries, turning complex requirements into practical tools that people can actually use.",
+    "description": "10+ years building practical software, from idea to delivery, with direct collaboration throughout.",
     "strengths": [
       {
         "title": "10+ Years of Experience",
-        "description": "Building and improving software for teams and businesses across different industries."
+        "description": "Building practical software across different industries."
       },
       {
         "title": "From Idea to Delivery",
-        "description": "Experience taking projects from initial requirements through development and delivery."
+        "description": "Turning your ideas into working solutions."
       },
       {
         "title": "Direct Collaboration",
-        "description": "Working closely with clients and teams to understand their needs and deliver useful solutions."
+        "description": "You work directly with me, every step of the way."
       }
     ]
   },
