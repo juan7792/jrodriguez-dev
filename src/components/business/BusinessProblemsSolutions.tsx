@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import Section from "@/components/ui/Section";
 import BusinessProblem from "./BusinessProblem";
@@ -13,12 +13,6 @@ const icons = {
   solution3: "/icons/business/dashboard.svg",
 };
 
-const exampleLinks = [
-  "#",
-  "#",
-  "#",
-];
-
 type BusinessItem = {
   problem: {
     title: string;
@@ -32,6 +26,7 @@ type BusinessItem = {
 
 export default async function BusinessProblemsSolutions() {
   const t = await getTranslations("BusinessProblemsSolutions");
+  const locale = await getLocale();
 
   const items = t.raw("items") as Record<string, BusinessItem>;
 
@@ -59,7 +54,7 @@ export default async function BusinessProblemsSolutions() {
               title={item.solution.title}
               description={item.solution.description}
               icon={icons[`solution${index + 1}` as keyof typeof icons]}
-              exampleHref={exampleLinks[index]}
+              demoHref={`/${locale}/business/demos/automation`}
             />
           </div>
         ))}

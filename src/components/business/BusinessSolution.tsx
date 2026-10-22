@@ -1,4 +1,7 @@
+
 import Image from "next/image";
+import Link from "next/link";
+
 import Card from "@/components/ui/Card";
 
 type BusinessSolutionProps = {
@@ -6,7 +9,7 @@ type BusinessSolutionProps = {
   title: string;
   description: string;
   icon: string;
-  exampleHref: string;
+  demoHref: string;
 };
 
 export default function BusinessSolution({
@@ -14,7 +17,7 @@ export default function BusinessSolution({
   title,
   description,
   icon,
-  exampleHref,
+  demoHref,
 }: BusinessSolutionProps) {
   return (
     <Card hover className="business-solution-card h-full p-6">
@@ -41,17 +44,21 @@ export default function BusinessSolution({
           {description}
         </p>
 
-        {/* Example link placeholder */}
-        <div className="mt-auto pt-5 text-center">
-          <a
-            href={exampleHref}
-            aria-disabled={exampleHref === "#"}
-            className={`inline-block text-sm font-semibold text-[#287A60] transition-colors hover:text-[#20664E] hover:underline ${
-              exampleHref === "#" ? "pointer-events-none" : ""
-            }`}
+        {/* Solution links */}
+        <div className="mt-auto flex flex-wrap items-center justify-center gap-x-6 gap-y-3 pt-5 text-center">
+          <Link
+            href="#"
+            className="text-sm font-semibold text-[#287A60] transition-colors hover:text-[#20664E] hover:underline"
           >
             View Example →
-          </a>
+          </Link>
+
+          <Link
+            href={demoHref}
+            className="text-sm font-semibold text-[#287A60] transition-colors hover:text-[#20664E] hover:underline"
+          >
+            Try Live Demo →
+          </Link>
         </div>
       </div>
     </Card>
