@@ -96,5 +96,31 @@
     "email": "Email",
     "linkedin": "LinkedIn",
     "rights": "All rights reserved."
+  },
+  "BusinessAutomationDemo": {
+    "title": "Order Processing",
+    "description": "Here's a sample list of orders received by a business.",
+    "orderId": "Order ID",
+    "customer": "Customer",
+    "product": "Product",
+    "quantity": "Quantity",
+    "unitPrice": "Unit Price",
+    "status": "Status",
+    "process": "Process Orders",
+    "reset": "Reset Demo",
+    "ready": "Ready",
+    "needsAttention": "Needs attention",
+    "resultsTitle": "Processing Results",
+    "readyCount": "Orders ready",
+    "attentionCount": "Need attention",
+    "resultsDescription": "Some orders need a quick review before they can be processed.",
+    "allReady": "All orders are ready to process.",
+    "missingCustomer": "Customer name is missing",
+    "invalidQuantity": "Quantity must be greater than zero",
+    "sampleOrders": "{count} sample orders · Demo data",
+    "initialInstructions": "Click Process Orders to see which orders are ready and which ones need attention.",
+    "processing": "Processing...",
+    "processingMessage": "Checking your orders...",
+    "readyToCheck": "Ready to check your orders"
   }
 }
