@@ -123,6 +123,12 @@
     "processingMessage": "Checking your orders...",
     "readyToCheck": "Ready to check your orders",
     "resetting": "Resetting...",
-    "reprocess": "Reprocess Orders"
+    "reprocess": "Reprocess Orders",
+    "welcomeLabel": "Interactive Demo",
+    "welcomeTitle": "See automation in action",
+    "welcomeDescription": "Discover how a business can automatically identify errors in incoming orders, correct them, and prepare them for the next step.",
+    "startGuided": "Start Guided Demo",
+    "exploreFreely": "Explore Freely",
+    "welcomeNote": "You can exit the guided tour at any time."
   }
 }

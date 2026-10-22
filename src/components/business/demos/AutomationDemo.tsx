@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import AutomationDemoWelcome from "./AutomationDemoWelcome";
 
 type Order = {
   id: string;
@@ -37,6 +38,8 @@ function getOrderIssues(order: Order) {
 
 export default function AutomationDemo() {
   const t = useTranslations("BusinessAutomationDemo");
+  const [showWelcome, setShowWelcome] = useState(true);
+  const [guidedMode, setGuidedMode] = useState(false);
   type ProcessingStatus = "idle" | "processing" | "completed" | "resetting";
 
   const [status, setStatus] = useState<ProcessingStatus>("idle");
@@ -447,6 +450,18 @@ export default function AutomationDemo() {
           </div>
         </div>
       </div>
+      {showWelcome && (
+        <AutomationDemoWelcome
+          onStartGuided={() => {
+            setGuidedMode(true);
+            setShowWelcome(false);
+          }}
+          onExploreFreely={() => {
+            setGuidedMode(false);
+            setShowWelcome(false);
+          }}
+        />
+      )}
     </main>
   );
 }
