@@ -116,11 +116,13 @@
     "resultsDescription": "Some orders need a quick review before they can be processed.",
     "allReady": "All orders are ready to process.",
     "missingCustomer": "Customer name is missing",
-    "invalidQuantity": "Quantity must be greater than zero",
+    "invalidQuantity": "Quantity must be positive",
     "sampleOrders": "{count} sample orders · Demo data",
     "initialInstructions": "Click Process Orders to see which orders are ready and which ones need attention.",
     "processing": "Processing...",
     "processingMessage": "Checking your orders...",
-    "readyToCheck": "Ready to check your orders"
+    "readyToCheck": "Ready to check your orders",
+    "resetting": "Resetting...",
+    "reprocess": "Reprocess Orders"
   }
 }
