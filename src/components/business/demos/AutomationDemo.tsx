@@ -147,7 +147,7 @@ export default function AutomationDemo() {
   const attentionCount = orders.length - readyCount;
 
   return (
-    <main className="business-theme min-h-screen bg-[#FAF8F3] px-4 py-12">
+    <main className="business-theme flex-1 bg-[#FAF8F3] px-4 py-12">
       <div className="mx-auto max-w-7xl">
 
         {/* Desktop: table and results side by side */}

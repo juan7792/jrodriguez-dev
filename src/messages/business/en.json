@@ -130,6 +130,13 @@
     "startGuided": "Start Guided Demo",
     "exploreFreely": "Explore Freely",
     "welcomeNote": "You can exit the guided tour at any time.",
-    "closeWelcome": "Close welcome"
+    "closeWelcome": "Close welcome",
+    "tourLabel": "Guided tour",
+    "tourProgress": "Step {current} of {total}",
+    "tourIntroTitle": "Turn incoming orders into reliable data",
+    "tourIntroDescription": "Automatically check incoming orders, flag problems, and correct only what needs attention—so your team can focus on the next step.",
+    "tourSkip": "Skip tour",
+    "tourNext": "Next",
+    "backToBusiness": "Back to Business"
   }
 }
