@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import AutomationDemoWelcome from "./AutomationDemoWelcome";
+import AutomationDemoTour from "./AutomationDemoTour";
 
 type Order = {
   id: string;
@@ -40,6 +41,7 @@ export default function AutomationDemo() {
   const t = useTranslations("BusinessAutomationDemo");
   const [showWelcome, setShowWelcome] = useState(true);
   const [guidedMode, setGuidedMode] = useState(false);
+  const [tourStep, setTourStep] = useState<1 | 2>(1);
   type ProcessingStatus = "idle" | "processing" | "completed" | "resetting";
 
   const [status, setStatus] = useState<ProcessingStatus>("idle");
@@ -54,8 +56,24 @@ export default function AutomationDemo() {
   const processed = status === "completed" || status === "resetting";
   const showHighlights = processed;
 
+  const customerValid =
+    corrections.customer.trim().length > 0 &&
+    corrections.customer.trim().length <= 50;
 
-  
+  const quantityValid =
+    /^[1-9]\d{0,3}$/.test(corrections.quantity);
+
+  const results = currentOrders.map((order) => ({
+    order,
+    issues: getOrderIssues(order),
+  }));
+
+  const readyCount = results.filter(
+    (result) => result.issues.length === 0
+  ).length;
+
+  const attentionCount = orders.length - readyCount;
+
   useEffect(() => {
     if (status !== "processing" && status !== "resetting") return;
 
@@ -101,7 +119,7 @@ export default function AutomationDemo() {
     }));
   }
 
-  
+
   function handleReprocess() {
     if (status !== "completed" || !customerValid || !quantityValid) return;
 
@@ -128,28 +146,20 @@ export default function AutomationDemo() {
     setStatus("processing");
   }
 
-  const customerValid =
-    corrections.customer.trim().length > 0 &&
-    corrections.customer.trim().length <= 50;
-
-  const quantityValid =
-    /^[1-9]\d{0,3}$/.test(corrections.quantity);
-
-  const results = currentOrders.map((order) => ({
-    order,
-    issues: getOrderIssues(order),
-  }));
-
-  const readyCount = results.filter(
-    (result) => result.issues.length === 0
-  ).length;
-
-  const attentionCount = orders.length - readyCount;
+  function handleRestartTour() {
+    setCurrentOrders(orders);
+    setCorrections({
+      customer: "",
+      quantity: "",
+    });
+    setStatus("idle");
+    setTourStep(1);
+    setGuidedMode(true);
+  }
 
   return (
     <main className="business-theme flex-1 bg-[#FAF8F3] px-4 py-12">
       <div className="mx-auto max-w-7xl">
-
         {/* Desktop: table and results side by side */}
         <div
           className={`grid grid-cols-1 items-stretch gap-4
@@ -164,9 +174,20 @@ export default function AutomationDemo() {
 
             {/* Header */}
             <div className="border-b border-[#DCE7DE] p-6">
-              <h1 className="text-xl font-semibold text-[#20362F]">
-                {t("title")}
-              </h1>
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <h1 className="text-xl font-semibold text-[#20362F]">
+                  {t("title")}
+                </h1>
+
+                <button
+                  type="button"
+                  onClick={handleRestartTour}
+                  disabled={showWelcome || guidedMode}
+                  className="inline-flex min-h-11 shrink-0 cursor-pointer items-center justify-center rounded-lg border border-[#287A60] bg-transparent px-4 py-2 text-sm font-semibold text-[#287A60] transition-colors hover:bg-[#E8F4EA] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#287A60] disabled:invisible"
+                >
+                  {t("restartTour")}
+                </button>
+              </div>
 
               <p className="mt-2 text-sm text-[#5B6B61]">
                 {t("description")}
@@ -174,7 +195,12 @@ export default function AutomationDemo() {
             </div>
 
             {/* Orders table */}
-            <div className="overflow-x-auto">
+            <div
+              className={`overflow-x-auto ${guidedMode && tourStep === 2
+                ? "relative z-[60] rounded-lg bg-white ring-4 ring-[#287A60]"
+                : ""
+                }`}
+            >
               <table className="w-full text-left text-sm">
                 <thead className="bg-[#F5F7F4] text-[#20362F]">
                   <tr>
@@ -213,11 +239,10 @@ export default function AutomationDemo() {
 
                       <td className="px-4 py-4">
                         {order.id === "ORD-003" && showHighlights ? (
-                          <span className={`inline-block rounded px-2 py-1 font-medium ${
-                            issues.includes("missingCustomer")
-                              ? "bg-amber-100 text-amber-900"
-                              : "bg-[#E8F4EA] text-[#287A60]"
-                          }`}>
+                          <span className={`inline-block rounded px-2 py-1 font-medium ${issues.includes("missingCustomer")
+                            ? "bg-amber-100 text-amber-900"
+                            : "bg-[#E8F4EA] text-[#287A60]"
+                            }`}>
                             {order.customer || "—"}
                           </span>
                         ) : (
@@ -231,11 +256,10 @@ export default function AutomationDemo() {
 
                       <td className="px-4 py-4">
                         {order.id === "ORD-005" && showHighlights ? (
-                          <span className={`inline-block rounded px-2 py-1 font-medium ${
-                            issues.includes("invalidQuantity")
-                              ? "bg-amber-100 text-amber-900"
-                              : "bg-[#E8F4EA] text-[#287A60]"
-                          }`}>
+                          <span className={`inline-block rounded px-2 py-1 font-medium ${issues.includes("invalidQuantity")
+                            ? "bg-amber-100 text-amber-900"
+                            : "bg-[#E8F4EA] text-[#287A60]"
+                            }`}>
                             {order.quantity}
                           </span>
                         ) : (
@@ -250,11 +274,10 @@ export default function AutomationDemo() {
                       {processed && (
                         <td className="whitespace-nowrap px-4 py-4">
                           <span
-                            className={`rounded-full px-3 py-1 text-xs font-medium ${
-                              issues.length === 0
-                                ? "bg-[#E8F4EA] text-[#287A60]"
-                                : "bg-amber-50 text-amber-800"
-                            }`}
+                            className={`rounded-full px-3 py-1 text-xs font-medium ${issues.length === 0
+                              ? "bg-[#E8F4EA] text-[#287A60]"
+                              : "bg-amber-50 text-amber-800"
+                              }`}
                           >
                             {issues.length === 0
                               ? t("ready")
@@ -273,7 +296,7 @@ export default function AutomationDemo() {
               <p className="text-xs text-[#5B6B61]">
                 {t("sampleOrders", { count: orders.length })}
               </p>
-          
+
               <button
                 type="button"
                 onClick={handleProcess}
@@ -296,7 +319,7 @@ export default function AutomationDemo() {
                     ? t("processing")
                     : status === "resetting"
                       ? t("resetting")
-      : t("reset")}
+                      : t("reset")}
               </button>
             </div>
           </div>
@@ -307,7 +330,7 @@ export default function AutomationDemo() {
               {t("resultsTitle")}
             </h2>
 
-            
+
             {status === "completed" || status === "resetting" ? (
               <div className="flex flex-1 flex-col">
                 {/* Summary */}
@@ -356,7 +379,7 @@ export default function AutomationDemo() {
                               </span>
                             ))}
                           </div>
-                          
+
                           {order.id === "ORD-003" && (
                             <input
                               type="text"
@@ -453,6 +476,7 @@ export default function AutomationDemo() {
       {showWelcome && (
         <AutomationDemoWelcome
           onStartGuided={() => {
+            setTourStep(1);
             setGuidedMode(true);
             setShowWelcome(false);
           }}
@@ -460,6 +484,14 @@ export default function AutomationDemo() {
             setGuidedMode(false);
             setShowWelcome(false);
           }}
+        />
+      )}
+      {guidedMode && (
+        <AutomationDemoTour
+          step={tourStep}
+          onNext={() => setTourStep(2)}
+          onBack={() => setTourStep(1)}
+          onExit={() => setGuidedMode(false)}
         />
       )}
     </main>

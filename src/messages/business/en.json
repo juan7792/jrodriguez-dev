@@ -137,6 +137,11 @@
     "tourIntroDescription": "Automatically check incoming orders, flag problems, and correct only what needs attention—so your team can focus on the next step.",
     "tourSkip": "Skip tour",
     "tourNext": "Next",
-    "backToBusiness": "Back to Business"
+    "backToBusiness": "Back to Business",
+    "tourOrdersTitle": "Your incoming orders",
+    "tourOrdersDescription": "These six orders represent the data your business receives every day. Some contain missing or incorrect information. Automation checks every record so your team can focus on the exceptions.",
+    "tourBack": "Back",
+    "tourClose": "Close guided tour",
+    "restartTour": "Restart guided tour"
   }
 }
