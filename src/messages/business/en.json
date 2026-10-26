@@ -142,6 +142,18 @@
     "tourOrdersDescription": "These six orders represent the data your business receives every day. Some contain missing or incorrect information. Automation checks every record so your team can focus on the exceptions.",
     "tourBack": "Back",
     "tourClose": "Close guided tour",
-    "restartTour": "Restart guided tour"
+    "restartTour": "Restart guided tour",
+    "tourValidationTitle": "Automatic validation",
+    "tourValidationDescription": "Click Process Orders to check all six records automatically. The system flags missing customer names and invalid quantities, saving your team from checking every order manually.",
+    "tourValidationProcessing": "Validating...",
+    "tourValidationResults": "{ready} orders passed validation and {attention} need attention. The highlighted table shows which records have problems, so your team can focus on the exceptions.",
+    "tourFixTitle": "Fix only what needs attention",
+    "tourFixDescription": "The summary separates valid orders from those needing attention. Enter a customer name for ORD-003 and a positive quantity for ORD-005, then click Reprocess. Your team handles the exceptions while automation checks the data again.",
+    "tourFixProcessing": "Updating...",
+    "tourFixCompleted": "All corrections passed validation. The summary now shows {ready} orders ready and {attention} needing attention.",
+    "tourCompleteTitle": "All clear. Ready for the next step.",
+    "tourCompleteDescription": "All {ready} orders have been validated. Your team only needed to correct the exceptions, without manually checking every record.",
+    "tourCompleteNextSteps": "This demo stops at validation. In a real workflow, validated orders could continue to invoicing, inventory, a CRM, or notifications—depending on your business needs.",
+    "tourFinish": "Finish tour"
   }
 }

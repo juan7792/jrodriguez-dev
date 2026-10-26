@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+
 import AutomationDemoWelcome from "./AutomationDemoWelcome";
 import AutomationDemoTour from "./AutomationDemoTour";
 
@@ -14,13 +15,52 @@ type Order = {
   unitPrice: number;
 };
 
+type ProcessingStatus = "idle" | "processing" | "completed" | "resetting";
+type TourStep = 1 | 2 | 3 | 4 | 5;
+
 const orders: Order[] = [
-  { id: "ORD-001", customer: "Acme Corp", product: "Laptop", quantity: 2, unitPrice: 850 },
-  { id: "ORD-002", customer: "Bright Studio", product: "Monitor", quantity: 3, unitPrice: 240 },
-  { id: "ORD-003", customer: "", product: "Keyboard", quantity: 5, unitPrice: 45 },
-  { id: "ORD-004", customer: "Acme Corp", product: "Laptop", quantity: 2, unitPrice: 850 },
-  { id: "ORD-005", customer: "North Labs", product: "Mouse", quantity: -2, unitPrice: 30 },
-  { id: "ORD-006", customer: "Green Tech", product: "Monitor", quantity: 4, unitPrice: 240 },
+  {
+    id: "ORD-001",
+    customer: "Acme Corp",
+    product: "Laptop",
+    quantity: 2,
+    unitPrice: 850,
+  },
+  {
+    id: "ORD-002",
+    customer: "Bright Studio",
+    product: "Monitor",
+    quantity: 3,
+    unitPrice: 240,
+  },
+  {
+    id: "ORD-003",
+    customer: "",
+    product: "Keyboard",
+    quantity: 5,
+    unitPrice: 45,
+  },
+  {
+    id: "ORD-004",
+    customer: "Acme Corp",
+    product: "Laptop",
+    quantity: 2,
+    unitPrice: 850,
+  },
+  {
+    id: "ORD-005",
+    customer: "North Labs",
+    product: "Mouse",
+    quantity: -2,
+    unitPrice: 30,
+  },
+  {
+    id: "ORD-006",
+    customer: "Green Tech",
+    product: "Monitor",
+    quantity: 4,
+    unitPrice: 240,
+  },
 ];
 
 function getOrderIssues(order: Order) {
@@ -39,11 +79,10 @@ function getOrderIssues(order: Order) {
 
 export default function AutomationDemo() {
   const t = useTranslations("BusinessAutomationDemo");
+
   const [showWelcome, setShowWelcome] = useState(true);
   const [guidedMode, setGuidedMode] = useState(false);
-  const [tourStep, setTourStep] = useState<1 | 2>(1);
-  type ProcessingStatus = "idle" | "processing" | "completed" | "resetting";
-
+  const [tourStep, setTourStep] = useState<TourStep>(1);
   const [status, setStatus] = useState<ProcessingStatus>("idle");
 
   const [corrections, setCorrections] = useState({
@@ -53,6 +92,10 @@ export default function AutomationDemo() {
 
   const [currentOrders, setCurrentOrders] = useState<Order[]>(orders);
 
+  const handleExitTour = useCallback(() => {
+    setGuidedMode(false);
+  }, []);
+
   const processed = status === "completed" || status === "resetting";
   const showHighlights = processed;
 
@@ -60,8 +103,7 @@ export default function AutomationDemo() {
     corrections.customer.trim().length > 0 &&
     corrections.customer.trim().length <= 50;
 
-  const quantityValid =
-    /^[1-9]\d{0,3}$/.test(corrections.quantity);
+  const quantityValid = /^[1-9]\d{0,3}$/.test(corrections.quantity);
 
   const results = currentOrders.map((order) => ({
     order,
@@ -73,6 +115,20 @@ export default function AutomationDemo() {
   ).length;
 
   const attentionCount = orders.length - readyCount;
+
+  const highlightTable =
+    guidedMode &&
+    (tourStep === 2 || (tourStep === 3 && status === "completed"));
+
+  const highlightProcess =
+    guidedMode &&
+    tourStep === 3 &&
+    (status === "idle" || status === "processing");
+
+  const highlightResults =
+    guidedMode && (tourStep === 4 || tourStep === 5);
+
+  const allowTourCorrections = guidedMode && tourStep === 4;
 
   useEffect(() => {
     if (status !== "processing" && status !== "resetting") return;
@@ -119,7 +175,6 @@ export default function AutomationDemo() {
     }));
   }
 
-
   function handleReprocess() {
     if (status !== "completed" || !customerValid || !quantityValid) return;
 
@@ -157,6 +212,34 @@ export default function AutomationDemo() {
     setGuidedMode(true);
   }
 
+  function handleTourNext() {
+    if (tourStep === 1) {
+      setTourStep(2);
+    } else if (tourStep === 2) {
+      setTourStep(3);
+    } else if (tourStep === 3 && status === "completed") {
+      setTourStep(4);
+    } else if (
+      tourStep === 4 &&
+      status === "completed" &&
+      attentionCount === 0
+    ) {
+      setTourStep(5);
+    }
+  }
+
+  function handleTourBack() {
+    if (tourStep === 5) {
+      setTourStep(4);
+    } else if (tourStep === 4) {
+      setTourStep(3);
+    } else if (tourStep === 3) {
+      setTourStep(2);
+    } else if (tourStep === 2) {
+      setTourStep(1);
+    }
+  }
+
   return (
     <main className="business-theme flex-1 bg-[#FAF8F3] px-4 py-12">
       <div className="mx-auto max-w-7xl">
@@ -168,10 +251,8 @@ export default function AutomationDemo() {
             ${status === "resetting" ? "opacity-0" : "opacity-100"}
           `}
         >
-
           {/* Left panel: Orders */}
           <div className="flex min-w-0 flex-col overflow-hidden rounded-xl border border-[#DCE7DE] bg-white">
-
             {/* Header */}
             <div className="border-b border-[#DCE7DE] p-6">
               <div className="flex flex-wrap items-center justify-between gap-3">
@@ -196,10 +277,11 @@ export default function AutomationDemo() {
 
             {/* Orders table */}
             <div
-              className={`overflow-x-auto ${guidedMode && tourStep === 2
-                ? "relative z-[60] rounded-lg bg-white ring-4 ring-[#287A60]"
-                : ""
-                }`}
+              className={`overflow-x-auto ${
+                highlightTable
+                  ? "relative z-[60] rounded-lg bg-white ring-4 ring-[#287A60]"
+                  : ""
+              }`}
             >
               <table className="w-full text-left text-sm">
                 <thead className="bg-[#F5F7F4] text-[#20362F]">
@@ -239,10 +321,13 @@ export default function AutomationDemo() {
 
                       <td className="px-4 py-4">
                         {order.id === "ORD-003" && showHighlights ? (
-                          <span className={`inline-block rounded px-2 py-1 font-medium ${issues.includes("missingCustomer")
-                            ? "bg-amber-100 text-amber-900"
-                            : "bg-[#E8F4EA] text-[#287A60]"
-                            }`}>
+                          <span
+                            className={`inline-block rounded px-2 py-1 font-medium ${
+                              issues.includes("missingCustomer")
+                                ? "bg-amber-100 text-amber-900"
+                                : "bg-[#E8F4EA] text-[#287A60]"
+                            }`}
+                          >
                             {order.customer || "—"}
                           </span>
                         ) : (
@@ -250,16 +335,17 @@ export default function AutomationDemo() {
                         )}
                       </td>
 
-                      <td className="px-4 py-4">
-                        {order.product}
-                      </td>
+                      <td className="px-4 py-4">{order.product}</td>
 
                       <td className="px-4 py-4">
                         {order.id === "ORD-005" && showHighlights ? (
-                          <span className={`inline-block rounded px-2 py-1 font-medium ${issues.includes("invalidQuantity")
-                            ? "bg-amber-100 text-amber-900"
-                            : "bg-[#E8F4EA] text-[#287A60]"
-                            }`}>
+                          <span
+                            className={`inline-block rounded px-2 py-1 font-medium ${
+                              issues.includes("invalidQuantity")
+                                ? "bg-amber-100 text-amber-900"
+                                : "bg-[#E8F4EA] text-[#287A60]"
+                            }`}
+                          >
                             {order.quantity}
                           </span>
                         ) : (
@@ -274,10 +360,11 @@ export default function AutomationDemo() {
                       {processed && (
                         <td className="whitespace-nowrap px-4 py-4">
                           <span
-                            className={`rounded-full px-3 py-1 text-xs font-medium ${issues.length === 0
-                              ? "bg-[#E8F4EA] text-[#287A60]"
-                              : "bg-amber-50 text-amber-800"
-                              }`}
+                            className={`rounded-full px-3 py-1 text-xs font-medium ${
+                              issues.length === 0
+                                ? "bg-[#E8F4EA] text-[#287A60]"
+                                : "bg-amber-50 text-amber-800"
+                            }`}
                           >
                             {issues.length === 0
                               ? t("ready")
@@ -301,7 +388,16 @@ export default function AutomationDemo() {
                 type="button"
                 onClick={handleProcess}
                 disabled={status === "processing" || status === "resetting"}
-                className="inline-flex min-h-11 w-44 cursor-pointer items-center justify-center gap-2 rounded-lg !bg-[#287A60] px-4 text-sm font-semibold !text-white transition-colors hover:!bg-[#20664E] disabled:cursor-wait disabled:opacity-80"
+                data-tour-interactive={
+                  guidedMode && tourStep === 3 && status === "idle"
+                    ? "true"
+                    : undefined
+                }
+                className={`inline-flex min-h-11 w-44 cursor-pointer items-center justify-center gap-2 rounded-lg !bg-[#287A60] px-4 text-sm font-semibold !text-white transition-colors hover:!bg-[#20664E] disabled:cursor-wait disabled:opacity-80 ${
+                  highlightProcess
+                    ? "relative z-[60] ring-4 ring-[#B9DDCB] ring-offset-2"
+                    : ""
+                }`}
               >
                 {status === "processing" && (
                   <Image
@@ -325,11 +421,16 @@ export default function AutomationDemo() {
           </div>
 
           {/* Right panel: Processing Results */}
-          <div className="flex min-w-0 flex-col rounded-xl border border-[#DCE7DE] bg-white p-6">
+          <div
+            className={`flex min-w-0 flex-col rounded-xl border border-[#DCE7DE] bg-white p-6 ${
+              highlightResults
+                ? "relative z-[60] ring-4 ring-[#287A60]"
+                : ""
+            }`}
+          >
             <h2 className="text-xl font-semibold text-[#20362F]">
               {t("resultsTitle")}
             </h2>
-
 
             {status === "completed" || status === "resetting" ? (
               <div className="flex flex-1 flex-col">
@@ -373,8 +474,12 @@ export default function AutomationDemo() {
                             <span className="shrink-0 font-semibold text-[#20362F]">
                               {order.id}
                             </span>
+
                             {issues.map((issue) => (
-                              <span key={issue} className="text-xs text-amber-800">
+                              <span
+                                key={issue}
+                                className="text-xs text-amber-800"
+                              >
                                 {t(issue)}
                               </span>
                             ))}
@@ -385,10 +490,15 @@ export default function AutomationDemo() {
                               type="text"
                               value={corrections.customer}
                               maxLength={50}
-                              onChange={(e) => handleCustomerChange(e.target.value)}
-                              onKeyDown={(e) => {
-                                if (e.key === "Enter") {
-                                  e.preventDefault();
+                              data-tour-interactive={
+                                allowTourCorrections ? "true" : undefined
+                              }
+                              onChange={(event) =>
+                                handleCustomerChange(event.target.value)
+                              }
+                              onKeyDown={(event) => {
+                                if (event.key === "Enter") {
+                                  event.preventDefault();
                                   handleReprocess();
                                 }
                               }}
@@ -403,10 +513,15 @@ export default function AutomationDemo() {
                               type="text"
                               inputMode="numeric"
                               value={corrections.quantity}
-                              onChange={(e) => handleQuantityChange(e.target.value)}
-                              onKeyDown={(e) => {
-                                if (e.key === "Enter") {
-                                  e.preventDefault();
+                              data-tour-interactive={
+                                allowTourCorrections ? "true" : undefined
+                              }
+                              onChange={(event) =>
+                                handleQuantityChange(event.target.value)
+                              }
+                              onKeyDown={(event) => {
+                                if (event.key === "Enter") {
+                                  event.preventDefault();
                                   handleReprocess();
                                 }
                               }}
@@ -415,7 +530,6 @@ export default function AutomationDemo() {
                               className="mt-2 w-full rounded-lg border border-[#DCE7DE] bg-white px-3 py-2 text-sm text-[#20362F] outline-none focus:border-[#287A60]"
                             />
                           )}
-
                         </div>
                       ))}
                   </div>
@@ -427,6 +541,9 @@ export default function AutomationDemo() {
                       type="button"
                       onClick={handleReprocess}
                       disabled={!customerValid || !quantityValid}
+                      data-tour-interactive={
+                        allowTourCorrections ? "true" : undefined
+                      }
                       className="inline-flex min-h-11 w-44 items-center justify-center gap-2 rounded-lg !bg-[#287A60] px-4 text-sm font-semibold !text-white transition-colors hover:!bg-[#20664E] disabled:cursor-not-allowed disabled:opacity-40"
                     >
                       {t("reprocess")} →
@@ -469,10 +586,10 @@ export default function AutomationDemo() {
                 </p>
               </div>
             )}
-
           </div>
         </div>
       </div>
+
       {showWelcome && (
         <AutomationDemoWelcome
           onStartGuided={() => {
@@ -486,12 +603,16 @@ export default function AutomationDemo() {
           }}
         />
       )}
+
       {guidedMode && (
         <AutomationDemoTour
           step={tourStep}
-          onNext={() => setTourStep(2)}
-          onBack={() => setTourStep(1)}
-          onExit={() => setGuidedMode(false)}
+          status={status}
+          readyCount={readyCount}
+          attentionCount={attentionCount}
+          onNext={handleTourNext}
+          onBack={handleTourBack}
+          onExit={handleExitTour}
         />
       )}
     </main>

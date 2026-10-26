@@ -4,7 +4,10 @@ import { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 
 type AutomationDemoTourProps = {
-  step: 1 | 2;
+  step: 1 | 2 | 3 | 4 | 5;
+  status: "idle" | "processing" | "completed" | "resetting";
+  readyCount: number;
+  attentionCount: number;
   onNext: () => void;
   onBack: () => void;
   onExit: () => void;
@@ -12,6 +15,9 @@ type AutomationDemoTourProps = {
 
 export default function AutomationDemoTour({
   step,
+  status,
+  readyCount,
+  attentionCount,
   onNext,
   onBack,
   onExit,
@@ -22,30 +28,43 @@ export default function AutomationDemoTour({
   useEffect(() => {
     const previouslyFocused = document.activeElement;
 
-    dialogRef.current?.focus();
-
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
         onExit();
       }
 
       if (event.key === "Tab") {
-        const buttons =
-          dialogRef.current?.querySelectorAll<HTMLButtonElement>("button");
+        const buttons = Array.from(
+          dialogRef.current?.querySelectorAll<HTMLElement>(
+            "button:not(:disabled)"
+          ) ?? []
+        );
 
-        if (!buttons?.length) return;
+        const interactiveElements = Array.from(
+          document.querySelectorAll<HTMLElement>(
+            '[data-tour-interactive="true"]:not(:disabled)'
+          )
+        );
 
-        const first = buttons[0];
-        const last = buttons[buttons.length - 1];
+        const focusableElements = [...buttons, ...interactiveElements];
+
+        if (!focusableElements.length) return;
+
         const active = document.activeElement;
+        const index = focusableElements.findIndex(
+          (element) => element === active
+        );
 
-        if (event.shiftKey && (active === first || active === dialogRef.current)) {
-          event.preventDefault();
-          last.focus();
-        } else if (!event.shiftKey && active === last) {
-          event.preventDefault();
-          first.focus();
-        }
+        const nextIndex = event.shiftKey
+          ? index <= 0
+            ? focusableElements.length - 1
+            : index - 1
+          : index === -1 || index === focusableElements.length - 1
+            ? 0
+            : index + 1;
+
+        event.preventDefault();
+        focusableElements[nextIndex].focus();
       }
     }
 
@@ -54,15 +73,57 @@ export default function AutomationDemoTour({
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
 
-      if (previouslyFocused instanceof HTMLElement && previouslyFocused.isConnected) {
+      if (
+        previouslyFocused instanceof HTMLElement &&
+        previouslyFocused.isConnected
+      ) {
         previouslyFocused.focus();
       }
     };
   }, [onExit]);
 
+  useEffect(() => {
+    dialogRef.current?.focus();
+  }, [step, status]);
+
+  const titleKeys = {
+    1: "tourIntroTitle",
+    2: "tourOrdersTitle",
+    3: "tourValidationTitle",
+    4: "tourFixTitle",
+    5: "tourCompleteTitle",
+  } as const;
+
+  const descriptionKey =
+    step === 1
+      ? "tourIntroDescription"
+      : step === 2
+        ? "tourOrdersDescription"
+        : step === 3
+          ? status === "completed"
+            ? "tourValidationResults"
+            : status === "processing"
+              ? "tourValidationProcessing"
+              : "tourValidationDescription"
+          : step === 4
+            ? status === "processing"
+              ? "tourFixProcessing"
+              : status === "completed" && attentionCount === 0
+                ? "tourFixCompleted"
+                : "tourFixDescription"
+            : "tourCompleteDescription";
+
+  const showNext =
+    step < 3 ||
+    (step === 3 && status === "completed") ||
+    (step === 4 && status === "completed" && attentionCount === 0);
+
+  const isFinalStep = step === 5;
+  const showOnLeft = step === 4 || step === 5;
+
   return (
     <>
-      {/* Dim the interface; the highlighted table sits above this layer. */}
+      {/* Dimmed background */}
       <div
         className="fixed inset-0 z-50 bg-black/50"
         onClick={onExit}
@@ -71,10 +132,11 @@ export default function AutomationDemoTour({
 
       {/* Tour explanation */}
       <div
-        className={`pointer-events-none fixed inset-0 z-[70] flex p-4 ${step === 1
-          ? "items-center justify-center"
-          : "items-end justify-center xl:items-center"
-          }`}
+        className={`pointer-events-none fixed inset-0 z-[70] flex p-4 ${
+          step === 1
+            ? "items-center justify-center"
+            : "items-end justify-center xl:items-center"
+        }`}
       >
         <div
           className={
@@ -86,12 +148,17 @@ export default function AutomationDemoTour({
           <div
             ref={dialogRef}
             role="dialog"
-            aria-modal="true"
+            aria-modal={step < 3 || isFinalStep}
             aria-labelledby="automation-tour-title"
             aria-describedby="automation-tour-description"
             tabIndex={-1}
-            className={`relative pointer-events-auto max-h-[85dvh] w-full max-w-md overflow-y-auto rounded-2xl border border-[#DCE7DE] bg-white p-6 shadow-xl outline-none sm:p-8 ${step === 2 ? "xl:col-start-2" : ""
-              }`}
+            className={`relative pointer-events-auto max-h-[85dvh] w-full max-w-md overflow-y-auto rounded-2xl border border-[#DCE7DE] bg-white p-6 shadow-xl outline-none sm:p-8 ${
+              showOnLeft
+                ? "xl:col-start-1 xl:justify-self-end"
+                : step !== 1
+                  ? "xl:col-start-2"
+                  : ""
+            }`}
           >
             <button
               type="button"
@@ -112,6 +179,7 @@ export default function AutomationDemoTour({
                 <path d="M6 6l12 12M18 6 6 18" />
               </svg>
             </button>
+
             <div className="flex items-center justify-between gap-4 pr-8 text-sm">
               <p className="font-semibold text-[#287A60]">
                 {t("tourLabel")}
@@ -126,46 +194,72 @@ export default function AutomationDemoTour({
               id="automation-tour-title"
               className="mt-4 text-2xl font-semibold text-[#20362F]"
             >
-              {t(step === 1 ? "tourIntroTitle" : "tourOrdersTitle")}
+              {t(titleKeys[step])}
             </h2>
 
             <p
               id="automation-tour-description"
+              aria-live="polite"
               className="mt-4 text-sm leading-relaxed text-[#5B6B61]"
             >
-              {t(
-                step === 1
-                  ? "tourIntroDescription"
-                  : "tourOrdersDescription"
-              )}
+              {t(descriptionKey, {
+                ready: readyCount,
+                attention: attentionCount,
+              })}
             </p>
 
-            <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
-              <button
-                type="button"
-                onClick={onExit}
-                className="min-h-11 rounded-lg px-3 text-sm font-medium text-[#5B6B61] transition-colors hover:bg-[#FAF8F3] hover:text-[#20362F]"
-              >
-                {t("tourSkip")}
-              </button>
+            {isFinalStep && (
+              <p className="mt-4 text-sm leading-relaxed text-[#5B6B61]">
+                {t("tourCompleteNextSteps")}
+              </p>
+            )}
 
-              {step === 1 ? (
+            <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
+              {!isFinalStep && (
                 <button
                   type="button"
-                  onClick={onNext}
-                  className="min-h-11 rounded-lg !bg-[#287A60] px-5 py-3 text-sm font-semibold !text-white transition-colors hover:!bg-[#20664E]"
+                  onClick={onExit}
+                  className="min-h-11 rounded-lg px-3 text-sm font-medium text-[#5B6B61] transition-colors hover:bg-[#FAF8F3] hover:text-[#20362F]"
                 >
-                  {t("tourNext")} →
-                </button>
-              ) : (
-                <button
-                  type="button"
-                  onClick={onBack}
-                  className="min-h-11 rounded-lg border border-[#DCE7DE] px-5 py-3 text-sm font-semibold text-[#20362F] transition-colors hover:bg-[#FAF8F3]"
-                >
-                  ← {t("tourBack")}
+                  {t("tourSkip")}
                 </button>
               )}
+
+              <div
+                className={`flex items-center gap-3 ${
+                  isFinalStep ? "w-full justify-between" : ""
+                }`}
+              >
+                {step > 1 && (
+                  <button
+                    type="button"
+                    onClick={onBack}
+                    className="min-h-11 rounded-lg border border-[#DCE7DE] px-5 py-3 text-sm font-semibold text-[#20362F] transition-colors hover:bg-[#FAF8F3]"
+                  >
+                    ← {t("tourBack")}
+                  </button>
+                )}
+
+                {showNext && (
+                  <button
+                    type="button"
+                    onClick={onNext}
+                    className="min-h-11 rounded-lg !bg-[#287A60] px-5 py-3 text-sm font-semibold !text-white transition-colors hover:!bg-[#20664E]"
+                  >
+                    {t("tourNext")} →
+                  </button>
+                )}
+
+                {isFinalStep && (
+                  <button
+                    type="button"
+                    onClick={onExit}
+                    className="min-h-11 rounded-lg !bg-[#287A60] px-5 py-3 text-sm font-semibold !text-white transition-colors hover:!bg-[#20664E]"
+                  >
+                    {t("tourFinish")}
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         </div>
