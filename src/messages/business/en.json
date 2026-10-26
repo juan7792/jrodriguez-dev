@@ -154,6 +154,11 @@
     "tourCompleteTitle": "All clear. Ready for the next step.",
     "tourCompleteDescription": "All {ready} orders have been validated. Your team only needed to correct the exceptions, without manually checking every record.",
     "tourCompleteNextSteps": "This demo stops at validation. In a real workflow, validated orders could continue to invoicing, inventory, a CRM, or notifications—depending on your business needs.",
-    "tourFinish": "Finish tour"
+    "tourFinish": "Finish tour",
+    "mobileGuidedNotice": "For the guided experience, open this demo on desktop.",
+    "mobileWelcomeTitle": "Explore the automation demo",
+    "mobileWelcomeDescription": "Try processing orders, fixing errors, and checking the results.",
+    "mobileGuidedMessage": "For the guided experience, <strong>open this demo on desktop.</strong>",
+    "mobileExplore": "Explore demo"
   }
 }

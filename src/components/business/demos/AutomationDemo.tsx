@@ -81,6 +81,7 @@ export default function AutomationDemo() {
   const t = useTranslations("BusinessAutomationDemo");
 
   const [showWelcome, setShowWelcome] = useState(true);
+  const [isDesktop, setIsDesktop] = useState<boolean | null>(null);
   const [guidedMode, setGuidedMode] = useState(false);
   const [tourStep, setTourStep] = useState<TourStep>(1);
   const [status, setStatus] = useState<ProcessingStatus>("idle");
@@ -130,6 +131,27 @@ export default function AutomationDemo() {
 
   const allowTourCorrections = guidedMode && tourStep === 4;
 
+  // The guided experience is available when both panels fit side by side.
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 1280px)");
+
+    function updateViewport() {
+      setIsDesktop(mediaQuery.matches);
+
+      if (!mediaQuery.matches) {
+        setGuidedMode(false);
+      }
+    }
+
+    updateViewport();
+    mediaQuery.addEventListener("change", updateViewport);
+
+    return () => {
+      mediaQuery.removeEventListener("change", updateViewport);
+    };
+  }, []);
+
+  // Processing and reset animations.
   useEffect(() => {
     if (status !== "processing" && status !== "resetting") return;
 
@@ -243,6 +265,7 @@ export default function AutomationDemo() {
   return (
     <main className="business-theme flex-1 bg-[#FAF8F3] px-4 py-12">
       <div className="mx-auto max-w-7xl">
+
         {/* Desktop: table and results side by side */}
         <div
           className={`grid grid-cols-1 items-stretch gap-4
@@ -264,7 +287,7 @@ export default function AutomationDemo() {
                   type="button"
                   onClick={handleRestartTour}
                   disabled={showWelcome || guidedMode}
-                  className="inline-flex min-h-11 shrink-0 cursor-pointer items-center justify-center rounded-lg border border-[#287A60] bg-transparent px-4 py-2 text-sm font-semibold text-[#287A60] transition-colors hover:bg-[#E8F4EA] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#287A60] disabled:invisible"
+                  className="hidden min-h-11 shrink-0 cursor-pointer items-center justify-center rounded-lg border border-[#287A60] bg-transparent px-4 py-2 text-sm font-semibold text-[#287A60] transition-colors hover:bg-[#E8F4EA] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#287A60] disabled:invisible xl:inline-flex"
                 >
                   {t("restartTour")}
                 </button>
@@ -277,11 +300,10 @@ export default function AutomationDemo() {
 
             {/* Orders table */}
             <div
-              className={`overflow-x-auto ${
-                highlightTable
-                  ? "relative z-[60] rounded-lg bg-white ring-4 ring-[#287A60]"
-                  : ""
-              }`}
+              className={`overflow-x-auto ${highlightTable
+                ? "relative z-[60] rounded-lg bg-white ring-4 ring-[#287A60]"
+                : ""
+                }`}
             >
               <table className="w-full text-left text-sm">
                 <thead className="bg-[#F5F7F4] text-[#20362F]">
@@ -322,11 +344,10 @@ export default function AutomationDemo() {
                       <td className="px-4 py-4">
                         {order.id === "ORD-003" && showHighlights ? (
                           <span
-                            className={`inline-block rounded px-2 py-1 font-medium ${
-                              issues.includes("missingCustomer")
-                                ? "bg-amber-100 text-amber-900"
-                                : "bg-[#E8F4EA] text-[#287A60]"
-                            }`}
+                            className={`inline-block rounded px-2 py-1 font-medium ${issues.includes("missingCustomer")
+                              ? "bg-amber-100 text-amber-900"
+                              : "bg-[#E8F4EA] text-[#287A60]"
+                              }`}
                           >
                             {order.customer || "—"}
                           </span>
@@ -340,11 +361,10 @@ export default function AutomationDemo() {
                       <td className="px-4 py-4">
                         {order.id === "ORD-005" && showHighlights ? (
                           <span
-                            className={`inline-block rounded px-2 py-1 font-medium ${
-                              issues.includes("invalidQuantity")
-                                ? "bg-amber-100 text-amber-900"
-                                : "bg-[#E8F4EA] text-[#287A60]"
-                            }`}
+                            className={`inline-block rounded px-2 py-1 font-medium ${issues.includes("invalidQuantity")
+                              ? "bg-amber-100 text-amber-900"
+                              : "bg-[#E8F4EA] text-[#287A60]"
+                              }`}
                           >
                             {order.quantity}
                           </span>
@@ -360,11 +380,10 @@ export default function AutomationDemo() {
                       {processed && (
                         <td className="whitespace-nowrap px-4 py-4">
                           <span
-                            className={`rounded-full px-3 py-1 text-xs font-medium ${
-                              issues.length === 0
-                                ? "bg-[#E8F4EA] text-[#287A60]"
-                                : "bg-amber-50 text-amber-800"
-                            }`}
+                            className={`rounded-full px-3 py-1 text-xs font-medium ${issues.length === 0
+                              ? "bg-[#E8F4EA] text-[#287A60]"
+                              : "bg-amber-50 text-amber-800"
+                              }`}
                           >
                             {issues.length === 0
                               ? t("ready")
@@ -393,11 +412,10 @@ export default function AutomationDemo() {
                     ? "true"
                     : undefined
                 }
-                className={`inline-flex min-h-11 w-44 cursor-pointer items-center justify-center gap-2 rounded-lg !bg-[#287A60] px-4 text-sm font-semibold !text-white transition-colors hover:!bg-[#20664E] disabled:cursor-wait disabled:opacity-80 ${
-                  highlightProcess
-                    ? "relative z-[60] ring-4 ring-[#B9DDCB] ring-offset-2"
-                    : ""
-                }`}
+                className={`inline-flex min-h-11 w-44 cursor-pointer items-center justify-center gap-2 rounded-lg !bg-[#287A60] px-4 text-sm font-semibold !text-white transition-colors hover:!bg-[#20664E] disabled:cursor-wait disabled:opacity-80 ${highlightProcess
+                  ? "relative z-[60] ring-4 ring-[#B9DDCB] ring-offset-2"
+                  : ""
+                  }`}
               >
                 {status === "processing" && (
                   <Image
@@ -422,11 +440,10 @@ export default function AutomationDemo() {
 
           {/* Right panel: Processing Results */}
           <div
-            className={`flex min-w-0 flex-col rounded-xl border border-[#DCE7DE] bg-white p-6 ${
-              highlightResults
-                ? "relative z-[60] ring-4 ring-[#287A60]"
-                : ""
-            }`}
+            className={`flex min-w-0 flex-col rounded-xl border border-[#DCE7DE] bg-white p-6 ${highlightResults
+              ? "relative z-[60] ring-4 ring-[#287A60]"
+              : ""
+              }`}
           >
             <h2 className="text-xl font-semibold text-[#20362F]">
               {t("resultsTitle")}
@@ -590,8 +607,9 @@ export default function AutomationDemo() {
         </div>
       </div>
 
-      {showWelcome && (
+      {isDesktop !== null && showWelcome && (
         <AutomationDemoWelcome
+          guidedAvailable={isDesktop}
           onStartGuided={() => {
             setTourStep(1);
             setGuidedMode(true);
@@ -604,7 +622,7 @@ export default function AutomationDemo() {
         />
       )}
 
-      {guidedMode && (
+      {isDesktop && guidedMode && (
         <AutomationDemoTour
           step={tourStep}
           status={status}
