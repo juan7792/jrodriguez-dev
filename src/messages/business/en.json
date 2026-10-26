@@ -160,5 +160,50 @@
     "mobileWelcomeDescription": "Try processing orders, fixing errors, and checking the results.",
     "mobileGuidedMessage": "For the guided experience, <strong>open this demo on desktop.</strong>",
     "mobileExplore": "Explore demo"
+  },
+  "BusinessInsightsDemo": {
+    "title": "Clear Business Insights",
+    "description": "Understand your sales, spot trends, and see which products drive revenue. Change the filters to explore the data.",
+    "sampleBadge": "Sample data",
+    "filters": "Dashboard filters",
+    "periodLabel": "Time period",
+    "periods": {
+      "30d": "Last 30 days",
+      "6m": "Last 6 months",
+      "year": "All year"
+    },
+    "categoryLabel": "Category",
+    "allCategories": "All categories",
+    "categories": {
+      "electronics": "Electronics",
+      "office": "Office",
+      "accessories": "Accessories"
+    },
+    "sampleReference": "Sample periods end on {date}.",
+    "summaryTitle": "Sales overview",
+    "totalSales": "Total sales",
+    "orders": "Orders",
+    "averageOrder": "Average order value",
+    "change": "{value}% vs previous period",
+    "noComparison": "No comparison available",
+    "comparisonRange": "Compared with {start} – {end}, using the same category filter.",
+    "timelineTitle": "Sales over time",
+    "timelineDescription": "Explore the bars for exact sales figures. Dashed lines mark the highest and lowest periods.",
+    "dailySales": "Daily sales",
+    "monthlySales": "Monthly sales",
+    "chartCurrency": "Sales in {currency}.",
+    "highestDay": "Highest sales day",
+    "lowestDay": "Lowest sales day",
+    "highestMonth": "Highest sales month",
+    "lowestMonth": "Lowest sales month",
+    "categoryTitle": "Sales by category",
+    "categoryDescription": "Compare revenue across the selected categories.",
+    "salesShare": "{value}% of filtered sales",
+    "productsTitle": "Product performance",
+    "productsDescription": "Products ranked by revenue for the selected period and category.",
+    "product": "Product",
+    "highestRevenue": "Highest revenue",
+    "lowestRevenue": "Lowest revenue",
+    "sampleNote": "Sample data — for demonstration purposes. All sales and orders are fictional."
   }
 }
