@@ -13,6 +13,12 @@ const icons = {
   solution3: "/icons/business/dashboard.svg",
 };
 
+const demoPaths = [
+  "#",
+  "/business/demos/automation",
+  "/business/demos/insights",
+];
+
 type BusinessItem = {
   problem: {
     title: string;
@@ -54,7 +60,11 @@ export default async function BusinessProblemsSolutions() {
               title={item.solution.title}
               description={item.solution.description}
               icon={icons[`solution${index + 1}` as keyof typeof icons]}
-              demoHref={`/${locale}/business/demos/automation`}
+              demoHref={
+                demoPaths[index] && demoPaths[index] !== "#"
+                  ? `/${locale}${demoPaths[index]}`
+                  : "#"
+              }
             />
           </div>
         ))}
