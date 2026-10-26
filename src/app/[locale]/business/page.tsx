@@ -1,9 +1,9 @@
-import BusinessHero from "@/components/business/BusinessHero";
-import BusinessProblemsSolutions from "@/components/business/BusinessProblemsSolutions";
-import BusinessHowItWorks from "@/components/business/BusinessHowItWorks";
-import BusinessWhyWorkWithMe from "@/components/business/BusinessWhyWorkWithMe";
-import BusinessContact from "@/components/business/BusinessContact";
-import BusinessFooter from "@/components/business/BusinessFooter";
+import BusinessHero from "@/components/business/site/BusinessHero";
+import BusinessProblemsSolutions from "@/components/business/site/BusinessProblemsSolutions";
+import BusinessHowItWorks from "@/components/business/site/BusinessHowItWorks";
+import BusinessWhyWorkWithMe from "@/components/business/site/BusinessWhyWorkWithMe";
+import BusinessContact from "@/components/business/site/BusinessContact";
+import BusinessFooter from "@/components/business/site/BusinessFooter";
 // @ts-expect-error CSS side-effect imports are handled by Next.js.
 import "@/styles/business.css";
 
